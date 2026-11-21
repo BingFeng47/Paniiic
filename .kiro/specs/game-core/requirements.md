@@ -136,8 +136,12 @@ run without touching logic.
 2. THE balance config SHALL reject values outside their valid range (e.g. negative durations or a
    critical threshold above the maximum integrity) when a run is created.
 
-## Open questions for review
+## Decisions
 
-1. **Same-tick tie (3.8):** currently the win takes priority. Is that the feel we want?
-2. **Dial duration:** a fixed 20 seconds, or random between 18 and 22 seconds from the seed?
-3. **Integrity:** is a maximum of 100 with critical at 20 right?
+Reasons are recorded in `docs/game-design.md`, section 9.
+
+1. **Same-tick tie (3.8):** the win takes priority.
+2. **Dial duration:** a fixed 20 seconds, set in the balance config.
+3. **Integrity:** maximum 100, critical threshold 20.
+4. **Download rate:** 100 / 110 percent per second, so a full download needs 110 seconds of
+   un-paused progress.

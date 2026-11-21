@@ -26,8 +26,9 @@ each milestone adds to the "How we used Kiro" story.
 - **Hooks:** `guard-shell`, `guard-write`, `check-on-save`, `task-done`, `session-start` (done).
   Later: a balance check that runs the headless sim after balance files change.
 - **MCP:** Playwright (browser checks). `zombie-sim` (our own, milestone 7).
-- **Custom agents:** `balance-tuner` (sim MCP plus balance files only), `playtester`
-  (Playwright only, reports findings), `art-integrator` (sprites work).
+- **Custom agents:** `playtester` (Playwright MCP, writes reports to `docs/playtests/` only) and
+  `art-integrator` (wires frames in `src/render/`, never edits art) are done. `balance-tuner`
+  (sim MCP plus balance files only) comes with milestone 7.
 - **Skills:** `add-mob`, `add-weapon`, `add-ad`. Written once the first mob, weapon and ad
   exist, so the recipe matches the real code.
 - **Powers:** check the Powers panel for relevant ones (e.g. browser testing) and note any we use.
