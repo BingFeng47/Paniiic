@@ -1,0 +1,12 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "guard-write",
+      "description": "Blocks agent writes that gitignore .kiro/, edit LICENSE, or touch the team's final SVG art in assets/sprites/.",
+      "trigger": "PreToolUse",
+      "matcher": "write",
+      "action": { "type": "command", "command": "node scripts/hooks/guard-write.mjs" }
+    }
+  ]
+}

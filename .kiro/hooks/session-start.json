@@ -1,0 +1,11 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "session-start",
+      "description": "At session start: brief the agent on branch, uncommitted files, spec task progress and days left to the deadline.",
+      "trigger": "SessionStart",
+      "action": { "type": "command", "command": "node scripts/hooks/session-start.mjs" }
+    }
+  ]
+}

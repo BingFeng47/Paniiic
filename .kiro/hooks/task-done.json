@@ -1,0 +1,11 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "task-done",
+      "description": "After each spec task: run the full type-check and test suite, and append an entry to docs/kiro-log.md for the submission writeup.",
+      "trigger": "PostTaskExec",
+      "action": { "type": "command", "command": "node scripts/hooks/task-done.mjs" }
+    }
+  ]
+}
