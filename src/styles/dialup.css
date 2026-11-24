@@ -1,0 +1,209 @@
+/*
+ * dialup.css: the Dialer window contents, the "Connect To" form and the dial progress view.
+ * Window chrome, .btn and .field-input come from desktop.css. Colours come only from theme.css.
+ *
+ * DOM contract (src/dialup/dialer.ts). Either view can be the window content root on its own,
+ * so the Dialer can swap them with windows.setContent():
+ *
+ *   div.dialer-form                       idle view (Req 9.1)
+ *     div.dialer-header
+ *       span.icon                         iconEl('dialer')
+ *       span.dialer-name                  "MidnightNet Online"
+ *     div.dialer-fields                   two-column grid: label, value, label, value...
+ *       label.field-label + input.field-input (readonly)   User name / Password / Phone number
+ *       (a wrapping div.field-row is optional; it uses display: contents)
+ *     div.dialer-buttons
+ *       button.btn.btn-default            Connect
+ *       button.btn                        Cancel
+ *
+ *   div.dialer-progress                   Session view (Req 9.4); add .is-connected once
+ *                                         connected and .is-terminated on `lost`
+ *     div.dialer-link
+ *       span.icon                         iconEl('computer')
+ *       span.dialer-line                  animated packets along the phone line
+ *       span.icon                         iconEl('computer')
+ *     div.dialer-status                   stage status / connected / terminated text
+ *     div.dialer-detail                   duration line
+ *     (add .is-alert to the status or detail line for the hang-up or terminated message)
+ *     div.dialer-buttons
+ *       button.btn                        Cancel
+ */
+
+/* ---- Shared ----------------------------------------------------------------------------------- */
+
+.dialer-form,
+.dialer-progress {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  padding: 12px 12px 10px;
+  background: var(--c-chrome);
+  color: var(--c-text);
+}
+
+.dialer-buttons {
+  display: flex;
+  flex: none;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: auto;
+}
+
+/* ---- "Connect To" form ------------------------------------------------------------------------ */
+
+.dialer-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  box-shadow:
+    0 1px 0 var(--c-bevel-dark),
+    0 2px 0 var(--c-bevel-lightest);
+}
+
+.dialer-name {
+  font-weight: bold;
+}
+
+.dialer-fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 10px;
+  align-items: center;
+  padding: 2px 4px 0;
+}
+
+.field-row {
+  display: contents;
+}
+
+.field-label {
+  white-space: nowrap;
+}
+
+.dialer-fields .field-input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ---- Dial progress view ------------------------------------------------------------------------- */
+
+.dialer-progress {
+  --dialer-line-color: var(--c-dialer-line);
+}
+
+.dialer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 6px 0 2px;
+}
+
+.dialer-line {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 132px;
+  height: 8px;
+  background: linear-gradient(var(--dialer-line-color), var(--dialer-line-color)) 0 50% / 100% 2px
+    no-repeat;
+}
+
+/* Data packets walking along the line. */
+.dialer-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle 2.5px at 50% 50%,
+      var(--c-dialer-packet) 85%,
+      var(--c-transparent) 100%
+    )
+    0 0 / 16px 100% repeat-x;
+  animation: dialer-packets 700ms linear infinite;
+}
+
+@keyframes dialer-packets {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 16px;
+  }
+}
+
+.dialer-progress.is-connected {
+  --dialer-line-color: var(--c-dialer-line-connected);
+}
+
+.dialer-progress.is-connected .dialer-line {
+  height: 8px;
+  background-size: 100% 3px;
+}
+
+.dialer-progress.is-connected .dialer-line::after {
+  animation: none;
+  opacity: 0;
+}
+
+/* Terminated: the line is cut in the middle. */
+.dialer-progress.is-terminated {
+  --dialer-line-color: var(--c-text-alert);
+}
+
+.dialer-progress.is-terminated .dialer-line {
+  background:
+    linear-gradient(var(--dialer-line-color), var(--dialer-line-color)) 0 50% / 40% 2px no-repeat,
+    linear-gradient(var(--dialer-line-color), var(--dialer-line-color)) 100% 50% / 40% 2px no-repeat;
+}
+
+.dialer-progress.is-terminated .dialer-line::after {
+  animation: none;
+  opacity: 0;
+}
+
+.dialer-status,
+.dialer-detail {
+  min-height: 15px;
+  padding: 0 4px;
+  line-height: 15px;
+}
+
+.dialer-detail {
+  color: var(--c-text);
+}
+
+.dialer-progress .is-alert {
+  color: var(--c-text-alert);
+  font-weight: bold;
+  animation: dialer-alert-shake 320ms ease-out;
+}
+
+@keyframes dialer-alert-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-3px);
+  }
+  40% {
+    transform: translateX(3px);
+  }
+  60% {
+    transform: translateX(-2px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialer-line::after,
+  .dialer-progress .is-alert {
+    animation: none;
+  }
+}

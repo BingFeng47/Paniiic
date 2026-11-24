@@ -1,0 +1,353 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add `eventsSoFar()` to the tick context in `src/game/context.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685164
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352698118
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352887318
+      }
+    ],
+    "1.2 Add `overlayHost` to `SessionContext` and the Desktop_Scene": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685213
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352699109
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352887821
+      }
+    ],
+    "2.1 Create `src/game/ads/adTypes.ts` and extend `src/game/types.ts` and `src/game/step.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685327
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352699671
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352888653
+      }
+    ],
+    "2.2 Create `src/game/balance/ads.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685385
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352944925
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353106959
+      }
+    ],
+    "3.1 Create `src/game/ads/closePatterns.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685457
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352945285
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353107503
+      }
+    ],
+    "3.2 Create `src/game/ads/placement.ts` and `src/game/ads/openAd.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685506
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353158218
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353304754
+      }
+    ],
+    "3.3 Create `src/game/ads/adSystems.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685557
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353356742
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353541436
+      }
+    ],
+    "4. Checkpoint": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685642
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354324121
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354609987
+      }
+    ],
+    "5.1 Create `src/ui/browserCopy.ts` and the `browser` icon in `src/desktop/iconArt.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685693
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353597698
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354278969
+      }
+    ],
+    "5.2 Create `src/render/browser/netsurferWindow.ts` and `src/render/browser/downloadPanel.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685779
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354325120
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354608439
+      }
+    ],
+    "5.3 Create `src/render/browser/adDom.ts` and `src/render/browser/adLayer.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685839
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354325681
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354609554
+      }
+    ],
+    "5.4 Create `src/render/browser/browserSounds.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352685978
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353597816
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354279599
+      }
+    ],
+    "5.5 Create `src/render/browser/browserView.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352686034
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354677003
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354773637
+      }
+    ],
+    "6.1 Register the Browser_View and the ad systems in `src/dialup/sessionRegistry.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352686083
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354840496
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795355066841
+      }
+    ],
+    "7.1 Write `.kiro/skills/add-ad/SKILL.md` and extend `tests/skills.test.ts`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352686135
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795355111057
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795355252641
+      }
+    ],
+    "7.2 Add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352686188
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795355111235
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795355253205
+      }
+    ],
+    "7.3 Playtester run": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352686277
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795355296172
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795356380303
+      }
+    ],
+    "8. Final checkpoint": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352686353
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795356428415
+      },
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795356583596
+      }
+    ],
+    "1. Shell hooks": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795352887872
+      }
+    ],
+    "2. Ad types and balance": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353107043
+      }
+    ],
+    "3. Ad rules": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795353541499
+      }
+    ],
+    "5. Browser_View": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795354773684
+      }
+    ],
+    "6. Wiring": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795355066887
+      }
+    ],
+    "7. Kiro artifacts": [
+      {
+        "executionId": "29079f64-b295-4616-b8ee-890ae5492940",
+        "chatSessionId": "sess_91c4e8ac-fe70-4b07-a359-3ffdc9511991",
+        "timestamp": 1795356380361
+      }
+    ]
+  }
+}

@@ -1,0 +1,159 @@
+/* ==== NetSurfer window + download panel (task 5.2: netsurferWindow.ts, downloadPanel.ts) ==== */
+/* Geometry of .ns-page, .ns-real-link and .ns-started is set inline by place(); do not override. */
+.ns-content {
+  position: relative; display: flex; flex-direction: column; height: 100%;
+  background: #c0c0c0; font: 12px/1.3 Tahoma, Verdana, sans-serif; color: #000;
+}
+.ns-toolbar { display: flex; gap: 2px; padding: 2px 4px; border-bottom: 1px solid #808080; }
+.ns-tool {
+  font: inherit; padding: 2px 8px; background: #c0c0c0; border: 1px solid transparent; color: #000;
+}
+.ns-tool:hover { border: 1px outset #fff; }
+.ns-address { display: flex; align-items: center; gap: 4px; padding: 2px 4px; border-bottom: 1px solid #808080; }
+.ns-address-label { flex: none; }
+.ns-address-field {
+  flex: 1; padding: 1px 4px; background: #fff; border: 2px inset #fff;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ns-page {
+  position: absolute; box-sizing: border-box; overflow: hidden; padding: 8px 12px;
+  background: #fff; border: 2px inset #fff; font-family: "Times New Roman", serif; font-size: 14px;
+}
+.ns-heading { margin: 0 0 6px; font-size: 20px; }
+.ns-intro, .ns-file, .ns-footer { margin: 0 0 6px; }
+.ns-file { font-family: "Courier New", monospace; font-weight: bold; }
+.ns-footer { font-size: 10px; color: #808080; }
+.ns-real-link {
+  position: absolute; box-sizing: border-box; margin: 0; padding: 0; border: 0; background: none;
+  font: 10px Tahoma, Verdana, sans-serif; color: #808080; text-decoration: underline;
+  text-align: left; cursor: pointer;
+}
+.ns-real-link:hover { color: #606060; }
+.ns-started { position: absolute; font-size: 11px; color: #008000; }
+.ns-started[hidden] { display: none; }
+.ns-panel-slot { position: absolute; }
+.ns-status {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 1px 4px;
+  border-top: 1px solid #808080; box-shadow: inset 1px 1px #808080; font-size: 11px;
+  white-space: nowrap; overflow: hidden;
+}
+
+.dl-panel {
+  box-sizing: border-box; width: 260px; padding: 6px 8px; background: #c0c0c0; border: 2px outset #fff;
+  font: 11px/1.3 Tahoma, Verdana, sans-serif; color: #000;
+}
+.dl-title { font-weight: bold; margin-bottom: 2px; }
+.dl-saving { margin-bottom: 4px; font-family: "Courier New", monospace; }
+.dl-bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.dl-bar { flex: 1; height: 14px; padding: 1px; background: #fff; border: 2px inset #fff; }
+.dl-fill {
+  width: 0; height: 100%;
+  background: repeating-linear-gradient(90deg, #000080 0 8px, transparent 8px 10px);
+}
+.dl-percent { flex: none; min-width: 32px; text-align: right; font-variant-numeric: tabular-nums; }
+.dl-row { font-variant-numeric: tabular-nums; }
+.dl-panel.is-waiting .dl-fill { opacity: 0.5; }
+.dl-panel.is-waiting .dl-rate, .dl-panel.is-waiting .dl-time { color: #808080; }
+.dl-panel.is-penalty .dl-bar { border-color: #c00000; background: #ffe0e0; }
+.dl-panel.is-penalty .dl-fill { background: repeating-linear-gradient(90deg, #c00000 0 8px, transparent 8px 10px); }
+.dl-panel.is-penalty .dl-percent { color: #c00000; font-weight: bold; }
+
+/* ==== Ad_Layer (task 5.3: adDom.ts, adLayer.ts) ==== */
+.ad-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.ad-modal-shield {
+  position: absolute;
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.25);
+}
+.ad {
+  position: absolute;
+  box-sizing: border-box;
+  pointer-events: auto;
+  overflow: hidden;
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  font: 12px/1.3 Tahoma, Verdana, sans-serif;
+  color: #000;
+  cursor: default;
+  user-select: none;
+}
+.ad-title-bar { background: linear-gradient(90deg, #600018, #c03000); }
+.ad-interrupter .ad-title-bar { background: linear-gradient(90deg, #000080, #1084d0); }
+.ad-body { padding: 6px 8px; text-align: center; }
+.ad-clutter .ad-body { background: #ff0; }
+.ad-headline { font-weight: bold; font-size: 15px; color: #c00000; }
+.ad-text { margin: 4px 0; }
+.ad-action { display: inline-block; padding: 2px 10px; background: #00f; color: #ff0; font-weight: bold; }
+.ad-control { font: inherit; cursor: pointer; }
+.ad-button { min-width: 64px; margin: 4px; }
+.ad-buttons { margin-top: 6px; }
+.ad-no-thanks {
+  display: block; margin: 6px auto 0; padding: 0; border: 0; background: none;
+  color: #00e; text-decoration: underline; font-size: 10px;
+}
+.ad-big-close {
+  position: absolute; right: 10px; top: 40%; width: 44px; height: 44px;
+  font-size: 28px; font-weight: bold; background: #f00; color: #fff; border: 2px outset #f88;
+}
+.ad-tiny-close, .ad-runaway-close {
+  position: absolute; padding: 0; font-size: 9px; line-height: 1;
+  width: 12px; height: 12px; background: #c0c0c0; border: 1px outset #fff;
+}
+.ad-runaway-close { font-size: 11px; }
+.ad-corner-tl { left: 2px; top: 2px; }
+.ad-corner-tr { right: 2px; top: 2px; }
+.ad-corner-bl { left: 2px; bottom: 2px; }
+.ad-corner-br { right: 2px; bottom: 2px; }
+.ad-confirm { margin-top: 6px; padding: 6px; border: 2px inset #fff; background: #c0c0c0; }
+.ad-fake {
+  display: flex; flex-direction: column; align-items: stretch;
+  background: none; border: 0; overflow: visible;
+}
+.ad-fake-button {
+  flex: 1; font-size: 20px; font-weight: bold; color: #fff;
+  background: linear-gradient(#5f5, #080); border: 3px outset #8f8;
+  text-shadow: 1px 1px 0 #030;
+}
+.ad-fake-sub { font-size: 10px; text-align: center; color: #080; }
+/* Blink: 0.5 s per state, 2 blinks per second (Req 12.9). */
+.ad-blink { animation: ad-blink 1s steps(1, end) infinite; }
+@keyframes ad-blink { 50% { visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { .ad-blink { animation: none; } }
+/*
+ * Hatch_Warning (ad-pressure Req 7.2): the clutter Ad shakes, cracks and a hand reaches out.
+ * Motion is transform only: no brightness, opacity or visibility changes, so nothing flashes and
+ * the flash budget is untouched. The shake is one cycle per 0.5 s (2 Hz). The art never takes
+ * pointer events, so every control stays clickable under it.
+ */
+.ad-hatch-art { display: none; position: absolute; inset: 0; pointer-events: none; }
+.ad.is-hatching .ad-hatch-art { display: block; }
+.ad-hatch-crack, .ad-hatch-crack svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ad-hatch-hand {
+  position: absolute; left: 2px; top: calc(50% - 20px); width: 30px; height: 45px;
+  transform-origin: 50% 90%;
+  animation: ad-hatch-reach 0.6s ease-out both, ad-hatch-claw 1s ease-in-out 0.6s infinite alternate;
+}
+.ad-hatch-hand svg { display: block; width: 100%; height: 100%; }
+.ad.is-hatching { animation: ad-hatch-shake 0.5s ease-in-out infinite; }
+@keyframes ad-hatch-shake {
+  0%, 50%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-2px, 0) rotate(-0.6deg); }
+  75% { transform: translate(2px, 0) rotate(0.6deg); }
+}
+@keyframes ad-hatch-reach {
+  from { transform: translate(0, 35%) scale(0.4); }
+  to { transform: translate(0, 0) scale(1); }
+}
+@keyframes ad-hatch-claw {
+  from { transform: rotate(-6deg); }
+  to { transform: rotate(5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ad.is-hatching, .ad-hatch-hand { animation: none; }
+}
+/* ==== end Ad_Layer ==== */

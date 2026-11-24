@@ -1,0 +1,399 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `src/game/economy/economyTypes.ts` and extend `src/game/types.ts` and `src/game/step.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157491
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361199153
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361350655
+      }
+    ],
+    "1.2 Create `src/game/balance/economy.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157526
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361199904
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361351276
+      }
+    ],
+    "1.3 Add the lane hooks": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157575
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361394055
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361519480
+      }
+    ],
+    "1.4 Write `tests/game/balance/economy.test.ts` and the hook tests": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157642
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361559449
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361772949
+      }
+    ],
+    "2.1 Create `src/game/economy/shop.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157687
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361394434
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361519787
+      }
+    ],
+    "2.2 Create `src/game/economy/weapons.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157744
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361560383
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361773357
+      }
+    ],
+    "2.3 Create `src/game/economy/wallet.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157786
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361560996
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361773823
+      }
+    ],
+    "2.4 Create `src/game/economy/index.ts` with `createEconomySystems()`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157849
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361813647
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361922181
+      }
+    ],
+    "2.5 Write example tests in `tests/game/economy/`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157916
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361962400
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362185609
+      }
+    ],
+    "2.6 Write `tests/game/economy/economyProperties.test.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361157961
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361963395
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362185930
+      }
+    ],
+    "3. Checkpoint": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158000
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362227000
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362285359
+      }
+    ],
+    "4.1 Update `src/render/laneView.ts` input and drawing": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158041
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362327098
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362825617
+      }
+    ],
+    "4.2 Create `src/ui/shopTray.ts` and `src/ui/economyCopy.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158084
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362328052
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362826462
+      }
+    ],
+    "4.3 Create `src/render/economySounds.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158158
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361963771
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362184611
+      }
+    ],
+    "4.4 Write view, HUD and sound tests": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158223
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362893020
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363484569
+      }
+    ],
+    "5.1 Register the economy in `src/dialup/sessionRegistry.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158269
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362328855
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362827305
+      }
+    ],
+    "5.2 Write `tests/game/economy/economyTarget.test.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158316
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362893119
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363484733
+      }
+    ],
+    "6.1 Write `.kiro/skills/add-weapon/SKILL.md` and extend `tests/skills.test.ts`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158396
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362893974
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363484874
+      }
+    ],
+    "6.2 Add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158453
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363530630
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363567068
+      }
+    ],
+    "7. Final checkpoint": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361158492
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363612447
+      },
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363737977
+      }
+    ],
+    "1. Types, balance and hooks": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795361773007
+      }
+    ],
+    "2. Economy rules": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795362185976
+      }
+    ],
+    "4. View, HUD and sounds": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363484656
+      }
+    ],
+    "5. Wiring and target check": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363484815
+      }
+    ],
+    "6. Skill and docs": [
+      {
+        "executionId": "9e3aafc2-1bd3-4c26-9b7f-69817cfe2800",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795363567126
+      }
+    ],
+    "8.1 Move the Shop_Tray to the top centre of the lane": [
+      {
+        "executionId": "9da239c9-3688-4a8e-a924-9c5541a1395d",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795402423249
+      },
+      {
+        "executionId": "9da239c9-3688-4a8e-a924-9c5541a1395d",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795402579125
+      }
+    ],
+    "8. Tray placement": [
+      {
+        "executionId": "9da239c9-3688-4a8e-a924-9c5541a1395d",
+        "chatSessionId": "sess_c1a4c5dd-5e52-4be9-9f4f-967a17d9b8ec",
+        "timestamp": 1795402579220
+      }
+    ]
+  }
+}

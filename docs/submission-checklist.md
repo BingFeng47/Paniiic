@@ -32,6 +32,9 @@ submitting; this is our summary. Times are Singapore time (UTC+8).
 - [ ] Text description of features.
 - [ ] Demo video under 3 minutes, public on YouTube, showing the game running on our machine.
       No copyrighted music, no third-party trademarks or logos.
+- [ ] Demo video cuts the run to stay under 3 minutes. A winning run lasts about 3:00 to 3:20
+      from dialing (median win about 196 s in the 24 Nov balance report), so cut at least the
+      20 s dial-up.
 - [ ] "How we used Kiro" writeup (run `/submission` to draft it from `docs/kiro-log.md`).
 - [ ] All material in English.
 

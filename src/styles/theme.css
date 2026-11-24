@@ -1,0 +1,271 @@
+/*
+ * theme.css: every colour and font used by the shell.
+ *
+ * Rule: no other stylesheet may write a colour literal (hex, rgb(), hsl(), named colours,
+ * `transparent`). They read these custom properties instead, so the whole look can be
+ * re-tuned from this one file (requirements.md, Decision 1).
+ *
+ * Layout sizes are mirrored here for CSS. They must match the TypeScript constants in
+ * src/core/monitor.ts (SCREEN_W, SCREEN_H, BEZEL) and src/desktop/layout.ts
+ * (TASKBAR_H, LANE_DOCK_H, TITLE_BAR_H).
+ */
+
+:root {
+  /* ---- Base ---------------------------------------------------------------------------- */
+  --c-black: #000000;
+  --c-white: #ffffff;
+  --c-transparent: transparent;
+
+  /* ---- Room around the monitor (page background) ---------------------------------------- */
+  --c-room: #07060a;
+  --c-room-glow: #1a1424;
+  --c-room-shadow: rgba(0, 0, 0, 0.75);
+
+  /* ---- Monitor bezel: old, slightly yellowed putty plastic ------------------------------ */
+  --c-bezel-highlight: #f1ead6;
+  --c-bezel-light: #ddd5bf;
+  --c-bezel: #c9c0a6;
+  --c-bezel-dark: #9d9580;
+  --c-bezel-darkest: #5e5848;
+  --c-bezel-shadow: rgba(40, 34, 20, 0.45);
+  --c-bezel-vent: rgba(40, 34, 20, 0.55);
+
+  /* ---- CRT glass ------------------------------------------------------------------------- */
+  --c-glass: #050807;
+  --c-glass-edge: #14130f;
+  --c-glass-reflection: rgba(170, 200, 190, 0.07);
+  --c-scanline: rgba(0, 0, 0, 0.22);
+  --c-vignette: rgba(0, 0, 0, 0.62);
+  --c-glare: rgba(255, 255, 255, 0.045);
+  --c-refresh-band: rgba(210, 255, 235, 0.035);
+  --c-crt-flash: #e9fff4;
+
+  /* ---- Power LED -------------------------------------------------------------------------- */
+  --c-led-off: #2b2a22;
+  --c-led-standby: #ffaa1e;
+  --c-led-standby-glow: rgba(255, 170, 30, 0.7);
+  --c-led-on: #5dff6e;
+  --c-led-on-glow: rgba(93, 255, 110, 0.7);
+
+  /* ---- BIOS (VT323 on black) ------------------------------------------------------------- */
+  --c-bios-bg: #000000;
+  --c-bios-text: #c8c8c8;
+  --c-bios-glow: rgba(200, 200, 200, 0.35);
+
+  /* ---- Splash ----------------------------------------------------------------------------- */
+  --c-splash-sky-top: #05020a;
+  --c-splash-sky-mid: #1b0b2b;
+  --c-splash-sky-bottom: #2c1340;
+  --c-splash-moon: rgba(215, 235, 205, 0.16);
+  --c-splash-wordmark-top: #ffffff;
+  --c-splash-wordmark-bottom: #b9a3d6;
+  --c-splash-wordmark-glow: rgba(160, 110, 220, 0.65);
+  --c-splash-copyright: #9b8fae;
+  --c-ghost-light: #f2ecff;
+  --c-ghost-dark: #a690c9;
+  --c-ghost-eye: #12081c;
+  --c-ghost-glow: rgba(190, 160, 255, 0.45);
+  --c-splash-track: #0c0612;
+  --c-splash-strip-1: #3b1458;
+  --c-splash-strip-2: #7a2f8f;
+  --c-splash-strip-3: #e0731b;
+  --c-splash-strip-4: #3f8f5a;
+
+  /* ---- Shutdown --------------------------------------------------------------------------- */
+  --c-shutdown-bg: #000000;
+  --c-shutdown-text: #c8c8c8;
+  --c-shutdown-safe: #f08a24;
+  --c-shutdown-safe-glow: rgba(240, 138, 36, 0.45);
+
+  /* ---- Title screen ("titlescreen" so it never clashes with the window --c-title-* tokens) -- */
+  --c-titlescreen-sky-top: #030206;
+  --c-titlescreen-sky-bottom: #160a24;
+  --c-titlescreen-moon: rgba(232, 220, 138, 0.22);
+  --c-titlescreen-pole: #0d0a08;
+  --c-titlescreen-wire: #000000;
+  --c-titlescreen-wordmark: #9fe8a8;
+  --c-titlescreen-wordmark-glow: rgba(109, 255, 122, 0.55);
+  --c-titlescreen-wordmark-ghost: rgba(255, 59, 59, 0.55);
+  --c-titlescreen-subtitle: #b9a3d6;
+  --c-titlescreen-hint: #6f667c;
+
+  /* ---- Options_Dialog ----------------------------------------------------------------------- */
+  --c-options-backdrop: rgba(0, 0, 0, 0.45);
+
+  /* ---- Result_Screen ------------------------------------------------------------------------ */
+  --c-result-backdrop: rgba(4, 10, 10, 0.7);
+  --c-power-backdrop: rgba(0, 0, 0, 0.65);
+  --c-result-headline: #3b1458;
+  --c-result-bar-fill: #3b1458;
+
+  /* ---- Lose static ("NO CARRIER") ------------------------------------------------------------ */
+  --c-static-light: #d8d8d8;
+  --c-static-dark: #1a1a1a;
+  --c-static-text: #f2f2f2;
+
+  /* ---- Chrome: grey bevelled UI ---------------------------------------------------------- */
+  --c-chrome: #c0c0c0;
+  --c-bevel-lightest: #ffffff;
+  --c-bevel-light: #dfdfdf;
+  --c-bevel-dark: #808080;
+  --c-bevel-darkest: #0a0a0a;
+  --c-field: #ffffff;
+  --c-text: #000000;
+  --c-text-disabled: #808080;
+  --c-text-emboss: #ffffff;
+  --c-text-alert: #8b0000;
+  --c-highlight: #3b1458;
+  --c-highlight-text: #ffffff;
+  --c-focus: #000000;
+
+  /* ---- Title bars ------------------------------------------------------------------------- */
+  --c-title-active-from: #3b1458;
+  --c-title-active-to: #7a2f8f;
+  --c-title-active-text: #ffffff;
+  --c-title-inactive-from: #7f7f7f;
+  --c-title-inactive-to: #a8a8a8;
+  --c-title-inactive-text: #d4d0c8;
+
+  /* ---- Wallpaper: murky teal with a faint dither ------------------------------------------ */
+  --c-wallpaper: #1e4a4a;
+  --c-wallpaper-dither: rgba(0, 0, 0, 0.13);
+  --c-wallpaper-glow: rgba(150, 210, 190, 0.08);
+  --c-wallpaper-fog: rgba(4, 18, 18, 0.55);
+  --c-icon-label: #ffffff;
+  --c-icon-label-shadow: rgba(0, 0, 0, 0.6);
+  /* Selected desktop icons: darken and push toward the highlight purple (shape only). */
+  --icon-selected-filter: brightness(0.62) sepia(1) hue-rotate(225deg) saturate(2.4);
+
+  /* ---- Icon art (src/desktop/iconArt.ts fills its pixel paths with these) ----------------- */
+  --c-icon-ink: #0a0a0a;
+  --c-icon-white: #ffffff;
+  --c-icon-light: #dfdfdf;
+  --c-icon-mid: #9a9a9a;
+  --c-icon-dark: #4a4a4a;
+  --c-icon-case: #d8cfb4;
+  --c-icon-case-shade: #9d9580;
+  --c-icon-screen: #1e4a4a;
+  --c-icon-screen-glare: #5f9e94;
+  --c-icon-glow: #6dff7a;
+  --c-icon-purple: #5a1f7a;
+  --c-icon-lilac: #b9a3d6;
+  --c-icon-moon: #e8dc8a;
+  --c-icon-red: #b3261e;
+
+  /* ---- Taskbar tray modem lamps ----------------------------------------------------------- */
+  --c-lamp-body: #4a4a4a;
+  --c-lamp-off: #1f3a22;
+  --c-lamp-on: #6dff7a;
+  --c-lamp-glow: rgba(109, 255, 122, 0.8);
+
+  /* ---- Lane_Dock --------------------------------------------------------------------------- */
+  --c-lane-dock-bg: #0b0f0e;
+  --c-lane-dock-edge: #2a3a36;
+  --c-lane-dock-shadow: rgba(0, 0, 0, 0.7);
+
+  /* ---- Connection lane scenery (read by src/render/laneScenery.ts for the canvas) ---------- */
+  --c-lane-sky-top: #05030a;
+  --c-lane-sky-bottom: #1d1030;
+  --c-lane-star: rgba(214, 224, 255, 0.55);
+  --c-lane-moon: #e8dc8a;
+  --c-lane-moon-shadow: rgba(5, 3, 10, 0.82);
+  --c-lane-moon-glow: rgba(232, 220, 138, 0.16);
+  --c-lane-hill: #0b1013;
+  --c-lane-pole: #1c1511;
+  --c-lane-pole-edge: #3b2d23;
+  --c-lane-wire: #020203;
+  --c-lane-ground: #10150f;
+  --c-lane-ground-edge: #26361f;
+  --c-lane-ground-speck: rgba(0, 0, 0, 0.45);
+  --c-lane-cable: #070707;
+  --c-lane-cable-shine: #3e4642;
+  --c-lane-fog: rgba(140, 190, 170, 0.07);
+  --c-lane-manhole-hole: #000000;
+  --c-lane-manhole-glow: rgba(120, 255, 110, 0.26);
+  --c-lane-modem-glow: rgba(109, 255, 122, 0.12);
+  --c-lane-aim: rgba(255, 255, 255, 0.85);
+
+  /* ---- Lane_HUD ------------------------------------------------------------------------------ */
+  --c-lane-hud-bg: rgba(4, 7, 6, 0.72);
+  --c-lane-hud-edge: #2a3a36;
+  --c-lane-hud-text: #9fe8a8;
+  --c-lane-hud-glow: rgba(109, 255, 122, 0.45);
+  --c-lane-hud-track: #0e1f12;
+  --c-lane-hud-fill: #6dff7a;
+  --c-lane-hud-critical: #ff3b3b;
+  --c-lane-hud-critical-glow: rgba(255, 59, 59, 0.55);
+
+  /* ---- CCTV camera layer (read by src/render/cctv/ for the canvas and the OSD) ------------- */
+  --c-cctv-grade: #7f9a86;
+  --c-cctv-osd: #e6f2e8;
+  --c-cctv-osd-outline: #000000;
+  --c-cctv-rec: #ff2a2a;
+  --c-cctv-motion: #ffe14a;
+
+  /* ---- Dialer progress view ---------------------------------------------------------------- */
+  --c-dialer-line: #404040;
+  --c-dialer-packet: #3b1458;
+  --c-dialer-line-connected: #2f7d3f;
+
+  /* ---- Bevels (box-shadow recipes built from the chrome colours) ---------------------------- */
+  /* Raised window frame or menu. */
+  --bevel-raised:
+    inset -1px -1px 0 var(--c-bevel-darkest), inset 1px 1px 0 var(--c-bevel-light),
+    inset -2px -2px 0 var(--c-bevel-dark), inset 2px 2px 0 var(--c-bevel-lightest);
+  /* Push button, up. */
+  --bevel-button:
+    inset -1px -1px 0 var(--c-bevel-darkest), inset 1px 1px 0 var(--c-bevel-lightest),
+    inset -2px -2px 0 var(--c-bevel-dark), inset 2px 2px 0 var(--c-bevel-light);
+  /* Push button, down. */
+  --bevel-button-pressed:
+    inset -1px -1px 0 var(--c-bevel-lightest), inset 1px 1px 0 var(--c-bevel-darkest),
+    inset -2px -2px 0 var(--c-bevel-light), inset 2px 2px 0 var(--c-bevel-dark);
+  /* Default button: an extra dark ring around the up bevel. */
+  --bevel-button-default:
+    inset 0 0 0 1px var(--c-bevel-darkest), inset -2px -2px 0 var(--c-bevel-darkest),
+    inset 2px 2px 0 var(--c-bevel-lightest), inset -3px -3px 0 var(--c-bevel-dark),
+    inset 3px 3px 0 var(--c-bevel-light);
+  /* Text field or document area. */
+  --bevel-field:
+    inset -1px -1px 0 var(--c-bevel-lightest), inset 1px 1px 0 var(--c-bevel-dark),
+    inset -2px -2px 0 var(--c-bevel-light), inset 2px 2px 0 var(--c-bevel-darkest);
+  /* Shallow sunken panel (tray, status bar fields). */
+  --bevel-status: inset -1px -1px 0 var(--c-bevel-lightest), inset 1px 1px 0 var(--c-bevel-dark);
+  /* Groove line (separators): dark over light. */
+  --bevel-groove: inset 0 1px 0 var(--c-bevel-dark), inset 0 -1px 0 var(--c-bevel-lightest);
+  /* Checkerboard fill used by pressed taskbar buttons. */
+  --dither-pressed: repeating-conic-gradient(
+    var(--c-bevel-lightest) 0 25%,
+    var(--c-chrome) 0 50%
+  );
+
+  /* ---- Fonts -------------------------------------------------------------------------------- */
+  /* ---- Mission_Note sticky note (player-guide Req 1) --------------------------------------- */
+  --c-note-paper: #fbe96a;
+  --c-note-paper-edge: #e8cf3c;
+  --c-note-text: #2a2410;
+  --c-note-shadow: rgba(0, 0, 0, 0.45);
+  --c-note-pin: #c8261e;
+  --c-note-pin-shine: #ff8a7a;
+
+  --font-ui: Tahoma, Verdana, sans-serif;
+  --font-ui-size: 12px;
+  --font-bios: 'VT323', 'Courier New', monospace;
+  --font-bios-size: 26px;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-wordmark: 'Trebuchet MS', Verdana, sans-serif;
+
+  /* ---- Sizes (logical px, mirror the TS constants) ------------------------------------------ */
+  --screen-w: 1024px;
+  --screen-h: 768px;
+  --bezel-top: 36px;
+  --bezel-side: 44px;
+  --bezel-bottom: 84px;
+  --monitor-w: calc(var(--screen-w) + 2 * var(--bezel-side));
+  --monitor-h: calc(var(--screen-h) + var(--bezel-top) + var(--bezel-bottom));
+  --taskbar-h: 28px;
+  --lane-dock-h: 260px;
+  --title-bar-h: 20px;
+  --desktop-h-idle: calc(var(--screen-h) - var(--taskbar-h));
+  --desktop-h-session: calc(var(--screen-h) - var(--taskbar-h) - var(--lane-dock-h));
+}

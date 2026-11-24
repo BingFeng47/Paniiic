@@ -1,0 +1,338 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add the MCP SDK dev dependency, the build config and npm scripts": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416591682
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416596749
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417083534
+      }
+    ],
+    "2.1 Create `tools/mcp-sim/src/runBot.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416591728
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417124481
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417389269
+      }
+    ],
+    "2.2 Create `tools/mcp-sim/src/policies.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416591797
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417125920
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417389662
+      }
+    ],
+    "3.1 Create `tools/mcp-sim/src/report.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416591841
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417431164
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417520969
+      }
+    ],
+    "3.2 Create `tools/mcp-sim/src/sprites.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416591904
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417126129
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417390376
+      }
+    ],
+    "4. Checkpoint": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416591958
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417563193
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795421809661
+      }
+    ],
+    "5.1 Create `tools/mcp-sim/src/schemas.ts` and `tools/mcp-sim/src/server.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416592031
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795421841235
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425302716
+      }
+    ],
+    "5.2 Register the server in `.kiro/settings/mcp.json` and `docs/mcp.example.json`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416592088
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425569568
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425668228
+      }
+    ],
+    "6.1 Create `tools/mcp-sim/src/check.ts` and `.kiro/hooks/balance-check.json`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416592129
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795421842227
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425303304
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425699026
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425796509
+      }
+    ],
+    "6.3 Create `.kiro/agents/balance-tuner.md`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416592171
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795421842796
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425303567
+      }
+    ],
+    "7.1 Run the `balance-tuner` agent once": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416592212
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425828390
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795436238551
+      }
+    ],
+    "7.2 Add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416592254
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425828846
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795436238612
+      }
+    ],
+    "8. Final checkpoint": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795416592296
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795436271369
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795436384780
+      }
+    ],
+    "1. Setup": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417083613
+      }
+    ],
+    "2. Bot loop and policies": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417389736
+      }
+    ],
+    "3. Handlers": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795417521025
+      }
+    ],
+    "2.3 Write `tests/tools/mcp-sim/runBot.test.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425342716
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425411137
+      }
+    ],
+    "3.3 Write `tests/tools/mcp-sim/report.test.ts` and `sprites.test.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425442382
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425539844
+      }
+    ],
+    "3.4 Write `tests/tools/mcp-sim/perf.test.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425442462
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425540379
+      }
+    ],
+    "5.3 Write `tests/tools/mcp-sim/server.test.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425570569
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425668307
+      }
+    ],
+    "6.2 Write `tests/tools/mcp-sim/check.test.ts`": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425571171
+      },
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425668413
+      }
+    ],
+    "5. Server and config": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425668352
+      }
+    ],
+    "6. Hook and agent": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795425668461
+      }
+    ],
+    "7. First tuning pass and docs": [
+      {
+        "executionId": "0875b601-ba64-4346-bb73-5a1bf45baf5a",
+        "chatSessionId": "sess_c011de3c-4e0b-4685-b853-6ac390741f6d",
+        "timestamp": 1795436238672
+      }
+    ]
+  }
+}

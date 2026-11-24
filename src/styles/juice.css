@@ -1,0 +1,149 @@
+/*
+ * Juice_View overlays (juice-and-endings, Requirements 2.2, 2.3, 3.3, 8.2, 8.3).
+ *
+ *   div.juice-layer                               fills the Screen, above the session overlay
+ *     div.crack-overlay[data-stage]               constant SVG from src/render/juice/crackArt.ts
+ *     div.corruption-overlay[data-level][data-front]
+ *
+ * CSS and constant SVG only. No layer ever captures pointer input.
+ * Corruption duty cycle: each glitch layer shows for 7.6% of its cycle (≤ 99 ms), and the two
+ * layers are half a cycle apart, so any spot is covered for at most 120 ms at a time.
+ */
+.juice-layer,
+.juice-layer * {
+  pointer-events: none;
+}
+.juice-layer {
+  position: absolute;
+  inset: 0;
+  /* Sibling of .session-overlay (3), taskbar (4) and Start_Menu (5) in .scene-desktop; later in
+     the DOM than the Start_Menu so it draws above it, and below the Result_Screen (6). */
+  z-index: 5;
+  overflow: hidden;
+}
+
+/* ---- Crack_Overlay -------------------------------------------------------------------------- */
+.crack-overlay {
+  position: absolute;
+  inset: 0;
+}
+.crack-overlay:not([data-stage]),
+.crack-overlay[data-stage='0'] {
+  display: none;
+}
+.crack-overlay svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.crack-overlay .crack-shadow {
+  stroke: rgba(0, 0, 0, 0.55);
+  stroke-width: 3;
+}
+.crack-overlay .crack-line {
+  stroke: rgba(235, 245, 255, 0.85);
+  stroke-width: 1.2;
+}
+.crack-overlay[data-stage='3'] .crack-line {
+  stroke-width: 1.6;
+}
+
+/* ---- Corruption_Overlay ---------------------------------------------------------------------- */
+.corruption-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+/* Level 1 covers the NetSurfer_Window area only (above the Lane_Dock). */
+.corruption-overlay[data-level='1'] {
+  display: block;
+  bottom: calc(var(--taskbar-h) + var(--lane-dock-h));
+  opacity: 0.6;
+}
+/* Level 2 covers both fronts. */
+.corruption-overlay[data-level='2'] {
+  display: block;
+  opacity: 1;
+}
+.corruption-overlay[data-front='browser'] {
+  bottom: calc(var(--taskbar-h) + var(--lane-dock-h));
+}
+
+/* Colour bleed: translucent, never hides anything. */
+.corruption-overlay {
+  background: linear-gradient(90deg, rgba(255, 0, 80, 0.08), rgba(0, 255, 200, 0.08));
+  mix-blend-mode: screen;
+}
+
+/* Glitch blocks, two time-offset layers. */
+.corruption-overlay::before,
+.corruption-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  mix-blend-mode: difference;
+  animation: juice-glitch 900ms steps(1, end) infinite;
+}
+.corruption-overlay::before {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 37px, rgba(255, 40, 120, 0.9) 37px 45px),
+    repeating-linear-gradient(90deg, transparent 0 140px, rgba(0, 255, 180, 0.6) 140px 190px);
+  background-blend-mode: multiply;
+}
+.corruption-overlay::after {
+  animation-delay: 450ms;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 61px, rgba(80, 160, 255, 0.85) 61px 66px),
+    repeating-linear-gradient(90deg, transparent 0 90px, rgba(255, 255, 255, 0.5) 90px 118px);
+  background-blend-mode: multiply;
+}
+.corruption-overlay[data-level='2']::before,
+.corruption-overlay[data-level='2']::after {
+  animation-duration: 600ms;
+}
+.corruption-overlay[data-level='2']::after {
+  animation-delay: 300ms;
+}
+
+/* Garbled text strip (constant string set by the view through textContent). */
+.corruption-overlay .corruption-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 38%;
+  font: 12px/14px monospace;
+  color: rgba(160, 255, 170, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  animation: juice-glitch 1300ms steps(1, end) infinite 200ms;
+}
+
+/*
+ * Visible for the first 7.6% of the cycle: 68 ms at 900 ms, 46 ms at 600 ms, 99 ms at 1300 ms.
+ * Every case stays under 120 ms. With animations off (.is-still) the blocks stay hidden.
+ */
+@keyframes juice-glitch {
+  0% { opacity: 1; }
+  7.6% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Screen_Shake off: overlays show without motion (Requirement 8.2). */
+.juice-layer.is-still *,
+.juice-layer.is-still *::before,
+.juice-layer.is-still *::after,
+.is-still.corruption-overlay::before,
+.is-still.corruption-overlay::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .corruption-overlay::before,
+  .corruption-overlay::after,
+  .corruption-overlay .corruption-text {
+    animation: none;
+  }
+}

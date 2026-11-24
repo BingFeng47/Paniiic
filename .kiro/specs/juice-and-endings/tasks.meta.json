@@ -1,0 +1,268 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Move the flash budget to `src/render/flashBudget.ts`": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201278
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409216896
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409357556
+      }
+    ],
+    "1.2 Add the voice cap and limiter to `src/core/audio.ts`": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201335
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409217906
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409358568
+      }
+    ],
+    "2.1 Create `src/render/juice/juiceTuning.ts` and `src/render/juice/juiceState.ts`": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201411
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409218492
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409359149
+      }
+    ],
+    "3.1 Create `src/render/juice/crackArt.ts` and the overlay CSS": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201460
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409426217
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409974555
+      }
+    ],
+    "3.2 Create `src/render/juice/juiceSounds.ts`": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201542
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409426698
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409975530
+      }
+    ],
+    "3.3 Create `src/render/juice/juiceView.ts` and register it": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201594
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795410043075
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795410488367
+      }
+    ],
+    "4.1 Update `src/render/laneEffects.ts`, `laneDrawList.ts` and `laneView.ts`": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201649
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409427572
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409976108
+      }
+    ],
+    "5. Checkpoint": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201700
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795410536994
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795410601074
+      }
+    ],
+    "6.1 Add `endFrame` to `SessionView` and the 30-tick hold to `src/scenes/desktop/desktopScene.ts`": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201751
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795410650498
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795410903962
+      }
+    ],
+    "6.2 Implement `endFrame` in the Lane_View and the Juice_View": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201801
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795410952982
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795411204607
+      }
+    ],
+    "7.1 Add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201856
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795411253801
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795411288460
+      }
+    ],
+    "7.2 Playtester full run": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201908
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795411335368
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795414185028
+      }
+    ],
+    "8. Final checkpoint": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409201982
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795414238381
+      },
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795414321038
+      }
+    ],
+    "1. Shared foundations": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409358623
+      }
+    ],
+    "2. Juice state": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409359205
+      }
+    ],
+    "4. Lane additions": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795409976160
+      }
+    ],
+    "3. Juice_View": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795410488428
+      }
+    ],
+    "6. End_Transition": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795411204709
+      }
+    ],
+    "7. Docs and playtest": [
+      {
+        "executionId": "838e53ee-a088-432a-bb39-c9e9d0298d53",
+        "chatSessionId": "sess_53508bfd-3d8d-4b8a-89ad-5091a8587a5a",
+        "timestamp": 1795414185145
+      }
+    ]
+  }
+}

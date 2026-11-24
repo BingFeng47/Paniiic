@@ -1,0 +1,353 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `src/game/types.ts` with `TICK_RATE`, `Phase`, `InputCommand`, `GameEventBody`,": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916229
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244923830
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795245199672
+      }
+    ],
+    "1.2 Create `src/game/balance/core.ts` with `CoreBalance`, `DEFAULT_CORE_BALANCE`,": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916294
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795245203854
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795245449515
+      }
+    ],
+    "1.3 Create `src/game/rng.ts` (Mulberry32, state is one uint32)": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916354
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795245453935
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795245974523
+      }
+    ],
+    "2.1 Create `src/game/state.ts` with `createRun` (seed normalized with `>>> 0`, phase": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916410
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795245980642
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795246199992
+      }
+    ],
+    "2.2 Create `src/game/context.ts` with `TickContext`, `System` and a context factory over a": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916471
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795246205939
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795246770509
+      }
+    ],
+    "2.3 Create `tests/helpers/game.ts` with `stepN`, `scheduledDamage` and": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916524
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795246780221
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795246985741
+      }
+    ],
+    "3.1 Create `src/game/step.ts` following the seven-stage tick order in the design": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916603
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795246991738
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795247467237
+      }
+    ],
+    "3.2 Example tests in `tests/game/step.test.ts`: connected at exactly tick 1,200;": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916659
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795247474312
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795248157824
+      }
+    ],
+    "4.1 P1 determinism and P7 JSON round trip": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916721
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795248165862
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795249352848
+      }
+    ],
+    "4.2 P2 no mutation (deep-freeze the input state)": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916774
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795249359144
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795249917772
+      }
+    ],
+    "4.3 P3 integrity bounds, P4 download bounds, P9 critical crossings": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916835
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795249924130
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795251724830
+      }
+    ],
+    "4.4 P5 no progress while paused, P10 pause-order independence": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916890
+      },
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795251732364
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252218264
+      }
+    ],
+    "4.5 P6 terminal phases are absorbing": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916942
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252231383
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252388583
+      }
+    ],
+    "5.1 Create `src/game/headless.ts` with `runHeadless` (scripted inputs by tick, per-second": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244916993
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252408246
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252499985
+      }
+    ],
+    "5.2 Tests in `tests/game/headless.test.ts`: a scripted perfect run wins at the expected": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244917042
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252509394
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252605843
+      }
+    ],
+    "6.1 Create `src/core/fixedLoop.ts` with `accumulate` and `startFixedLoop` (injectable": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244917094
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252614126
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252944680
+      }
+    ],
+    "6.2 Tests in `tests/core/fixedLoop.test.ts`: P8 as a property test; the clamp at": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244917152
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252953053
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795253107277
+      }
+    ],
+    "7. Checkpoint: `npm run typecheck`, `npm test` and `npm run build` all pass": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795244917225
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795253116185
+      },
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795253170423
+      }
+    ],
+    "1. Types, balance config and RNG": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795245974699
+      }
+    ],
+    "2. Run creation and tick context": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795246985821
+      }
+    ],
+    "3. The step function": [
+      {
+        "executionId": "29d044d0-77fb-458a-98cc-63e40e2816be",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795248157904
+      }
+    ],
+    "4. Property-based tests for the simulation (`tests/game/properties.test.ts`)": [
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252388611
+      }
+    ],
+    "5. Headless runner": [
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795252605881
+      }
+    ],
+    "6. Browser fixed-timestep loop": [
+      {
+        "executionId": "d618bf7e-068b-482b-b45f-0248e1a44fa8",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795253107329
+      }
+    ]
+  }
+}

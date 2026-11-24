@@ -1,0 +1,312 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `src/render/cctv/cctvTuning.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348829875
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348842236
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348906238
+      }
+    ],
+    "1.2 Create `src/render/cctv/cctvTimestamp.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348829960
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348842666
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348906729
+      }
+    ],
+    "1.3 Create `src/render/cctv/cctvState.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830013
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348946538
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349022370
+      }
+    ],
+    "1.4 Write `tests/render/cctv/cctvTimestamp.test.ts` and `tests/render/cctv/cctvState.test.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830069
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349061926
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349662633
+      }
+    ],
+    "2.1 Create `src/render/cctv/noiseTiles.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830117
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348947486
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349023363
+      }
+    ],
+    "2.2 Create `src/render/cctv/cctvDraw.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830185
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349063125
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349663412
+      }
+    ],
+    "3.1 Create `src/render/cctv/cctvOsd.ts` and add `cctv` copy to `src/ui/laneCopy.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830221
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349064118
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349664936
+      }
+    ],
+    "3.2 Restyle the OSD and Lane_HUD in `src/styles/lane.css`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830260
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349064561
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349665031
+      }
+    ],
+    "3.3 Create `src/render/cctv/cctvSounds.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830300
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348948068
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349023742
+      }
+    ],
+    "4.1 Wire the camera layer into `src/render/laneView.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830333
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349731761
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349862571
+      }
+    ],
+    "4.2 Update `tests/render/laneView.test.ts` and the Lane_HUD tests": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830367
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349925232
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795350139190
+      }
+    ],
+    "4.3 Write `tests/render/cctv/cctvRun.test.ts`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830438
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349925716
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795350139657
+      }
+    ],
+    "5. Checkpoint": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830484
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795350186996
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795350250008
+      }
+    ],
+    "6.1 Add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830543
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795350303473
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795351291416
+      }
+    ],
+    "6.2 Playtester smoke run": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830584
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795350303924
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795351291509
+      }
+    ],
+    "7. Final checkpoint": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795348830621
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795351531703
+      },
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795351684116
+      }
+    ],
+    "1. Pure camera logic": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349662730
+      }
+    ],
+    "2. Canvas drawing": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349663464
+      }
+    ],
+    "3. OSD, HUD and sounds": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795349665150
+      }
+    ],
+    "4. Lane_View wiring": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795350139713
+      }
+    ],
+    "6. Docs and playtest": [
+      {
+        "executionId": "7ce06b14-07f9-40c2-9ed9-f26c9fa8f44d",
+        "chatSessionId": "sess_d90fa924-edc0-413d-b103-5c69ed6352dc",
+        "timestamp": 1795351291573
+      }
+    ]
+  }
+}

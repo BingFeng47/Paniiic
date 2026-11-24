@@ -1,0 +1,387 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add melee types and the `mobArrived` event in `src/game/laneTypes.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340421829
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340463057
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340841597
+      }
+    ],
+    "1.2 Add the `melee` table to `src/game/balance/lane.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340421903
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340877325
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340930099
+      }
+    ],
+    "2.1 Update `addMob` and `mobSystem` in `src/game/mobs.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340421949
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340981498
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341401985
+      }
+    ],
+    "2.2 Update the lane test helpers in `tests/helpers/lane.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340421991
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340982015
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341402699
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341799030
+      }
+    ],
+    "3. Checkpoint": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340422046
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341833758
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342052192
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342480424
+      }
+    ],
+    "4.1 Update `src/render/laneDrawList.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340422088
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341833819
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341857765
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342014868
+      }
+    ],
+    "4.2 Add the `zombieGroan` recipe to `src/render/laneSounds.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340422124
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341833936
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342051848
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342153732
+      }
+    ],
+    "5.1 Update `.kiro/skills/add-mob/SKILL.md`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340422163
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341833989
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342229704
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342337667
+      }
+    ],
+    "5.2 Add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340422211
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341834060
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342481391
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342818164
+      }
+    ],
+    "6. Playtester smoke run": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340422253
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341834109
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342481574
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342818502
+      }
+    ],
+    "7. Final checkpoint": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340422290
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341834161
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342855657
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342907772
+      }
+    ],
+    "1.3 Update `tests/game/balance/lane.test.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340454649
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340981217
+      },
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341401928
+      }
+    ],
+    "2.3 Replace the bite examples in `tests/game/mobs.test.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340455612
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341839100
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341857021
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342014220
+      }
+    ],
+    "2.4 Write lane-melee Properties 1, 2, 3, 6 and 7 in `tests/game/laneMeleeProperties.test.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340456626
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341840118
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341857103
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342014356
+      }
+    ],
+    "2.5 Replace connection-lane Property 4 in `tests/game/laneProperties.test.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340457617
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341841085
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341857153
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342014413
+      }
+    ],
+    "2.6 Add the idle-run check to `tests/game/lane.test.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340458610
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341842093
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341857513
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342014490
+      }
+    ],
+    "4.3 Update `tests/render/laneDrawList.test.ts` and `tests/render/laneSounds.test.ts`": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340459228
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341842739
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342229570
+      },
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342337219
+      }
+    ],
+    "1. Balance and types": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795340930159
+      }
+    ],
+    "2. Mob rules": [
+      {
+        "executionId": "4d092ac3-0f69-4c56-b076-df8743b46c9f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795341402743
+      }
+    ],
+    "4. Drawing and sounds": [
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342153818
+      }
+    ],
+    "5. Skill and docs": [
+      {
+        "executionId": "474cb758-dfc5-4711-b209-4f4256eeed0f",
+        "chatSessionId": "sess_ab1142d1-a776-42e3-888f-4811b964d284",
+        "timestamp": 1795342818213
+      }
+    ]
+  }
+}

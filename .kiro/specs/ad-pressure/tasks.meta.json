@@ -1,0 +1,404 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `src/game/systems.ts` with `createGameSystems`": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018054
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440030964
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440207009
+      }
+    ],
+    "1.2 Write `tests/game/systems.test.ts`": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018101
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440252321
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440620808
+      }
+    ],
+    "2.1 Add `lineQualityFloor` to `src/game/balance/core.ts` and `bandwidth?` to `GameState`": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018176
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440252423
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440620945
+      }
+    ],
+    "2.2 Create `src/game/downloadRate.ts` and use it in `step()` stage 6": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018224
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440668238
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441025789
+      }
+    ],
+    "2.3 Add the bandwidth keys to `src/game/balance/ads.ts`, create": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018288
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441067107
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441524820
+      }
+    ],
+    "2.4 Tests: `tests/game/downloadRate.test.ts`, balance validation, Properties 1–3": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018332
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441566268
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441951948
+      }
+    ],
+    "3.1 Add `hatchSeconds` and `hatchWarningSeconds` to the ad balance; add `hatchKind` to": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018377
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440252496
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440621695
+      }
+    ],
+    "3.2 Create `src/game/ads/hatch.ts`; add `adHatched` and `SpawnSource` `adHatch`; hatch in": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018426
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440668426
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441025840
+      }
+    ],
+    "3.3 Tests: `tests/game/ads/hatch.test.ts` and Property 4": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018470
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441067203
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441525262
+      }
+    ],
+    "4.1 Clutter-only cap in `openAd`": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018511
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440252764
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440622109
+      }
+    ],
+    "4.2 Add `laneArea` with validation; place Lane_Cover clutter in it; add the Pinch 1": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018550
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440668489
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441025893
+      }
+    ],
+    "4.3 Tests: Properties 5–7 in `tests/game/ads/adPressureProperties.test.ts`": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018592
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441566587
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441952793
+      }
+    ],
+    "5. Checkpoint": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018636
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441990149
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795442270318
+      }
+    ],
+    "6.1 Download_Panel rate from `downloadRate` and the cause line; copy in `browserCopy.ts`": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018685
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795442310786
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443367185
+      }
+    ],
+    "6.2 Hatch warning in the Ad_Layer (`is-hatching`, crack, hand, 2 Hz shake) and the": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018726
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795442311711
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443367273
+      }
+    ],
+    "6.3 Lane_View: no hammer, no saw, no pickups through a Lane_Cover Ad": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018791
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795442313212
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443368625
+      }
+    ],
+    "6.4 Hints: new clutter copy, `hatch` Hint row and copy": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018836
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795442313640
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443368850
+      }
+    ],
+    "6.5 Render tests for 6.1–6.3": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018885
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443434003
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443861753
+      }
+    ],
+    "7.1 Check `docs/game-design.md` sections 4, 7, 8 against the defaults; update the `add-ad`": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018929
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443434579
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443862262
+      }
+    ],
+    "7.2 Run the `playtester` agent for a smoke run: the bar slows with open clutter, an ad": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440018988
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443911457
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795447895572
+      }
+    ],
+    "8. Final checkpoint": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440019028
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795447937824
+      },
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795448066995
+      }
+    ],
+    "1. Shared system list": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795440620884
+      }
+    ],
+    "3. Hatching": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441525304
+      }
+    ],
+    "2. Download rate": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441952043
+      }
+    ],
+    "4. Cap and lane cover": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795441952843
+      }
+    ],
+    "6. Views": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795443861835
+      }
+    ],
+    "7. Docs and playtest": [
+      {
+        "executionId": "0b9d4211-9e42-4ce1-b9ec-1fbf8ddca90d",
+        "chatSessionId": "sess_4dfac5e2-1c6c-4a43-9e08-a18926e6694a",
+        "timestamp": 1795447895627
+      }
+    ]
+  }
+}

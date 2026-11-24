@@ -1,0 +1,203 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `src/game/balance/chapters.ts`": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357039752
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357049370
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357169370
+      }
+    ],
+    "2.1 Create `src/game/director/directorTypes.ts` and extend the game types": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357039825
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357050006
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357170043
+      }
+    ],
+    "2.2 Create `src/game/director/directorLane.ts`": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357039869
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357212830
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357310832
+      }
+    ],
+    "2.3 Create `src/game/director/directorAds.ts`": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357039935
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357212940
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357311422
+      }
+    ],
+    "2.4 Create `src/game/director/index.ts` with `createDirector`": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357039977
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357350147
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357390092
+      }
+    ],
+    "3.1 Use the director in `src/dialup/sessionRegistry.ts`": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357040057
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357428949
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357577298
+      }
+    ],
+    "4. Checkpoint": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357040101
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357617502
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357673235
+      }
+    ],
+    "5.1 Check `docs/game-design.md` section 3 against the default table and fix any mismatch": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357040141
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357717725
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357760653
+      }
+    ],
+    "5.2 Add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357040185
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357718671
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357764096
+      }
+    ],
+    "6. Final checkpoint": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357040227
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357830355
+      },
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795358129133
+      }
+    ],
+    "1. Chapter table": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357169423
+      }
+    ],
+    "2. Director state and systems": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357390168
+      }
+    ],
+    "3. Wiring": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357577349
+      }
+    ],
+    "5. Docs": [
+      {
+        "executionId": "c0a96ca5-db28-4d37-bf6d-0d19a2b49c66",
+        "chatSessionId": "sess_4dbc944b-630b-4c7b-b805-fbc444b7e987",
+        "timestamp": 1795357764193
+      }
+    ]
+  }
+}

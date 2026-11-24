@@ -27,7 +27,7 @@ Anchor is where the sprite stands (x, y in viewBox units).
 | ranged | hit | `0 0 48 76` | bottom centre (24, 76) | 12 | 2 / 0 | placeholder |
 | ranged | die | `0 0 48 76` | bottom centre (24, 76) | 10 | 4 / 0 | placeholder |
 | boss | idle | `0 0 112 150` | bottom centre (56, 150) | 4 | 2 / 0 | placeholder |
-| boss | walk | `0 0 112 150` | bottom centre (56, 150) | 8 | 4 / 0 | placeholder |
+| boss | walk | `0 0 112 150` | bottom centre (56, 150) | 11.69 | 4 / 0 | placeholder |
 | boss | attack | `0 0 112 150` | bottom centre (56, 150) | 10 | 3 / 0 | placeholder |
 | boss | hit | `0 0 112 150` | bottom centre (56, 150) | 12 | 2 / 0 | placeholder |
 | boss | die | `0 0 112 150` | bottom centre (56, 150) | 10 | 4 / 0 | placeholder |

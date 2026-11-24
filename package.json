@@ -11,9 +11,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "art:list": "ART_LIST_WRITE=1 vitest run tests/docs/artList.test.ts",
+    "sim:build": "vite build --config tools/mcp-sim/vite.config.ts",
+    "sim:check": "npm run sim:build && node tools/mcp-sim/dist/check.mjs"
   },
   "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
     "@vitest/coverage-v8": "^5.1.1",
     "fast-check": "^4.10.3",
     "jsdom": "^31.0.1",

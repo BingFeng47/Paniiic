@@ -1,0 +1,25 @@
+[    2578ms] [INFO] [MesoWatch recording] 10:50:13 chip_seen @ https://meso.watch/js/upload.js?v=market704:251
+[    2729ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://meso.watch/data/shopmap/Classic%20World.json:1
+[    6984ms] [INFO] [MesoWatch recording] 10:50:17 record_start_click overallManualGrade @ https://meso.watch/js/upload.js?v=market704:251
+[    9794ms] [INFO] [MesoWatch recording] 10:50:20 live_start @ https://meso.watch/js/upload.js?v=market704:251
+[    9795ms] [INFO] [MesoWatch recording] 10:50:20 session_setup {"hdr":0,"vhdr":0,"dpr":2,"in":[1490,817],"ext":0,"trk":[2732,1592,"window",15,"none"],"cores":10,"mem":16,"lang":"en-US","br":"Chrome 157","os":"macOS"} @ https://meso.watch/js/upload.js?v=market704:251
+[    9946ms] [INFO] [MesoWatch recording] 10:50:20 setup_howto channel @ https://meso.watch/js/upload.js?v=market704:251
+[   10815ms] [INFO] [MesoWatch recording] 10:50:21 own_window_seen @ https://meso.watch/js/upload.js?v=market704:251
+[   11795ms] [INFO] [MesoWatch recording] 10:50:22 setup_howto map @ https://meso.watch/js/upload.js?v=market704:251
+[   14380ms] [INFO] [MesoWatch recording] 10:50:25 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market704:251
+[   18550ms] [INFO] [MesoWatch recording] 10:50:29 tip_seen s=o @ https://meso.watch/js/upload.js?v=market704:251
+[   20112ms] [INFO] [MesoWatch recording] 10:50:30 own_rows_sent 1 @ https://meso.watch/js/upload.js?v=market704:251
+[   25429ms] [INFO] [MesoWatch recording] 10:50:36 own_rows_sent 6 @ https://meso.watch/js/upload.js?v=market704:251
+[   28358ms] [INFO] [MesoWatch recording] 10:50:39 live_myshop_open @ https://meso.watch/js/upload.js?v=market704:251
+[   30138ms] [INFO] [MesoWatch recording] 10:50:40 live_myshop_name @ https://meso.watch/js/upload.js?v=market704:251
+[   30138ms] [INFO] [MesoWatch recording] 10:50:40 live_myshop_promoted @ https://meso.watch/js/upload.js?v=market704:251
+[   30141ms] [INFO] [MesoWatch recording] 10:50:40 tip_hint_shown e=6 r=0 @ https://meso.watch/js/upload.js?v=market704:251
+[   48622ms] [INFO] [MesoWatch recording] 10:50:59 live_myshop_card 6 @ https://meso.watch/js/upload.js?v=market704:251
+[  130146ms] [INFO] [MesoWatch recording] 10:52:20 session_reader {"rs":0,"tabs":0,"hid":0,"fps":7.2,"fr":865,"sh":3,"rd":7,"mt":7,"un":0,"ow":1,"od":0,"ab":{"mesos matched too weak":2,"digit layout does not ":1},"mw":["read"] @ https://meso.watch/js/upload.js?v=market704:251
+[  187386ms] [INFO] [MesoWatch recording] 10:53:18 tip_seen @ https://meso.watch/js/upload.js?v=market704:251
+[  196995ms] [INFO] [MesoWatch recording] 10:53:27 own_rows_sent 7 @ https://meso.watch/js/upload.js?v=market704:251
+[  252963ms] [INFO] [MesoWatch recording] 10:54:23 own_rows_sent 6 @ https://meso.watch/js/upload.js?v=market704:251
+[  609852ms] [INFO] [MesoWatch recording] 11:00:20 own_tip_sum h=0 tb=0 d=0 dn=0 nr=0 e=7 w=10min @ https://meso.watch/js/upload.js?v=market704:251
+[  864544ms] [INFO] [MesoWatch recording] 11:04:35 live_stop 3 shops @ https://meso.watch/js/upload.js?v=market704:251
+[  864764ms] [INFO] [MesoWatch recording] 11:04:35 live_share_open @ https://meso.watch/js/upload.js?v=market704:251
+[ 2402565ms] [INFO] [MesoWatch recording] 11:30:13 stale own=market704 live=market705 @ https://meso.watch/js/upload.js?v=market704:251

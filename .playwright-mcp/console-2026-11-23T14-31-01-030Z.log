@@ -1,0 +1,11 @@
+[  565875ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) @ http://localhost:3000/:1
+[ 4670523ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) @ http://localhost:3000/:1
+[ 5036467ms] ChapterTableError: Invalid chapter table: bossSecond must be >= the Plot turn 2 start (145), got 118
+    at resolveChapterTable (http://localhost:3000/src/game/balance/chapters.ts?t=1795449297370:198:33)
+    at createDirector (http://localhost:3000/src/game/director/index.ts?t=1795449297370:8:16)
+    at createGameSystems (http://localhost:3000/src/game/systems.ts?t=1795449297370:13:19)
+    at http://localhost:3000/src/dialup/sessionRegistry.ts?t=1795449297370:37:11
+[ 5608690ms] ReferenceError: TICK_RATE is not defined
+    at http://localhost:3000/src/game/balance/economy.ts?t=1795449869572:75:54
+[ 7999718ms] Export 'offFeedLaneY' is not defined in module
+[ 8105320ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) @ http://localhost:3000/:1

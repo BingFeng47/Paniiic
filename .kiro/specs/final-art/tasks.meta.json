@@ -1,0 +1,197 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `src/render/sprites/animationTable.ts`": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414903925
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414913541
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415043153
+      }
+    ],
+    "2.1 Create `src/render/sprites/validate.ts`": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414903970
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414913940
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415043278
+      }
+    ],
+    "2.3 Write `tests/render/sprites/assets.test.ts`": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904052
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415094731
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415211202
+      }
+    ],
+    "3.1 Update `src/render/sprites/atlas.ts`": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904100
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415094837
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415211693
+      }
+    ],
+    "4.1 Create `src/render/sprites/artList.ts` with the pure `renderArtList` and the `art:list` npm script": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904177
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415260897
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415416006
+      }
+    ],
+    "5. Checkpoint": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904232
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415464069
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415538123
+      }
+    ],
+    "6.1 Update `.kiro/agents/art-integrator.md`": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904287
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415588094
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415629065
+      }
+    ],
+    "6.2 Add the README \"Art\" credit and a dated note in `docs/kiro-log.md`": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904360
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415588572
+      },
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415629588
+      }
+    ],
+    "7.1 Run the `art-integrator` agent": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904412
+      }
+    ],
+    "7.2 Run the `playtester` agent": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904493
+      }
+    ],
+    "8. Final checkpoint": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795414904550
+      }
+    ],
+    "1. Animation_Table": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415043211
+      }
+    ],
+    "2. Validator": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415211284
+      }
+    ],
+    "3. Atlas fallback": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415211748
+      }
+    ],
+    "4. Art_List": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415416111
+      }
+    ],
+    "6. Agent, legal and docs": [
+      {
+        "executionId": "62f41834-7598-4b68-b3d7-aa8dd2e5ea10",
+        "chatSessionId": "sess_e11a383e-7c5a-4cb5-8f5b-bee38e48a58c",
+        "timestamp": 1795415629639
+      }
+    ]
+  }
+}

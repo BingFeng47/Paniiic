@@ -1,0 +1,220 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add `hintsEnabled` to `src/core/settings.ts`, `ViewPrefs` and the Options_Dialog": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711393
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403719697
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403972918
+      }
+    ],
+    "1.2 Test the setting": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711440
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404018104
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404305304
+      }
+    ],
+    "2.1 Create `src/ui/guideCopy.ts` and `src/desktop/missionNote.ts`; mount in the Desktop_Scene": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711491
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403720678
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403973024
+      }
+    ],
+    "2.2 Test the note and README in `tests/scenes/desktop/desktopScene.test.ts`": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711540
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404018506
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404306361
+      }
+    ],
+    "3.1 Create `src/ui/hints/hintTable.ts`, `hintTriggers.ts`, `hintQueue.ts` and `hintPlacement.ts`": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711613
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403721629
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403973738
+      },
+      {
+        "executionId": "f2612dbb-1856-49ee-9138-09df7a318ce9",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795406054546
+      },
+      {
+        "executionId": "f2612dbb-1856-49ee-9138-09df7a318ce9",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795406236835
+      }
+    ],
+    "3.2 Write `tests/ui/hints/*.test.ts`": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711658
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404019979
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404307285
+      }
+    ],
+    "4.1 Create `src/ui/hints/hintView.ts`, the `balloonPop` sound and balloon CSS; register the view": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711708
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404020295
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404307946
+      }
+    ],
+    "4.2 Write `tests/ui/hints/hintView.test.ts`": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711766
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404373018
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404485071
+      }
+    ],
+    "5.1 Check `docs/game-design.md` section 11 against the table and copy; add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711833
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404373860
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404485580
+      }
+    ],
+    "6. Final checkpoint": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795403711883
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404549534
+      },
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404625092
+      }
+    ],
+    "1. Setting": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404305358
+      }
+    ],
+    "2. Mission_Note and README": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404306432
+      }
+    ],
+    "3. Hint logic": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404307336
+      }
+    ],
+    "4. Hint_View": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404485119
+      }
+    ],
+    "5. Docs": [
+      {
+        "executionId": "08cc574f-744f-4407-8a2d-ff764b940171",
+        "chatSessionId": "sess_25022e68-9946-420d-9b2c-01cfc0f76f50",
+        "timestamp": 1795404485634
+      }
+    ]
+  }
+}

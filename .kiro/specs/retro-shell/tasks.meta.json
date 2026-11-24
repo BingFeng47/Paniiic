@@ -1,0 +1,856 @@
+{
+  "pbtResults": {
+    "1.3 Write tests for `h()` in `tests/core/h.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795260882910
+    },
+    "1.5 Write tests for the scene director in `tests/core/scene.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795260909605
+    },
+    "2.2 Write tests for the monitor in `tests/core/monitor.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795261270331
+    },
+    "3.2 Write tests for the boot script in `tests/scenes/boot/bootScript.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795261807674
+    },
+    "4.4 Write tests for the window stack in `tests/desktop/windowStack.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795261947788
+    },
+    "4.2 Write tests for the layout in `tests/desktop/layout.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795261972203
+    },
+    "7.4 Write tests for modem sounds in `tests/dialup/modemSounds.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795263097136
+    },
+    "7.2 Write tests for the dial script in `tests/dialup/dialScript.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795263140021
+    },
+    "7.6 Write tests for the Session in `tests/dialup/session.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795263228491
+    }
+  },
+  "executionHistory": {
+    "1.1 Add `dialTicks(balance)` to game-core": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059115
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255070969
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795256363137
+      }
+    ],
+    "1.2 Create `src/core/h.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059161
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255071784
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795256363349
+      }
+    ],
+    "1.3 Write tests for `h()` in `tests/core/h.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059189
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795260826888
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261002011
+      }
+    ],
+    "1.4 Create `src/core/scene.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059217
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255072902
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795256364926
+      }
+    ],
+    "1.5 Write tests for the scene director in `tests/core/scene.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059278
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795260827359
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261003274
+      }
+    ],
+    "1.6 Create shell test helpers": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059299
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255073271
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795256365483
+      }
+    ],
+    "2.1 Create `src/core/monitor.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059323
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795260828858
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261004003
+      }
+    ],
+    "2.2 Write tests for the monitor in `tests/core/monitor.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059345
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261159063
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261841503
+      }
+    ],
+    "2.3 Create `src/core/audio.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059367
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795260829358
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261005028
+      }
+    ],
+    "2.4 Write tests for the audio engine in `tests/core/audio.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059390
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261160057
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261844571
+      }
+    ],
+    "2.5 Create the stylesheets in `src/styles/`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059412
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255073838
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795256365839
+      }
+    ],
+    "2.6 Create `src/desktop/iconArt.ts` and `src/desktop/copy.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059435
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795256390094
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795260815351
+      }
+    ],
+    "3.1 Create `src/scenes/boot/bootScript.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059456
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795260829975
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261005330
+      }
+    ],
+    "3.2 Write tests for the boot script in `tests/scenes/boot/bootScript.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059507
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261161140
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261843065
+      }
+    ],
+    "3.3 Create `src/scenes/boot/bootSounds.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059537
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261162556
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261840515
+      }
+    ],
+    "3.4 Create `src/scenes/powerOffScene.ts` and `src/scenes/boot/bootScene.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059563
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262002624
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262171073
+      }
+    ],
+    "3.5 Write tests for the power-off and boot scenes": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059585
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262198521
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262506770
+      }
+    ],
+    "4.1 Create `src/desktop/layout.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059607
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261024352
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261145272
+      }
+    ],
+    "4.2 Write tests for the layout in `tests/desktop/layout.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059631
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261869300
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261987727
+      }
+    ],
+    "4.3 Create `src/desktop/windowStack.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059654
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261024582
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261145703
+      }
+    ],
+    "4.4 Write tests for the window stack in `tests/desktop/windowStack.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059679
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261869924
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261988342
+      }
+    ],
+    "4.5 Create `src/desktop/windowManager.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059702
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261162783
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261843516
+      }
+    ],
+    "4.6 Write DOM tests for the window manager in `tests/desktop/windowManager.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059726
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262003574
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262172082
+      }
+    ],
+    "5.1 Create `src/desktop/taskbar.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059748
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262005062
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262173061
+      }
+    ],
+    "5.2 Create `src/desktop/startMenu.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059769
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262006068
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262174067
+      }
+    ],
+    "5.3 Create `src/desktop/icons.ts` and `src/desktop/textWindow.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059793
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262006600
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262174693
+      }
+    ],
+    "5.4 Write tests for the taskbar in `tests/desktop/taskbar.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059817
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262200054
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262507774
+      }
+    ],
+    "5.5 Write tests for the start menu in `tests/desktop/startMenu.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059840
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262201088
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262508721
+      }
+    ],
+    "5.6 Write tests for icons and text windows in `tests/desktop/icons.test.ts` and": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059861
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262201561
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262509460
+      }
+    ],
+    "6. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059884
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262530227
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262599736
+      }
+    ],
+    "7.1 Create `src/dialup/dialScript.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059906
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262611280
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262929953
+      }
+    ],
+    "7.2 Write tests for the dial script in `tests/dialup/dialScript.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059927
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262957151
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263249838
+      }
+    ],
+    "7.3 Create `src/dialup/modemSounds.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059950
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262611775
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262930947
+      }
+    ],
+    "7.4 Write tests for modem sounds in `tests/dialup/modemSounds.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059973
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262958152
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263249913
+      }
+    ],
+    "7.5 Create `src/dialup/session.ts` and `src/dialup/sessionRegistry.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255059999
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262613382
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262931983
+      }
+    ],
+    "7.6 Write tests for the Session in `tests/dialup/session.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060025
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262959151
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263250053
+      }
+    ],
+    "7.7 Create `src/dialup/dialer.ts` and `src/dialup/trayModemView.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060051
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262956574
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263251186
+      }
+    ],
+    "7.8 Write tests for the dialer and tray view in `tests/dialup/dialer.test.ts` and": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060074
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263281932
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263550318
+      }
+    ],
+    "8.1 Create `src/scenes/shutdown/shutdownScript.ts` and `src/scenes/shutdown/shutdownScene.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060097
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262613866
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262932826
+      }
+    ],
+    "8.2 Write tests for shutdown in `tests/scenes/shutdown/shutdownScene.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060116
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262959870
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263251825
+      }
+    ],
+    "8.3 Create `src/scenes/desktop/desktopScene.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060142
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263282480
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263550424
+      }
+    ],
+    "8.4 Write integration tests in `tests/scenes/desktop/desktopScene.test.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060167
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263568128
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263812940
+      }
+    ],
+    "8.5 Create `src/scenes/index.ts` and rewrite `src/main.ts`": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060190
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263568630
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263813709
+      }
+    ],
+    "8.6 Write the full-flow and repository scan tests": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060209
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263829732
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795264315670
+      }
+    ],
+    "9. Final checkpoint - Typecheck, test and build": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795255060233
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795264326951
+      },
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795264428769
+      }
+    ],
+    "1. Foundations": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261003316
+      }
+    ],
+    "2. Monitor, audio engine, styles, icon art and copy": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795261844787
+      }
+    ],
+    "4. Window system": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262172151
+      }
+    ],
+    "3. Power-off and boot scenes": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262506817
+      }
+    ],
+    "5. Taskbar, start menu, icons and text windows": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795262509524
+      }
+    ],
+    "7. Dial-up and Session": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795263550386
+      }
+    ],
+    "8. Desktop scene, shutdown and wiring": [
+      {
+        "executionId": "6c2dbb61-3fe8-47a1-b32d-21eeac95c668",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795264315739
+      }
+    ]
+  }
+}

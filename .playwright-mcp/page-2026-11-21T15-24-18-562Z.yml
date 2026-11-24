@@ -1,0 +1,12 @@
+- generic [ref=e3]:
+  - generic [ref=e17]:
+    - generic:
+      - button "Connect to MidnightNet" [ref=e19]
+      - button "README.TXT" [ref=e29]
+      - button "Wastebasket" [ref=e38]
+    - generic [ref=e48]:
+      - button "Start" [ref=e49]
+      - generic [ref=e56]:
+        - button "Mute sound" [ref=e58]
+        - generic [ref=e64]: 11:59 PM
+  - button "Power" [active] [ref=e9] [cursor=pointer]

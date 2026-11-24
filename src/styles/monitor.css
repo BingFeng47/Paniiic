@@ -1,0 +1,400 @@
+/*
+ * monitor.css: page base, CRT monitor, power button, LED, scanline overlay and the CRT
+ * power-on / power-off animations. Colours come only from theme.css.
+ *
+ * DOM contract (src/core/monitor.ts builds this inside the #screen host from index.html):
+ *
+ *   div.monitor                       var(--monitor-w) × var(--monitor-h); monitor.ts sets
+ *                                     style.transform = `translate(Xpx, Ypx) scale(S)`
+ *     div.monitor-glass               the tube; holds the Screen and the overlay
+ *       div.screen                    1024 × 768; scenes mount here (cleared on scene switch)
+ *       div.crt-overlay               scanlines, vignette, glare; pointer-events: none (Req 2.4)
+ *     div.monitor-controls            bottom-right of the bezel
+ *       span.monitor-led              data-state="off" | "standby" | "on"
+ *       button.monitor-power          aria-label set by monitor.ts
+ *
+ * Every scene root is `div.scene` plus its own class (.scene-power-off, .scene-boot,
+ * .scene-desktop, .scene-shutdown). Adding `.crt-on` or `.crt-collapse` to a scene root
+ * plays the CRT animation on it.
+ */
+
+/* ---- Page and base ------------------------------------------------------------------------ */
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 40%, var(--c-room-glow), var(--c-transparent) 70%),
+    var(--c-room);
+}
+
+#screen {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Author `display` rules would otherwise beat the UA style for [hidden]. */
+[hidden] {
+  display: none !important;
+}
+
+.monitor,
+.monitor * {
+  box-sizing: border-box;
+}
+
+/* ---- Monitor body --------------------------------------------------------------------------- */
+
+.monitor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--monitor-w);
+  height: var(--monitor-h);
+  transform-origin: 0 0;
+  border-radius: 26px 26px 34px 34px;
+  background:
+    radial-gradient(ellipse at 50% 0%, var(--c-bezel-highlight), var(--c-transparent) 60%),
+    linear-gradient(to bottom, var(--c-bezel-light), var(--c-bezel) 45%, var(--c-bezel-dark));
+  box-shadow:
+    inset 0 2px 0 var(--c-bezel-highlight),
+    inset 0 -4px 0 var(--c-bezel-darkest),
+    inset 0 -14px 24px var(--c-bezel-shadow),
+    inset 3px 0 6px var(--c-bezel-shadow),
+    inset -3px 0 6px var(--c-bezel-shadow),
+    0 40px 80px var(--c-room-shadow);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Vent slots, bottom-left of the bezel. Decorative only. */
+.monitor::before {
+  content: '';
+  position: absolute;
+  left: 64px;
+  bottom: 30px;
+  width: 132px;
+  height: 22px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--c-bezel-vent) 0 3px,
+    var(--c-transparent) 3px 9px
+  );
+  box-shadow: 0 1px 0 var(--c-bezel-highlight);
+  pointer-events: none;
+}
+
+/* Blank badge plate in the middle of the bottom bezel. Decorative only, no text. */
+.monitor::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  width: 120px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 7px;
+  background: linear-gradient(to bottom, var(--c-bezel-dark), var(--c-bezel-light));
+  box-shadow:
+    inset 0 1px 2px var(--c-bezel-shadow),
+    0 1px 0 var(--c-bezel-highlight);
+  pointer-events: none;
+}
+
+/* ---- Tube, Screen and overlay ------------------------------------------------------------- */
+
+.monitor-glass {
+  position: absolute;
+  left: var(--bezel-side);
+  top: var(--bezel-top);
+  width: var(--screen-w);
+  height: var(--screen-h);
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--c-glass);
+  box-shadow:
+    0 0 0 4px var(--c-glass-edge),
+    0 0 0 6px var(--c-bezel-darkest),
+    0 0 0 8px var(--c-bezel-dark),
+    0 -2px 0 9px var(--c-bezel-shadow);
+}
+
+.screen {
+  position: relative;
+  width: var(--screen-w);
+  height: var(--screen-h);
+  overflow: hidden;
+  background: var(--c-glass);
+  cursor: default;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.crt-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    /* glare on the upper-left of the glass */
+    radial-gradient(ellipse at 22% 12%, var(--c-glare), var(--c-transparent) 42%),
+    /* vignette: corners fall off like a curved tube */
+    radial-gradient(ellipse at 50% 50%, var(--c-transparent) 58%, var(--c-vignette) 100%),
+    /* scanlines */
+    repeating-linear-gradient(
+      to bottom,
+      var(--c-transparent) 0 2px,
+      var(--c-scanline) 2px 3px
+    );
+}
+
+/* A faint refresh band rolling down the glass. */
+.crt-overlay::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -25%;
+  height: 25%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--c-transparent),
+    var(--c-refresh-band) 50%,
+    var(--c-transparent)
+  );
+  animation: crt-refresh-roll 9s linear infinite;
+}
+
+@keyframes crt-refresh-roll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(500%);
+  }
+}
+
+/* ---- Power-off scene: dark glass with a faint reflection (Req 3.1) --------------------------- */
+
+.scene-power-off {
+  background:
+    radial-gradient(ellipse at 28% 22%, var(--c-glass-reflection), var(--c-transparent) 45%),
+    radial-gradient(ellipse at 75% 85%, var(--c-glass-reflection), var(--c-transparent) 30%),
+    var(--c-glass);
+}
+
+/* ---- Controls: LED and power button -------------------------------------------------------- */
+
+.monitor-controls {
+  position: absolute;
+  right: 60px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.monitor-led {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-led-off);
+  box-shadow:
+    inset 0 1px 2px var(--c-bezel-shadow),
+    0 1px 0 var(--c-bezel-highlight);
+}
+
+.monitor-led[data-state='standby'] {
+  background: var(--c-led-standby);
+  box-shadow:
+    0 0 6px 1px var(--c-led-standby-glow),
+    0 1px 0 var(--c-bezel-highlight);
+  animation: led-standby-blink 1.6s steps(1, end) infinite;
+}
+
+.monitor-led[data-state='on'] {
+  background: var(--c-led-on);
+  box-shadow:
+    0 0 6px 1px var(--c-led-on-glow),
+    0 1px 0 var(--c-bezel-highlight);
+}
+
+@keyframes led-standby-blink {
+  0% {
+    background: var(--c-led-standby);
+    box-shadow:
+      0 0 6px 1px var(--c-led-standby-glow),
+      0 1px 0 var(--c-bezel-highlight);
+  }
+  50% {
+    background: var(--c-led-off);
+    box-shadow:
+      inset 0 1px 2px var(--c-bezel-shadow),
+      0 1px 0 var(--c-bezel-highlight);
+  }
+}
+
+.monitor-power {
+  position: relative;
+  width: 46px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: linear-gradient(to bottom, var(--c-bezel-light), var(--c-bezel-dark));
+  box-shadow:
+    inset 0 1px 0 var(--c-bezel-highlight),
+    inset 0 -2px 0 var(--c-bezel-darkest),
+    0 0 0 2px var(--c-bezel-dark),
+    0 2px 3px var(--c-bezel-shadow);
+  cursor: pointer;
+}
+
+/* Power symbol: a broken ring (::before) and a bar (::after), drawn in CSS. */
+.monitor-power::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border: 2px solid var(--c-bezel-darkest);
+  border-top-color: var(--c-transparent);
+  border-radius: 50%;
+}
+
+.monitor-power::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 8px;
+  margin: -9px 0 0 -1px;
+  border-radius: 1px;
+  background: var(--c-bezel-darkest);
+}
+
+.monitor-power:hover {
+  background: linear-gradient(to bottom, var(--c-bezel-highlight), var(--c-bezel-dark));
+}
+
+.monitor-power:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 2px 3px var(--c-bezel-shadow),
+    0 0 0 2px var(--c-bezel-dark);
+}
+
+.monitor-power:focus-visible {
+  outline: 1px dotted var(--c-bezel-darkest);
+  outline-offset: 4px;
+}
+
+/* ---- CRT power-on and collapse ---------------------------------------------------------------- */
+
+/* Boot: a bright line opens sideways, then the picture opens vertically and cools down. */
+.crt-on {
+  transform-origin: 50% 50%;
+  animation: crt-on 650ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@keyframes crt-on {
+  0% {
+    transform: scale(0, 0.004);
+    background-color: var(--c-crt-flash);
+    filter: brightness(4);
+  }
+  30% {
+    transform: scale(1, 0.004);
+    background-color: var(--c-crt-flash);
+    filter: brightness(4);
+  }
+  60% {
+    transform: scale(1, 1);
+    filter: brightness(2);
+  }
+  100% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+  }
+}
+
+/* Shutdown (Req 13.3, 500 ms): the picture squashes to a line, then to a dot, then goes out. */
+.crt-collapse {
+  transform-origin: 50% 50%;
+  animation: crt-collapse 500ms cubic-bezier(0.6, 0, 0.8, 0.4) forwards;
+}
+
+@keyframes crt-collapse {
+  0% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+  45% {
+    transform: scale(1, 0.004);
+    background-color: var(--c-crt-flash);
+    filter: brightness(3);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.004, 0.004);
+    background-color: var(--c-crt-flash);
+    filter: brightness(5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0, 0);
+    background-color: var(--c-crt-flash);
+    filter: brightness(5);
+    opacity: 0;
+  }
+}
+
+/* Simple fades keep the meaning of both effects without the zoom. */
+@keyframes crt-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes crt-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-on {
+    animation: crt-fade-in 250ms ease-out both;
+  }
+
+  .crt-collapse {
+    animation: crt-fade-out 500ms linear forwards;
+  }
+
+  .crt-overlay::after {
+    animation: none;
+    display: none;
+  }
+}

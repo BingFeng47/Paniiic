@@ -4,6 +4,11 @@
       "command": "npx",
       "args": ["-y", "@playwright/mcp@0.0.86"],
       "autoApprove": ["browser_navigate", "browser_snapshot", "browser_take_screenshot", "browser_console_messages"]
+    },
+    "zombie-sim": {
+      "command": "node",
+      "args": ["tools/mcp-sim/dist/server.mjs"],
+      "autoApprove": ["simulate_run", "balance_report", "validate_sprites"]
     }
   }
 }

@@ -1,0 +1,301 @@
+/*
+ * result.css: the Result_Screen overlay (title-and-endings Req 8–11, 12.5).
+ * Window chrome and .btn come from desktop.css; .icon sizing too. Colours come only from
+ * theme.css custom properties.
+ *
+ * DOM contract (src/ui/resultScreen.ts):
+ *
+ *   div.result-screen.is-won|is-lost       role=dialog; covers the whole Screen, Taskbar included
+ *     div.result-static                    lost only, aria-hidden; `hidden` at the reveal
+ *       span.result-static-text            "NO CARRIER"
+ *     div.window.is-active.result-window   lost: `hidden` until the reveal
+ *       div.title-bar > span.title-bar-text#result-title
+ *       div.window-body
+ *         won:  p.result-status, div.result-bar, p.result-detail
+ *         lost: p.result-message, div.result-bar                          (added at the reveal)
+ *         reveal (both, added at the reveal):
+ *           h2.result-headline                                           (won only)
+ *           div.result-file > span.icon + span.result-file-name + span.result-file-note
+ *           dl.result-stats > (dt + dd) × 3
+ *           div.result-buttons > button.btn.btn-default.result-retry + button.btn.result-main-menu
+ *
+ *   div.result-bar > div.result-bar-fill (inline width) + span.result-bar-text
+ */
+
+/* ---- Overlay ----------------------------------------------------------------------------------- */
+
+/* Above the Start_Menu (z-index 5), so no pointer input reaches the desktop (Req 8.3). */
+.result-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-result-backdrop);
+  font-family: var(--font-ui);
+  font-size: var(--font-ui-size);
+  color: var(--c-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Zero specificity, like the desktop rule, so component rules can still set their own font. */
+:where(.result-screen) :where(button) {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---- Window ------------------------------------------------------------------------------------ */
+
+/* Two classes, so this wins over .window's absolute placement whatever the import order. */
+.window.result-window {
+  position: relative;
+  z-index: 2;
+  width: 420px;
+}
+
+/* .window and .result-static set `display`, which would beat the UA rule for [hidden]. */
+.window.result-window[hidden],
+.result-static[hidden] {
+  display: none;
+}
+
+.result-window .window-body {
+  gap: 8px;
+  padding: 12px 14px 10px;
+}
+
+.result-status,
+.result-message,
+.result-detail {
+  margin: 0;
+}
+
+.result-detail {
+  color: var(--c-text-disabled);
+}
+
+.result-headline {
+  margin: 6px 0 2px;
+  font-family: var(--font-wordmark);
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--c-result-headline);
+}
+
+/* ---- Download bar ------------------------------------------------------------------------------ */
+
+.result-bar {
+  position: relative;
+  height: 20px;
+  padding: 3px;
+  background: var(--c-field);
+  box-shadow: var(--bevel-field);
+}
+
+/* Late-90s block progress: solid blocks with a 2 px field-coloured gap. */
+.result-bar-fill {
+  height: 100%;
+  max-width: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    var(--c-result-bar-fill) 0 10px,
+    var(--c-transparent) 10px 12px
+  );
+}
+
+/* Outlined text reads on both the white field and the purple blocks. */
+.result-bar-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--c-highlight-text);
+  text-shadow:
+    1px 0 0 var(--c-text),
+    -1px 0 0 var(--c-text),
+    0 1px 0 var(--c-text),
+    0 -1px 0 var(--c-text);
+}
+
+/* ---- Revealed file ----------------------------------------------------------------------------- */
+
+.result-file {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+  padding: 8px;
+  background: var(--c-field);
+  box-shadow: var(--bevel-field);
+}
+
+.result-file .icon {
+  grid-row: 1 / span 2;
+}
+
+.result-file-name {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.result-file-note {
+  color: var(--c-text-disabled);
+}
+
+.result-screen.is-lost .result-file-name {
+  color: var(--c-text-alert);
+}
+
+/* ---- Statistics -------------------------------------------------------------------------------- */
+
+.result-stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+  margin: 2px 0 0;
+}
+
+.result-stats dt {
+  margin: 0;
+}
+
+.result-stats dd {
+  margin: 0;
+  font-weight: bold;
+}
+
+.result-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.result-back {
+  min-width: 128px;
+}
+
+/* ---- Lose static ------------------------------------------------------------------------------- */
+
+/*
+ * Three grain layers over a dark base. The two conic tiles jump to a new offset every 80 ms
+ * (steps(6) over 480 ms); the offsets are not multiples of the tile sizes, so each frame looks
+ * like fresh noise. The scanline layer stays put.
+ */
+.result-static {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--c-static-dark) 0 1px,
+      var(--c-transparent) 1px 3px
+    ),
+    repeating-conic-gradient(
+        var(--c-static-light) 0 14%,
+        var(--c-transparent) 0 33%,
+        var(--c-static-dark) 0 41%,
+        var(--c-transparent) 0 50%
+      )
+      0 0 / 6px 4px,
+    repeating-conic-gradient(
+        var(--c-transparent) 0 21%,
+        var(--c-static-light) 0 29%,
+        var(--c-transparent) 0 50%
+      )
+      0 0 / 7px 5px,
+    var(--c-static-dark);
+  animation: result-static-jump 480ms steps(6) infinite;
+}
+
+/* A bright band that rolls down the screen in the same 80 ms jumps. */
+.result-static::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    var(--c-transparent),
+    var(--c-static-light),
+    var(--c-transparent)
+  );
+  opacity: 0.18;
+  pointer-events: none;
+  animation: result-static-band 960ms steps(6) infinite;
+}
+
+@keyframes result-static-jump {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      0 0,
+      13px 22px,
+      -29px 17px;
+  }
+}
+
+@keyframes result-static-band {
+  from {
+    transform: translateY(-120px);
+  }
+  to {
+    transform: translateY(var(--screen-h));
+  }
+}
+
+.result-static-text {
+  position: relative;
+  padding: 4px 18px;
+  background: var(--c-static-dark);
+  font-family: var(--font-bios);
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: 6px;
+  color: var(--c-static-text);
+  text-shadow: 0 0 12px var(--c-static-light);
+  animation: result-static-blink 1s steps(1, end) infinite;
+}
+
+@keyframes result-static-blink {
+  0%,
+  100% {
+    visibility: visible;
+  }
+  50% {
+    visibility: hidden;
+  }
+}
+
+/* ---- Reduced motion: a still noise frame and a steady "NO CARRIER" ---------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .result-static,
+  .result-static::before,
+  .result-static-text {
+    animation: none;
+  }
+
+  .result-static::before {
+    display: none;
+  }
+}

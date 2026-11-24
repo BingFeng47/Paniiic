@@ -2,6 +2,12 @@
 import { spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { SNAPSHOT, readAllChecked, readSnapshot, withLock, writeJson } from './taskInfo.mjs';
+
+// Baseline for the task-done hook, which names a task by diffing checkboxes against it.
+withLock(() => {
+  if (!readSnapshot()) writeJson(SNAPSHOT, readAllChecked());
+});
 
 const git = (...args) => spawnSync('git', args, { encoding: 'utf8' }).stdout.trim();
 const lines = ['## Session brief (session-start hook)'];

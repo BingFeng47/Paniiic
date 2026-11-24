@@ -17,7 +17,7 @@ the modem. Once online, the browser fills with lying pop-up ads. One mouse, two 
 - **Top screen (browser):** close ads, avoid fake buttons, keep the download moving.
 - **Bottom screen (connection lane):** kill zombies before they wreck the modem.
 
-Mistakes on one front punish the other. A full run lasts about 2:30 from dialing.
+Mistakes on one front punish the other. A full run lasts about 3:00 from dialing. Scores go to an online Hall of Fame.
 
 ## Non-negotiables
 

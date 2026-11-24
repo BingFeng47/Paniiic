@@ -1,0 +1,309 @@
+/*
+ * lane.css: the connection lane inside the Lane_Dock. Colours come only from theme.css.
+ *
+ * DOM contract (src/render/laneView.ts, src/ui/laneHud.ts):
+ *
+ *   div.lane-view                         fills div.lane-dock
+ *     canvas.lane-canvas                  1024 × 260 Screen px; the hammer is drawn as the cursor
+ *     div.lane-hud(.is-critical)          overlay strip, lets the pointer through to the canvas
+ *       span.lane-hud-label
+ *       div.lane-hud-bar > div.lane-hud-fill
+ *       span.lane-hud-value
+ *       span.lane-hud-note
+ *     div.cctv-osd                        camera OSD (src/render/cctv/cctvOsd.ts), pointer-free
+ *       span.cctv-label                   top-left  "CAM 01  LINE TAP"
+ *       span.cctv-rec(.is-on)             top-right "● REC"
+ *       span.cctv-time                    bottom-left timestamp
+ *       span.cctv-status                  centred, empty most of the time
+ *       span.cctv-combo                   "COMBO xN +1 KB" under the shop tray, empty most of the time
+ *
+ * The canvas keeps exactly the dock's size so Screen px offsets equal canvas px (laneLayout.ts),
+ * which is why the HUD floats over the canvas instead of taking height from it.
+ */
+
+.lane-view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.lane-canvas {
+  display: block;
+  width: var(--screen-w);
+  height: var(--lane-dock-h);
+  /* The Lane_View draws the hammer at the pointer instead (Req 11.8). */
+  cursor: none;
+  touch-action: none;
+  user-select: none;
+}
+
+/* ---- CCTV OSD (lane-cctv Req 2, 7.3) --------------------------------------------------------- */
+.cctv-osd {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  font-family: var(--font-bios);
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  color: var(--c-cctv-osd);
+  /* 1 px dark outline so the text reads over any part of the feed. */
+  text-shadow:
+    -1px 0 var(--c-cctv-osd-outline),
+    1px 0 var(--c-cctv-osd-outline),
+    0 -1px var(--c-cctv-osd-outline),
+    0 1px var(--c-cctv-osd-outline);
+  /* Clicks and the hammer cursor go straight through to the canvas (Req 7.3). */
+  pointer-events: none;
+  user-select: none;
+}
+.cctv-osd > span {
+  position: absolute;
+  white-space: pre;
+}
+.cctv-label {
+  top: 10px;
+  left: 12px;
+}
+.cctv-rec {
+  top: 10px;
+  right: 12px;
+  /* The dot and text stay in place; only visibility toggles, driven by recOn(tick). */
+  visibility: hidden;
+  color: var(--c-cctv-rec);
+}
+.cctv-rec.is-on {
+  visibility: visible;
+}
+.cctv-time {
+  bottom: 10px;
+  left: 12px;
+}
+.cctv-status {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  line-height: 28px;
+}
+.cctv-status:empty {
+  display: none;
+}
+/* Combo line (pacing-and-economy Req 5.5): steady text under the shop tray, never blinks. */
+.cctv-combo {
+  top: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cctv-combo:empty {
+  display: none;
+}
+/* Only set while Screen_Shake is on (Req 8.2): a 1 px jitter during a Signal_Tear. */
+.cctv-osd.is-tearing {
+  animation: cctv-jitter 100ms steps(2, jump-none) infinite;
+}
+@keyframes cctv-jitter {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(1px, -1px);
+  }
+}
+/* ---- Lane_HUD (Req 12, restyled as camera OSD by lane-cctv Req 2.4, 2.5) ------------------------ */
+.lane-hud {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-bios);
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  color: var(--c-cctv-osd);
+  text-shadow:
+    -1px 0 var(--c-cctv-osd-outline),
+    1px 0 var(--c-cctv-osd-outline),
+    0 -1px var(--c-cctv-osd-outline),
+    0 1px var(--c-cctv-osd-outline);
+  /* Clicks and the hammer cursor go straight through to the canvas. */
+  pointer-events: none;
+  user-select: none;
+}
+.lane-hud-bar {
+  position: relative;
+  width: 160px;
+  height: 12px;
+  border: 1px solid var(--c-cctv-osd);
+  outline: 1px solid var(--c-cctv-osd-outline);
+  background: var(--c-transparent);
+  overflow: hidden;
+}
+.lane-hud-fill {
+  height: 100%;
+  width: 100%;
+  /* Segmented meter: 6 px blocks with 2 px gaps. */
+  background: repeating-linear-gradient(
+    to right,
+    var(--c-cctv-osd) 0 6px,
+    var(--c-transparent) 6px 8px
+  );
+  transition: width 150ms ease-out;
+}
+.lane-hud-value {
+  min-width: 4ch;
+  text-align: right;
+}
+.lane-hud-note {
+  color: var(--c-cctv-rec);
+}
+.lane-hud-note:empty {
+  display: none;
+}
+.lane-hud.is-critical .lane-hud-bar {
+  border-color: var(--c-cctv-rec);
+}
+.lane-hud.is-critical .lane-hud-fill {
+  background: repeating-linear-gradient(
+    to right,
+    var(--c-cctv-rec) 0 6px,
+    var(--c-transparent) 6px 8px
+  );
+}
+/* 2 Hz: one dim/bright cycle every 500 ms, so 2 flashes per second (under the 3/s limit). */
+.lane-hud.is-critical .lane-hud-bar,
+.lane-hud.is-critical .lane-hud-value,
+.lane-hud.is-critical .lane-hud-note {
+  animation: lane-hud-blink 500ms steps(2, jump-none) infinite;
+}
+.lane-hud.is-critical .lane-hud-value {
+  color: var(--c-cctv-rec);
+}
+@keyframes lane-hud-blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lane-hud-fill {
+    transition: none;
+  }
+  .lane-hud.is-critical .lane-hud-bar,
+  .lane-hud.is-critical .lane-hud-value,
+  .lane-hud.is-critical .lane-hud-note,
+  .cctv-osd.is-tearing {
+    animation: none;
+  }
+}
+
+/* ---- Shop tray (economy-weapons Req 11, 11.5): camera OSD style, top centre ----------------------
+ * Sits between "CAM 01  LINE TAP" (top left) and "● REC" (top right), both at top: 10px.
+ * Top band: the line is at y = 232 of the 260 px canvas and the tallest Hit_Box (boss, 150 + 6 px
+ * padding) reaches up to y = 76, so the tray must end above y = 76. Three rows end near y = 60. */
+.shop-tray {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 64px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 8px;
+  font-family: var(--font-bios);
+  font-size: 17px;
+  line-height: 17px;
+  letter-spacing: 1px;
+  color: var(--c-cctv-osd);
+  text-shadow:
+    -1px 0 var(--c-cctv-osd-outline),
+    1px 0 var(--c-cctv-osd-outline),
+    0 -1px var(--c-cctv-osd-outline),
+    0 1px var(--c-cctv-osd-outline);
+  /* Solid OSD backing and a stronger frame so it reads against the dark feed. */
+  background: var(--c-cctv-osd-outline);
+  border: 2px solid var(--c-cctv-osd);
+  outline: 1px solid var(--c-cctv-osd-outline);
+  user-select: none;
+  white-space: nowrap;
+}
+/* Compact single-row fallback (Req 11.5). Not needed at the fixed 260 px lane, where three rows
+ * fit above the tallest Hit_Box; add .is-compact if the lane or the boss ever grows. */
+.shop-tray.is-compact .shop-slot-price,
+.shop-tray.is-compact .shop-slot-status {
+  display: none;
+}
+.shop-kb {
+  font-size: 20px;
+  min-width: 6ch;
+}
+.shop-slots {
+  display: flex;
+  gap: 4px;
+}
+.shop-slot {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 4px;
+  padding: 2px 4px;
+  font: inherit;
+  color: inherit;
+  text-shadow: inherit;
+  text-align: left;
+  background: var(--c-transparent);
+  border: 1px solid var(--c-cctv-osd);
+  outline: 1px solid var(--c-cctv-osd-outline);
+  cursor: pointer;
+}
+.shop-slot-key {
+  grid-row: span 3;
+  align-self: center;
+}
+.shop-slot-status {
+  font-size: 13px;
+}
+.shop-slot.is-tooExpensive,
+.shop-slot.is-owned,
+.shop-slot.is-held {
+  opacity: 0.5;
+}
+.shop-slot.is-affordable {
+  /* Steady highlight, no blinking (camera effects stay under 3 flashes per second). */
+  border: 2px solid var(--c-cctv-motion);
+  color: var(--c-cctv-motion);
+}
+.shop-slot.is-active {
+  outline: 2px solid var(--c-cctv-motion);
+  outline-offset: 1px;
+}
+.shop-fuel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.shop-fuel[hidden],
+.shop-timer[hidden] {
+  display: none;
+}
+.shop-fuel-bar {
+  width: 60px;
+  height: 10px;
+  border: 1px solid var(--c-cctv-osd);
+  outline: 1px solid var(--c-cctv-osd-outline);
+  overflow: hidden;
+}
+.shop-fuel-fill {
+  height: 100%;
+  width: 100%;
+  background: var(--c-cctv-osd);
+}
+.shop-fuel.is-latched .shop-fuel-fill {
+  background: var(--c-cctv-rec);
+}

@@ -1,0 +1,186 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add the `mainMenu` signal to `src/core/scene.ts`": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347402941
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347496354
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347568196
+      }
+    ],
+    "2.1 Update `src/ui/resultCopy.ts` and `src/ui/resultScreen.ts`": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347403008
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347497160
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347568371
+      }
+    ],
+    "3.1 Add `retry()` and `mainMenu()` to `src/scenes/desktop/desktopScene.ts`": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347403062
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347618104
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347718263
+      }
+    ],
+    "4.1 Add a dated note to `docs/kiro-log.md`": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347403149
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347760317
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347892856
+      }
+    ],
+    "5. Final checkpoint": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347403193
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347935131
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795348034645
+      }
+    ],
+    "1.2 Update the scene director tests": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347492872
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347618419
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347716902
+      }
+    ],
+    "2.2 Update `tests/ui/resultScreen.test.ts`": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347493873
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347618901
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347717896
+      }
+    ],
+    "3.2 Update `tests/scenes/desktop/desktopScene.test.ts`": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347494846
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347759135
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347892199
+      }
+    ],
+    "3.3 Update `tests/scenes/index.test.ts`": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347495840
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347759610
+      },
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347892498
+      }
+    ],
+    "1. Scene transition": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347568280
+      }
+    ],
+    "2. Result_Screen buttons": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347568445
+      }
+    ],
+    "3. Desktop_Scene wiring": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347718319
+      }
+    ],
+    "4. Docs": [
+      {
+        "executionId": "5f382df2-cac1-445c-a736-925cac39f06c",
+        "chatSessionId": "sess_3eca88ec-ebaf-44db-87a3-a80ad631c571",
+        "timestamp": 1795347892907
+      }
+    ]
+  }
+}

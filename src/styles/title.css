@@ -1,0 +1,319 @@
+/*
+ * title.css: the Title_Scene and its Options_Dialog (title-and-endings Req 2, 4, 12.5).
+ * Window chrome and .btn come from desktop.css; `crt-on` comes from monitor.css. Colours come
+ * only from theme.css custom properties.
+ *
+ * DOM contract, Title_Scene (src/scenes/title/titleScene.ts):
+ *
+ *   div.scene.scene-title.crt-on
+ *     div.title-night                     aria-hidden; moon, poles, wires and hill in CSS only
+ *     div.title-card
+ *       h1.title-wordmark[data-text]      ::after repeats data-text as the red ghost copy
+ *       p.title-subtitle
+ *       div.title-menu                    `inert` while the Options_Dialog is open
+ *         button.btn.title-button.title-play
+ *         button.btn.title-button.title-options
+ *       p.title-hint
+ *       p.title-copyright
+ *     div.options-backdrop                only while the Options_Dialog is open
+ *
+ * DOM contract, Options_Dialog (src/scenes/title/optionsDialog.ts):
+ *
+ *   div.options-backdrop
+ *     div.window.is-active.options-dialog
+ *       div.title-bar > span.title-bar-text + div.title-bar-controls > button.title-bar-close
+ *       div.window-body
+ *         div.options-row > label + input[type=range] + span.options-volume-value
+ *         label.options-check > input[type=checkbox] + text      (three times)
+ *         p.options-note
+ *         div.options-buttons > button.btn.btn-default
+ */
+
+/* ---- Scene ------------------------------------------------------------------------------------ */
+
+.scene-title {
+  background: linear-gradient(
+    to bottom,
+    var(--c-titlescreen-sky-top),
+    var(--c-titlescreen-sky-bottom)
+  );
+  font-family: var(--font-ui);
+  font-size: var(--font-ui-size);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ---- Night scenery: moon, two telephone poles, a hill and two sagging wires ------------------ */
+
+/*
+ * Layers paint first-on-top: the hill hides the pole feet, the crossbars sit on the poles and the
+ * moon glows behind everything. Positions are logical Screen pixels (1024 × 768).
+ */
+.title-night {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    /* hill */
+    radial-gradient(
+      ellipse 640px 96px at 50% 100%,
+      var(--c-titlescreen-pole) 98%,
+      var(--c-transparent) 100%
+    ),
+    /* upper crossbars */
+    linear-gradient(var(--c-titlescreen-pole), var(--c-titlescreen-pole)) 76px 452px / 70px 7px
+      no-repeat,
+    linear-gradient(var(--c-titlescreen-pole), var(--c-titlescreen-pole)) 868px 452px / 70px 7px
+      no-repeat,
+    /* lower crossbars */
+    linear-gradient(var(--c-titlescreen-pole), var(--c-titlescreen-pole)) 86px 472px / 50px 5px
+      no-repeat,
+    linear-gradient(var(--c-titlescreen-pole), var(--c-titlescreen-pole)) 878px 472px / 50px 5px
+      no-repeat,
+    /* poles */
+    linear-gradient(var(--c-titlescreen-pole), var(--c-titlescreen-pole)) 106px 440px / 10px 328px
+      no-repeat,
+    linear-gradient(var(--c-titlescreen-pole), var(--c-titlescreen-pole)) 898px 440px / 10px 328px
+      no-repeat,
+    /* moon disc and its halo */
+    radial-gradient(
+      circle 44px at 800px 132px,
+      var(--c-titlescreen-moon) 96%,
+      var(--c-transparent) 100%
+    ),
+    radial-gradient(circle 150px at 800px 132px, var(--c-titlescreen-moon), var(--c-transparent));
+}
+
+/* The wires: bottom borders of half-ellipses, thinning toward the crossbars where they hang. */
+.title-night::before,
+.title-night::after {
+  content: '';
+  position: absolute;
+  border-bottom: 2px solid var(--c-titlescreen-wire);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+
+.title-night::before {
+  left: 80px;
+  top: 455px;
+  width: 854px;
+  height: 84px;
+}
+
+.title-night::after {
+  left: 92px;
+  top: 474px;
+  width: 830px;
+  height: 64px;
+}
+
+/* ---- Title card ------------------------------------------------------------------------------- */
+
+.title-card {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+}
+
+.title-wordmark {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  margin: 0;
+  font-family: var(--font-bios);
+  font-size: 96px;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: 4px;
+  color: var(--c-titlescreen-wordmark);
+  text-shadow:
+    0 0 10px var(--c-titlescreen-wordmark-glow),
+    0 0 28px var(--c-titlescreen-wordmark-glow);
+  animation: title-flicker 4s linear infinite;
+}
+
+/* Red ghost copy behind the green, 2 px to the right; it jitters for 120 ms every 3.6 s. */
+.title-wordmark::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: var(--c-titlescreen-wordmark-ghost);
+  text-shadow: none;
+  transform: translate(2px, 0);
+  animation: title-ghost-jitter 3.6s steps(1, end) infinite;
+}
+
+/* A tired phosphor: mostly steady, with a few short dips. */
+@keyframes title-flicker {
+  0%,
+  41%,
+  43%,
+  46%,
+  78%,
+  80%,
+  100% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.55;
+  }
+  44.5% {
+    opacity: 0.8;
+  }
+  79% {
+    opacity: 0.7;
+  }
+}
+
+/* 120 ms of 3,600 ms is 3.3%: three jumps between 93% and 96.3%. */
+@keyframes title-ghost-jitter {
+  0%,
+  96.3%,
+  100% {
+    transform: translate(2px, 0);
+  }
+  93% {
+    transform: translate(-3px, 1px);
+  }
+  94.1% {
+    transform: translate(5px, -1px);
+  }
+  95.2% {
+    transform: translate(-1px, 2px);
+  }
+}
+
+.title-subtitle {
+  margin: 14px 0 0;
+  font-family: var(--font-wordmark);
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: 2px;
+  color: var(--c-titlescreen-subtitle);
+}
+
+/* ---- Buttons (Req 2.3: native buttons, so Enter and Space click them) ------------------------- */
+
+.title-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.title-button {
+  width: 180px;
+  height: 32px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+}
+
+.title-hint,
+.title-copyright {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  color: var(--c-titlescreen-hint);
+}
+
+.title-hint {
+  bottom: 56px;
+  font-size: 13px;
+}
+
+.title-copyright {
+  bottom: 32px;
+  font-size: 11px;
+}
+
+/* ---- Options_Dialog (Req 4) --------------------------------------------------------------------- */
+
+.options-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-options-backdrop);
+}
+
+/* Two classes, so this wins over .window's absolute placement whatever the import order. */
+.window.options-dialog {
+  position: relative;
+  width: 320px;
+  font-family: var(--font-ui);
+  font-size: var(--font-ui-size);
+}
+
+/* Zero specificity, like the desktop rule, so the title-bar button keeps its own size. */
+:where(.options-dialog) :where(button, input) {
+  font: inherit;
+  color: inherit;
+}
+
+.options-dialog input {
+  accent-color: var(--c-highlight);
+}
+
+.options-dialog .window-body {
+  gap: 8px;
+  padding: 10px 10px 8px;
+}
+
+.options-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.options-row input[type='range'] {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.options-volume-value {
+  width: 36px;
+  text-align: right;
+}
+
+.options-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.options-check input {
+  margin: 0;
+}
+
+.options-note {
+  margin: 4px 0 0;
+  color: var(--c-text-disabled);
+}
+
+.options-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* ---- Reduced motion: a steady wordmark and a still ghost (crt-on is handled in monitor.css) --- */
+
+@media (prefers-reduced-motion: reduce) {
+  .title-wordmark,
+  .title-wordmark::after {
+    animation: none;
+  }
+}

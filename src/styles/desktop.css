@@ -1,0 +1,818 @@
+/*
+ * desktop.css: wallpaper, desktop icons, windows, taskbar and tray, start menu, Lane_Dock,
+ * README / Wastebasket contents and the shared push buttons and text fields.
+ * Colours come only from theme.css.
+ *
+ * DOM contract, Desktop_Scene (src/scenes/desktop/desktopScene.ts and the desktop components):
+ *
+ *   div.scene.scene-desktop               add .is-session while a Session is active
+ *     div.wallpaper                       click clears the icon selection
+ *     div.icon-grid                       icons.ts; zero-size anchor at the top-left
+ *       button.desktop-icon               .is-selected; icons.ts sets style.left / style.top
+ *         span.icon                       iconEl(name)
+ *         span.desktop-icon-label
+ *     div.window-layer                    Window_Manager root, clips to the Desktop_Area
+ *       div.window                        .is-active on the Focused_Window; `hidden` when
+ *                                         minimized; style left/top/width/height/zIndex
+ *         div.title-bar
+ *           span.icon
+ *           span.title-bar-text
+ *           div.title-bar-controls
+ *             button.title-bar-button.title-bar-minimize
+ *             button.title-bar-button.title-bar-close
+ *         div.window-body                 holds spec.content
+ *     div.lane-dock                       laneHost; shown by .is-session (no `hidden` attribute,
+ *                                         so the 300 ms slide can run)
+ *     div.taskbar
+ *       button.start-button               .is-pressed while the Start_Menu is open
+ *         span.icon
+ *         span.start-button-label
+ *       div.taskbar-buttons
+ *         button.taskbar-button           .is-pressed on the Focused_Window's button
+ *           span.icon
+ *           span.taskbar-button-label
+ *       div.tray
+ *         span.tray-modem                 data-state="off" | "blink" | "on"
+ *         button.tray-speaker             holds span.icon (speaker / speakerMuted)
+ *         span.tray-clock
+ *     div.start-menu                      `hidden` while closed
+ *       div.start-menu-banner
+ *         span.start-menu-banner-text     "Phantom 98", reads bottom to top
+ *       ul.start-menu-items
+ *         li > button.start-menu-item     aria-disabled="true" when disabled
+ *           span.icon
+ *           span.start-menu-item-label
+ *         li.start-menu-separator         role="separator"
+ *
+ * Window contents (src/desktop/textWindow.ts):
+ *
+ *   pre.text-doc                          README text
+ *   div.file-view                         Wastebasket
+ *     ul.file-list > li.file-row > span.icon + span.file-name
+ *     div.status-bar > span.status-bar-field
+ *
+ * Shared controls: button.btn (+ .btn-default), input.field-input.
+ * `.is-pressed` and `[aria-pressed='true']` are interchangeable for pressed buttons.
+ */
+
+/* ---- Scene and shared bits -------------------------------------------------------------------- */
+
+.scene-desktop {
+  font-family: var(--font-ui);
+  font-size: var(--font-ui-size);
+  color: var(--c-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Zero specificity, so component rules below can still set their own font and colour. */
+:where(.scene-desktop) :where(button, input) {
+  font: inherit;
+  color: inherit;
+}
+
+.icon {
+  display: inline-block;
+  flex: none;
+  width: 32px;
+  height: 32px;
+}
+
+.icon > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Wallpaper --------------------------------------------------------------------------------- */
+
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 80% 12%, var(--c-wallpaper-glow), var(--c-transparent) 38%),
+    linear-gradient(to bottom, var(--c-transparent) 50%, var(--c-wallpaper-fog)),
+    repeating-conic-gradient(var(--c-wallpaper-dither) 0 25%, var(--c-transparent) 0 50%) 0 0 /
+      2px 2px,
+    var(--c-wallpaper);
+}
+
+/* ---- Desktop icons (Req 5.2, 5.3) ------------------------------------------------------------ */
+
+.icon-grid {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 1;
+}
+
+.desktop-icon {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 76px;
+  margin: 0;
+  padding: 2px 0;
+  border: 0;
+  background: var(--c-transparent);
+  cursor: default;
+}
+
+.desktop-icon:focus {
+  outline: none;
+}
+
+.desktop-icon-label {
+  max-width: 76px;
+  padding: 1px 2px;
+  color: var(--c-icon-label);
+  text-align: center;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  text-shadow: 1px 1px 0 var(--c-icon-label-shadow);
+}
+
+.desktop-icon.is-selected .icon {
+  filter: var(--icon-selected-filter);
+}
+
+.desktop-icon.is-selected .desktop-icon-label {
+  background: var(--c-highlight);
+  color: var(--c-highlight-text);
+  text-shadow: none;
+}
+
+.desktop-icon:focus-visible .desktop-icon-label,
+.desktop-icon.is-selected:focus .desktop-icon-label {
+  outline: 1px dotted var(--c-icon-label);
+}
+
+/* ---- Window layer and windows (Req 6.9) ----------------------------------------------------- */
+
+.window-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--screen-w);
+  height: var(--desktop-h-idle);
+  z-index: 2;
+  overflow: hidden;
+  /* The layer spans the Desktop_Area; only the windows themselves take pointer input. */
+  pointer-events: none;
+}
+
+.scene-desktop.is-session .window-layer {
+  height: var(--desktop-h-session);
+}
+
+.window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  background: var(--c-chrome);
+  box-shadow: var(--bevel-raised);
+  color: var(--c-text);
+  pointer-events: auto;
+}
+
+/* 3 px frame + 17 px bar = TITLE_BAR_H (20 px) from the window's top edge. */
+.title-bar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 3px;
+  height: calc(var(--title-bar-h) - 3px);
+  padding: 0 2px 0 2px;
+  background: linear-gradient(90deg, var(--c-title-inactive-from), var(--c-title-inactive-to));
+  color: var(--c-title-inactive-text);
+  font-size: 11px;
+  font-weight: bold;
+  cursor: default;
+  touch-action: none;
+}
+
+.window.is-active .title-bar {
+  background: linear-gradient(90deg, var(--c-title-active-from), var(--c-title-active-to));
+  color: var(--c-title-active-text);
+}
+
+.title-bar .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.title-bar-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  letter-spacing: 0.2px;
+}
+
+.title-bar-controls {
+  display: flex;
+  flex: none;
+  align-items: center;
+}
+
+.title-bar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 14px;
+  margin: 0;
+  padding: 0 0 1px;
+  border: 0;
+  background: var(--c-chrome);
+  box-shadow: var(--bevel-button);
+  color: var(--c-text);
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.title-bar-button:active {
+  box-shadow: var(--bevel-button-pressed);
+  padding: 1px 0 0 1px;
+}
+
+.title-bar-button:focus {
+  outline: none;
+}
+
+.title-bar-close {
+  margin-left: 2px;
+}
+
+.window-body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  margin-top: 2px;
+  overflow: auto;
+}
+
+/* ---- Shared controls ------------------------------------------------------------------------- */
+
+.btn {
+  min-width: 75px;
+  height: 23px;
+  margin: 0;
+  padding: 0 12px;
+  border: 0;
+  background: var(--c-chrome);
+  box-shadow: var(--bevel-button);
+  color: var(--c-text);
+  cursor: default;
+}
+
+.btn-default {
+  box-shadow: var(--bevel-button-default);
+}
+
+.btn:active:not(:disabled):not([aria-disabled='true']) {
+  box-shadow: var(--bevel-button-pressed);
+  padding: 1px 11px 0 13px;
+}
+
+.btn-default:active:not(:disabled):not([aria-disabled='true']) {
+  box-shadow:
+    inset 0 0 0 1px var(--c-bevel-darkest),
+    inset 0 0 0 2px var(--c-bevel-dark);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 1px dotted var(--c-focus);
+  outline-offset: -5px;
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  color: var(--c-text-disabled);
+  text-shadow: 1px 1px 0 var(--c-text-emboss);
+}
+
+.field-input {
+  height: 21px;
+  margin: 0;
+  padding: 3px 4px;
+  border: 0;
+  background: var(--c-field);
+  box-shadow: var(--bevel-field);
+  color: var(--c-text);
+}
+
+.field-input:focus {
+  outline: none;
+}
+
+/* ---- Text windows: README and Wastebasket (Req 5.7, 5.8) ---------------------------------- */
+
+.text-doc {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 6px 8px;
+  overflow: auto;
+  background: var(--c-field);
+  box-shadow: var(--bevel-field);
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.file-view {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 0;
+}
+
+.file-list {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 4px;
+  overflow: auto;
+  list-style: none;
+  background: var(--c-field);
+  box-shadow: var(--bevel-field);
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 20px;
+  padding: 0 2px;
+}
+
+.file-row .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.file-name {
+  white-space: nowrap;
+}
+
+.status-bar {
+  display: flex;
+  flex: none;
+  gap: 2px;
+  height: 20px;
+}
+
+.status-bar-field {
+  flex: 1;
+  padding: 3px 4px;
+  box-shadow: var(--bevel-status);
+  white-space: nowrap;
+}
+
+/* ---- Lane_Dock (Req 10.10): slides up from behind the taskbar in 300 ms --------------------- */
+
+.lane-dock {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--taskbar-h);
+  height: var(--lane-dock-h);
+  z-index: 3;
+  overflow: hidden;
+  background:
+    linear-gradient(to bottom, var(--c-lane-dock-shadow), var(--c-transparent) 18px),
+    var(--c-lane-dock-bg);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition:
+    transform 300ms ease-out,
+    visibility 0s linear 300ms;
+}
+
+/* Bevelled splitter between the Desktop_Area and the lane. */
+.lane-dock::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  z-index: 1;
+  background: var(--c-chrome);
+  box-shadow:
+    inset 0 1px 0 var(--c-bevel-lightest),
+    inset 0 -1px 0 var(--c-bevel-dark),
+    0 1px 0 var(--c-lane-dock-edge);
+  pointer-events: none;
+}
+
+.scene-desktop.is-session .lane-dock {
+  transform: translateY(0);
+  visibility: visible;
+  transition:
+    transform 300ms ease-out,
+    visibility 0s linear 0s;
+}
+
+/* ---- Taskbar (Req 7.1, 7.4) ------------------------------------------------------------------ */
+
+.taskbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: var(--taskbar-h);
+  padding: 3px 2px 1px;
+  background: var(--c-chrome);
+  box-shadow:
+    inset 0 1px 0 var(--c-chrome),
+    inset 0 2px 0 var(--c-bevel-lightest);
+}
+
+.taskbar .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.start-button,
+.taskbar-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  margin: 0;
+  border: 0;
+  background: var(--c-chrome);
+  box-shadow: var(--bevel-button);
+  color: var(--c-text);
+  cursor: default;
+}
+
+.start-button {
+  flex: none;
+  padding: 0 6px 0 4px;
+  font-weight: bold;
+}
+
+.taskbar-buttons {
+  display: flex;
+  flex: 1;
+  gap: 3px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.taskbar-button {
+  flex: 0 1 160px;
+  min-width: 40px;
+  padding: 0 6px 0 4px;
+  text-align: left;
+}
+
+.taskbar-button-label {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.start-button.is-pressed,
+.start-button[aria-pressed='true'],
+.start-button:active {
+  box-shadow: var(--bevel-button-pressed);
+  padding: 1px 5px 0 5px;
+}
+
+.taskbar-button.is-pressed,
+.taskbar-button[aria-pressed='true'] {
+  box-shadow: var(--bevel-button-pressed);
+  background: var(--dither-pressed) 0 0 / 2px 2px;
+  padding: 1px 5px 0 5px;
+  font-weight: bold;
+}
+
+.start-button:focus,
+.taskbar-button:focus {
+  outline: none;
+}
+
+.start-button:focus-visible .start-button-label,
+.taskbar-button:focus-visible .taskbar-button-label {
+  outline: 1px dotted var(--c-focus);
+}
+
+/* ---- Tray (Req 7.5, 7.6, 7.7, 7.8) ----------------------------------------------------------- */
+
+.tray {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  padding: 0 8px 0 6px;
+  box-shadow: var(--bevel-status);
+}
+
+/* A small modem body with two lamps (::before and ::after). */
+.tray-modem {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--c-lamp-body);
+  box-shadow:
+    inset 1px 1px 0 var(--c-bevel-dark),
+    inset -1px -1px 0 var(--c-bevel-darkest);
+}
+
+.tray-modem::before,
+.tray-modem::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--c-lamp-off);
+}
+
+.tray-modem::before {
+  left: 3px;
+}
+
+.tray-modem::after {
+  right: 3px;
+}
+
+.tray-modem[data-state='on']::before,
+.tray-modem[data-state='on']::after {
+  background: var(--c-lamp-on);
+  box-shadow: 0 0 3px var(--c-lamp-glow);
+}
+
+/* The two lamps blink out of step, like send and receive lights. */
+.tray-modem[data-state='blink']::before,
+.tray-modem[data-state='blink']::after {
+  animation: tray-lamp-blink 500ms steps(1, end) infinite;
+}
+
+.tray-modem[data-state='blink']::after {
+  animation-delay: -250ms;
+}
+
+@keyframes tray-lamp-blink {
+  0% {
+    background: var(--c-lamp-on);
+    box-shadow: 0 0 3px var(--c-lamp-glow);
+  }
+  50% {
+    background: var(--c-lamp-off);
+    box-shadow: none;
+  }
+}
+
+.tray-speaker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--c-transparent);
+  cursor: default;
+}
+
+.tray-speaker:focus {
+  outline: none;
+}
+
+.tray-speaker:focus-visible {
+  outline: 1px dotted var(--c-focus);
+}
+
+.tray-clock {
+  padding: 0 2px;
+  white-space: nowrap;
+}
+
+/* ---- Start menu (Req 8.2, 8.5) ---------------------------------------------------------------- */
+
+.start-menu {
+  position: absolute;
+  left: 2px;
+  bottom: calc(var(--taskbar-h) - 3px);
+  z-index: 5;
+  display: flex;
+  padding: 3px;
+  background: var(--c-chrome);
+  box-shadow: var(--bevel-raised);
+}
+
+.start-menu-banner {
+  display: flex;
+  flex: none;
+  align-items: flex-end;
+  justify-content: center;
+  width: 24px;
+  padding-bottom: 6px;
+  background: linear-gradient(
+    to top,
+    var(--c-title-active-to),
+    var(--c-title-active-from) 55%,
+    var(--c-black)
+  );
+}
+
+.start-menu-banner-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--c-title-active-text);
+  font-family: var(--font-wordmark);
+  font-size: 17px;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.start-menu-items {
+  min-width: 180px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.start-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 32px;
+  margin: 0;
+  padding: 0 18px 0 6px;
+  border: 0;
+  background: var(--c-transparent);
+  color: var(--c-text);
+  text-align: left;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.start-menu-item .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.start-menu-item:focus {
+  outline: none;
+}
+
+.start-menu-item:hover:not([aria-disabled='true']):not(:disabled),
+.start-menu-item:focus-visible:not([aria-disabled='true']):not(:disabled) {
+  background: var(--c-highlight);
+  color: var(--c-highlight-text);
+}
+
+.start-menu-item[aria-disabled='true'],
+.start-menu-item:disabled {
+  color: var(--c-text-disabled);
+  text-shadow: 1px 1px 0 var(--c-text-emboss);
+}
+
+.start-menu-item[aria-disabled='true'] .icon,
+.start-menu-item:disabled .icon {
+  filter: grayscale(1) opacity(0.45);
+}
+
+.start-menu-separator {
+  height: 2px;
+  margin: 3px 2px;
+  box-shadow: var(--bevel-groove);
+}
+
+/* ---- Reduced motion ---------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .lane-dock,
+  .scene-desktop.is-session .lane-dock {
+    transition: none;
+  }
+}
+
+/* ---- Session overlay (browser-front Req 12.1): Ad_Layer host over Desktop_Area + Lane_Dock --- */
+/* Same layer as the Lane_Dock but later in the DOM, so it sits above it; below the taskbar (4),
+   Start_Menu (5) and Result_Screen (6). Click-through except where an Ad opts in. */
+.session-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1024px;
+  height: 740px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ---- Mission_Note (player-guide Req 1.1-1.3) ----------------------------------------------- */
+/* Inside div.wallpaper (z-index 0), so every window sits above it; never takes pointer input. */
+.mission-note {
+  position: absolute;
+  left: 780px;
+  top: 24px;
+  width: 220px;
+  box-sizing: border-box;
+  padding: 18px 12px 12px;
+  pointer-events: none;
+  user-select: none;
+  transform: rotate(2deg);
+  background: linear-gradient(to bottom, var(--c-note-paper) 85%, var(--c-note-paper-edge));
+  color: var(--c-note-text);
+  box-shadow: 2px 4px 6px var(--c-note-shadow);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.mission-note-pin {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--c-note-pin-shine), var(--c-note-pin) 60%);
+  box-shadow: 1px 2px 2px var(--c-note-shadow);
+}
+
+.mission-note-text {
+  margin: 0;
+}
+
+/* ---- Power_Confirm (src/ui/powerConfirm.ts): power button during the boot or the desktop ------ */
+/* Above the Result_Screen (z-index 6), covering the whole Screen with a dim backdrop. */
+.power-confirm {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-power-backdrop);
+  font-family: var(--font-ui);
+  font-size: var(--font-ui-size);
+  color: var(--c-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+:where(.power-confirm) :where(button) {
+  font: inherit;
+  color: inherit;
+}
+.window.power-confirm-window {
+  position: relative;
+  width: 360px;
+}
+.power-confirm-window .window-body {
+  gap: 10px;
+  padding: 12px 14px 10px;
+}
+.power-confirm-message {
+  margin: 0;
+}
+.power-confirm-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.power-confirm-buttons .btn {
+  min-width: 72px;
+}

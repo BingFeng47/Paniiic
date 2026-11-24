@@ -1,0 +1,251 @@
+[    3806ms] [INFO] [MesoWatch recording] 04:06:12 chip_seen @ https://meso.watch/js/upload.js?v=market699:250
+[    4346ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://meso.watch/data/shopmap/Classic%20World.json:1
+[   10068ms] [INFO] [MesoWatch recording] 04:06:18 record_start_click overallManualGrade @ https://meso.watch/js/upload.js?v=market699:250
+[   55369ms] [INFO] [MesoWatch recording] 04:07:04 live_start @ https://meso.watch/js/upload.js?v=market699:250
+[   55369ms] [INFO] [MesoWatch recording] 04:07:04 session_setup {"hdr":0,"vhdr":0,"dpr":2,"in":[1490,817],"ext":0,"trk":[2732,1592,"window",15,"none"],"cores":10,"mem":16,"lang":"en-US","br":"Chrome 157","os":"macOS"} @ https://meso.watch/js/upload.js?v=market699:250
+[   55522ms] [INFO] [MesoWatch recording] 04:07:04 setup_howto channel @ https://meso.watch/js/upload.js?v=market699:250
+[   59021ms] [INFO] [MesoWatch recording] 04:07:07 own_window_seen @ https://meso.watch/js/upload.js?v=market699:250
+[   61509ms] [INFO] [MesoWatch recording] 04:07:10 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[   68951ms] [INFO] [MesoWatch recording] 04:07:17 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[   70451ms] [INFO] [MesoWatch recording] 04:07:19 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[   74005ms] [INFO] [MesoWatch recording] 04:07:22 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[   75904ms] [INFO] [MesoWatch recording] 04:07:24 own_rows_sent 6 @ https://meso.watch/js/upload.js?v=market699:250
+[   80283ms] [INFO] [MesoWatch recording] 04:07:28 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[   81592ms] [INFO] [MesoWatch recording] 04:07:30 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[   83246ms] [INFO] [MesoWatch recording] 04:07:31 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[   87227ms] [INFO] [MesoWatch recording] 04:07:35 own_rows_sent 5 @ https://meso.watch/js/upload.js?v=market699:250
+[   93832ms] [INFO] [MesoWatch recording] 04:07:42 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[   93845ms] [INFO] [MesoWatch recording] 04:07:42 own_rows_sent 6 @ https://meso.watch/js/upload.js?v=market699:250
+[  100734ms] [INFO] [MesoWatch recording] 04:07:49 own_rows_sent 8 @ https://meso.watch/js/upload.js?v=market699:250
+[  107187ms] [INFO] [MesoWatch recording] 04:07:55 own_rows_sent 12 @ https://meso.watch/js/upload.js?v=market699:250
+[  167356ms] [INFO] [MesoWatch recording] 04:08:56 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[  175703ms] [INFO] [MesoWatch recording] 04:09:04 session_reader {"rs":0,"tabs":0,"hid":0,"fps":7.2,"fr":867,"sh":4,"rd":18,"mt":18,"un":0,"ow":2,"od":0,"ab":{"mesos matched too weak":8,"quantity not read":5,"digit layout doe @ https://meso.watch/js/upload.js?v=market699:250
+[  177540ms] [INFO] [MesoWatch recording] 04:09:06 live_myshop_name @ https://meso.watch/js/upload.js?v=market699:250
+[  177540ms] [INFO] [MesoWatch recording] 04:09:06 live_myshop_promoted @ https://meso.watch/js/upload.js?v=market699:250
+[  177545ms] [INFO] [MesoWatch recording] 04:09:06 tip_hint_shown e=2 r=0 @ https://meso.watch/js/upload.js?v=market699:250
+[  185523ms] [INFO] [MesoWatch recording] 04:09:14 tip_hint_dismissed @ https://meso.watch/js/upload.js?v=market699:250
+[  192388ms] [INFO] [MesoWatch recording] 04:09:21 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  204622ms] [INFO] [MesoWatch recording] 04:09:33 own_rows_sent 12 @ https://meso.watch/js/upload.js?v=market699:250
+[  224775ms] [INFO] [MesoWatch recording] 04:09:53 live_myshop_card 12 @ https://meso.watch/js/upload.js?v=market699:250
+[  257342ms] [INFO] [MesoWatch recording] 04:10:26 own_rows_sent 12 @ https://meso.watch/js/upload.js?v=market699:250
+[  322313ms] [INFO] [MesoWatch recording] 04:11:30 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  330080ms] [INFO] [MesoWatch recording] 04:11:38 own_rows_sent 12 @ https://meso.watch/js/upload.js?v=market699:250
+[  646556ms] [INFO] [MesoWatch recording] 04:16:55 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  793565ms] [INFO] [MesoWatch recording] 04:19:22 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  811436ms] [INFO] [MesoWatch recording] 04:19:40 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  835313ms] [INFO] [MesoWatch recording] 04:20:03 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  836010ms] [INFO] [MesoWatch recording] 04:20:04 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[  839280ms] [INFO] [MesoWatch recording] 04:20:07 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  847107ms] [INFO] [MesoWatch recording] 04:20:15 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  847424ms] [INFO] [MesoWatch recording] 04:20:16 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[  910072ms] [INFO] [MesoWatch recording] 04:21:18 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[  920945ms] [INFO] [MesoWatch recording] 04:21:29 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[  936370ms] [INFO] [MesoWatch recording] 04:21:45 live_shopview_open @ https://meso.watch/js/upload.js?v=market699:250
+[  996923ms] [INFO] [MesoWatch recording] 04:22:45 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 1015658ms] [INFO] [MesoWatch recording] 04:23:04 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 1019788ms] [INFO] [MesoWatch recording] 04:23:08 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 1023829ms] [INFO] [MesoWatch recording] 04:23:12 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 1025653ms] [INFO] [MesoWatch recording] 04:23:14 own_rows_sent 3 @ https://meso.watch/js/upload.js?v=market699:250
+[ 1029816ms] [INFO] [MesoWatch recording] 04:23:18 live_myshop_card 7 @ https://meso.watch/js/upload.js?v=market699:250
+[ 1032402ms] [INFO] [MesoWatch recording] 04:23:21 own_rows_sent 5 @ https://meso.watch/js/upload.js?v=market699:250
+[ 1038247ms] [INFO] [MesoWatch recording] 04:23:26 own_rows_sent 7 @ https://meso.watch/js/upload.js?v=market699:250
+[ 1041458ms] [INFO] [MesoWatch recording] 04:23:30 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 1049792ms] [INFO] [MesoWatch recording] 04:23:38 own_rows_sent 7 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2046710ms] [INFO] [MesoWatch recording] 04:40:15 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2056276ms] [INFO] [MesoWatch recording] 04:40:24 own_rows_sent 7 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2062411ms] [INFO] [MesoWatch recording] 04:40:31 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 2064701ms] [INFO] [MesoWatch recording] 04:40:33 live_myshop_card 7 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2155351ms] [INFO] [MesoWatch recording] 04:42:04 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2157363ms] [INFO] [MesoWatch recording] 04:42:06 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2164245ms] [INFO] [MesoWatch recording] 04:42:12 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2171088ms] [INFO] [MesoWatch recording] 04:42:19 own_rows_sent 3 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2211603ms] [INFO] [MesoWatch recording] 04:43:00 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2213555ms] [INFO] [MesoWatch recording] 04:43:02 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2220902ms] [INFO] [MesoWatch recording] 04:43:09 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2231021ms] [INFO] [MesoWatch recording] 04:43:19 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2231021ms] [INFO] [MesoWatch recording] 04:43:19 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2231024ms] [INFO] [MesoWatch recording] 04:43:19 live_stop 10 shops @ https://meso.watch/js/upload.js?v=market699:250
+[ 2231632ms] [INFO] [MesoWatch recording] 04:43:20 live_share_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 2391722ms] [INFO] [MesoWatch recording] 04:46:00 record_start_click overallManualGrade @ https://meso.watch/js/upload.js?v=market699:250
+[ 2393766ms] [INFO] [MesoWatch recording] 04:46:02 live_start @ https://meso.watch/js/upload.js?v=market699:250
+[ 2394759ms] [INFO] [MesoWatch recording] 04:46:03 own_window_seen @ https://meso.watch/js/upload.js?v=market699:250
+[ 2398782ms] [INFO] [MesoWatch recording] 04:46:07 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 2403762ms] [INFO] [MesoWatch recording] 04:46:12 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2404283ms] [INFO] [MesoWatch recording] 04:46:12 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2405594ms] [INFO] [MesoWatch recording] 04:46:14 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2408238ms] [INFO] [MesoWatch recording] 04:46:16 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2412872ms] [INFO] [MesoWatch recording] 04:46:21 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2413171ms] [INFO] [MesoWatch recording] 04:46:21 own_rows_sent 10 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2427793ms] [INFO] [MesoWatch recording] 04:46:36 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2430211ms] [INFO] [MesoWatch recording] 04:46:38 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2443286ms] [INFO] [MesoWatch recording] 04:46:51 own_rows_sent 9 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2446614ms] [INFO] [MesoWatch recording] 04:46:55 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2448393ms] [INFO] [MesoWatch recording] 04:46:57 own_rows_sent 10 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2468905ms] [INFO] [MesoWatch recording] 04:47:17 live_myshop_card 10 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2480395ms] [INFO] [MesoWatch recording] 04:47:29 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 2491532ms] [INFO] [MesoWatch recording] 04:47:40 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2504499ms] [INFO] [MesoWatch recording] 04:47:53 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 2512389ms] [INFO] [MesoWatch recording] 04:48:01 live_myshop_card 10 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2518063ms] [INFO] [MesoWatch recording] 04:48:06 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2639452ms] [INFO] [MesoWatch recording] 04:50:08 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2715191ms] [INFO] [MesoWatch recording] 04:51:23 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2726684ms] [INFO] [MesoWatch recording] 04:51:35 own_rows_sent 10 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2765024ms] [INFO] [MesoWatch recording] 04:52:13 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2773749ms] [INFO] [MesoWatch recording] 04:52:22 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2777468ms] [INFO] [MesoWatch recording] 04:52:26 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2781382ms] [INFO] [MesoWatch recording] 04:52:30 own_rows_sent 3 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2787851ms] [INFO] [MesoWatch recording] 04:52:36 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2795595ms] [INFO] [MesoWatch recording] 04:52:44 own_rows_sent 5 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2895809ms] [INFO] [MesoWatch recording] 04:54:24 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 2907056ms] [INFO] [MesoWatch recording] 04:54:35 own_rows_sent 1 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2914715ms] [INFO] [MesoWatch recording] 04:54:43 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 2997444ms] [INFO] [MesoWatch recording] 04:56:06 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3110916ms] [INFO] [MesoWatch recording] 04:57:59 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3121865ms] [INFO] [MesoWatch recording] 04:58:10 own_rows_sent 3 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3544587ms] [INFO] [MesoWatch recording] 05:05:13 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3559277ms] [INFO] [MesoWatch recording] 05:05:27 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3565390ms] [INFO] [MesoWatch recording] 05:05:34 own_rows_sent 6 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3567148ms] [INFO] [MesoWatch recording] 05:05:35 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3571064ms] [INFO] [MesoWatch recording] 05:05:39 own_rows_sent 7 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3571346ms] [INFO] [MesoWatch recording] 05:05:40 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3575259ms] [INFO] [MesoWatch recording] 05:05:43 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3577862ms] [INFO] [MesoWatch recording] 05:05:46 own_rows_sent 7 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3586494ms] [INFO] [MesoWatch recording] 05:05:55 own_rows_sent 9 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3659091ms] [INFO] [MesoWatch recording] 05:07:07 own_rows_sent 9 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3696419ms] [INFO] [MesoWatch recording] 05:07:45 own_rows_sent 9 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3702621ms] [INFO] [MesoWatch recording] 05:07:51 own_rows_sent 9 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3724022ms] [INFO] [MesoWatch recording] 05:08:12 own_rows_sent 9 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3757324ms] [INFO] [MesoWatch recording] 05:08:45 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3767666ms] [INFO] [MesoWatch recording] 05:08:56 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3769132ms] [INFO] [MesoWatch recording] 05:08:57 own_rows_sent 1 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3776425ms] [INFO] [MesoWatch recording] 05:09:05 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3789790ms] [INFO] [MesoWatch recording] 05:09:18 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3795579ms] [INFO] [MesoWatch recording] 05:09:24 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3800423ms] [INFO] [MesoWatch recording] 05:09:29 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3811027ms] [INFO] [MesoWatch recording] 05:09:39 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3811728ms] [INFO] [MesoWatch recording] 05:09:40 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3818060ms] [INFO] [MesoWatch recording] 05:09:46 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3823909ms] [INFO] [MesoWatch recording] 05:09:52 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3827006ms] [INFO] [MesoWatch recording] 05:09:55 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3831049ms] [INFO] [MesoWatch recording] 05:09:59 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3831392ms] [INFO] [MesoWatch recording] 05:10:00 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3847328ms] [INFO] [MesoWatch recording] 05:10:15 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 3850311ms] [INFO] [MesoWatch recording] 05:10:18 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3863946ms] [INFO] [MesoWatch recording] 05:10:32 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3867885ms] [INFO] [MesoWatch recording] 05:10:36 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3875973ms] [INFO] [MesoWatch recording] 05:10:44 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3880171ms] [INFO] [MesoWatch recording] 05:10:48 live_myshop_here @ https://meso.watch/js/upload.js?v=market699:250
+[ 3906946ms] [INFO] [MesoWatch recording] 05:11:15 live_myshop_card 1 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3909451ms] [INFO] [MesoWatch recording] 05:11:18 own_rows_sent 1 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3910239ms] [INFO] [MesoWatch recording] 05:11:18 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3919828ms] [INFO] [MesoWatch recording] 05:11:28 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 3922034ms] [INFO] [MesoWatch recording] 05:11:30 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3925163ms] [INFO] [MesoWatch recording] 05:11:33 live_myshop_card 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 3930929ms] [INFO] [MesoWatch recording] 05:11:39 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4093602ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://meso.watch/api/shop?seller=Miltong&market=Classic%20World:1
+[ 4161443ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://meso.watch/api/shop?seller=ARustyiLbi&market=Classic%20World:1
+[ 4217573ms] [INFO] [MesoWatch recording] 05:16:26 tip_seen s=b @ https://meso.watch/js/upload.js?v=market699:250
+[ 4222268ms] [INFO] [MesoWatch recording] 05:16:30 tip_seen s=b @ https://meso.watch/js/upload.js?v=market699:250
+[ 4270780ms] [INFO] [MesoWatch recording] 05:17:19 tip_seen s=b @ https://meso.watch/js/upload.js?v=market699:250
+[ 4296109ms] [INFO] [MesoWatch recording] 05:17:44 tip_seen s=b @ https://meso.watch/js/upload.js?v=market699:250
+[ 4436412ms] [INFO] [MesoWatch recording] 05:20:05 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 4441779ms] [INFO] [MesoWatch recording] 05:20:10 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4442849ms] [INFO] [MesoWatch recording] 05:20:11 own_rows_sent 1 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4443782ms] [INFO] [MesoWatch recording] 05:20:12 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4462392ms] [INFO] [MesoWatch recording] 05:20:31 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4463815ms] [INFO] [MesoWatch recording] 05:20:32 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4466263ms] [INFO] [MesoWatch recording] 05:20:34 tip_seen @ https://meso.watch/js/upload.js?v=market699:250
+[ 4497871ms] [INFO] [MesoWatch recording] 05:21:06 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 4501280ms] [INFO] [MesoWatch recording] 05:21:09 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4511207ms] [INFO] [MesoWatch recording] 05:21:19 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4516182ms] [INFO] [MesoWatch recording] 05:21:24 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 4522342ms] [INFO] [MesoWatch recording] 05:21:31 tip_seen @ https://meso.watch/js/upload.js?v=market699:250
+[ 4530916ms] [INFO] [MesoWatch recording] 05:21:39 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4530916ms] [INFO] [MesoWatch recording] 05:21:39 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4530916ms] [INFO] [MesoWatch recording] 05:21:39 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4530923ms] [INFO] [MesoWatch recording] 05:21:39 live_stop 21 shops @ https://meso.watch/js/upload.js?v=market699:250
+[ 4531016ms] [INFO] [MesoWatch recording] 05:21:39 live_share_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 4536001ms] [INFO] [MesoWatch recording] 05:21:44 own_rows_sent 3 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4538887ms] [INFO] [MesoWatch recording] 05:21:47 record_start_click overallManualGrade @ https://meso.watch/js/upload.js?v=market699:250
+[ 4538930ms] [INFO] [MesoWatch recording] 05:21:47 stale own=market699 live=market700 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4541584ms] [INFO] [MesoWatch recording] 05:21:50 live_start @ https://meso.watch/js/upload.js?v=market699:250
+[ 4543016ms] [INFO] [MesoWatch recording] 05:21:51 own_window_seen @ https://meso.watch/js/upload.js?v=market699:250
+[ 4545951ms] [INFO] [MesoWatch recording] 05:21:54 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 4550104ms] [INFO] [MesoWatch recording] 05:21:58 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4550247ms] [INFO] [MesoWatch recording] 05:21:58 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4550756ms] [INFO] [MesoWatch recording] 05:21:59 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 4556396ms] [INFO] [MesoWatch recording] 05:22:05 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 4571586ms] [INFO] [MesoWatch recording] 05:22:20 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 4578287ms] [INFO] [MesoWatch recording] 05:22:26 live_myshop_card 4 @ https://meso.watch/js/upload.js?v=market699:250
+[ 5752982ms] [INFO] [MesoWatch recording] 05:42:01 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 5752984ms] [INFO] [MesoWatch recording] 05:42:01 live_stop 2 shops @ https://meso.watch/js/upload.js?v=market699:250
+[ 5753183ms] [INFO] [MesoWatch recording] 05:42:01 live_share_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 7059062ms] [INFO] [MesoWatch recording] 06:03:47 record_start_click overallManualGrade @ https://meso.watch/js/upload.js?v=market699:250
+[ 7063046ms] [INFO] [MesoWatch recording] 06:03:51 live_start @ https://meso.watch/js/upload.js?v=market699:250
+[ 7063047ms] [INFO] [MesoWatch recording] 06:03:51 session_setup {"hdr":0,"vhdr":0,"dpr":2,"in":[1490,817],"ext":0,"trk":[2732,1592,"window",15,"none"],"cores":10,"mem":16,"lang":"en-US","br":"Chrome 157","os":"macOS"} @ https://meso.watch/js/upload.js?v=market699:250
+[ 7065545ms] [INFO] [MesoWatch recording] 06:03:54 own_window_seen @ https://meso.watch/js/upload.js?v=market699:250
+[ 7075560ms] [INFO] [MesoWatch recording] 06:04:04 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 7078058ms] [INFO] [MesoWatch recording] 06:04:06 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 7085337ms] [INFO] [MesoWatch recording] 06:04:14 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 7087628ms] [INFO] [MesoWatch recording] 06:04:16 live_myshop_here @ https://meso.watch/js/upload.js?v=market699:250
+[ 7105779ms] [INFO] [MesoWatch recording] 06:04:34 session_reader {"rs":0,"tabs":null,"hid":0,"fps":7.3,"fr":312,"sh":2,"rd":0,"mt":0,"un":0,"ow":1,"od":0,"ab":{"mesos matched too weak":4,"digit layout does not ":3,"quantity n @ https://meso.watch/js/upload.js?v=market699:250
+[ 7105781ms] [INFO] [MesoWatch recording] 06:04:34 live_stop 2 shops @ https://meso.watch/js/upload.js?v=market699:250
+[ 7110327ms] [INFO] [MesoWatch recording] 06:04:38 record_start_click overallManualGrade @ https://meso.watch/js/upload.js?v=market699:250
+[ 7112229ms] [INFO] [MesoWatch recording] 06:04:40 live_start @ https://meso.watch/js/upload.js?v=market699:250
+[ 7114543ms] [INFO] [MesoWatch recording] 06:04:43 own_window_seen @ https://meso.watch/js/upload.js?v=market699:250
+[ 7120537ms] [INFO] [MesoWatch recording] 06:04:49 live_myshop_open @ https://meso.watch/js/upload.js?v=market699:250
+[ 7123230ms] [INFO] [MesoWatch recording] 06:04:51 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market699:250
+[ 7127761ms] [INFO] [MesoWatch recording] 06:04:56 live_myshop_here @ https://meso.watch/js/upload.js?v=market699:250
+[ 7131943ms] [INFO] [MesoWatch recording] 06:05:00 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 7135814ms] [INFO] [MesoWatch recording] 06:05:04 tip_seen s=o @ https://meso.watch/js/upload.js?v=market699:250
+[ 7138803ms] [INFO] [MesoWatch recording] 06:05:07 live_stop 2 shops @ https://meso.watch/js/upload.js?v=market699:250
+[ 7141577ms] [INFO] [MesoWatch recording] 06:05:10 chip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 7147376ms] [INFO] [MesoWatch recording] 06:05:16 record_start_click overallManualGrade @ https://meso.watch/js/upload.js?v=market701:250
+[ 7149234ms] [INFO] [MesoWatch recording] 06:05:17 live_start @ https://meso.watch/js/upload.js?v=market701:250
+[ 7149235ms] [INFO] [MesoWatch recording] 06:05:17 session_setup {"hdr":0,"vhdr":0,"dpr":2,"in":[1490,817],"ext":0,"trk":[7680,4320,"window",15,"none"],"cores":10,"mem":16,"lang":"en-US","br":"Chrome 157","os":"macOS"} @ https://meso.watch/js/upload.js?v=market701:250
+[ 7149386ms] [INFO] [MesoWatch recording] 06:05:18 setup_howto channel @ https://meso.watch/js/upload.js?v=market701:250
+[ 7151581ms] [INFO] [MesoWatch recording] 06:05:20 own_window_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 7154759ms] [INFO] [MesoWatch recording] 06:05:23 live_myshop_open @ https://meso.watch/js/upload.js?v=market701:250
+[ 7156988ms] [INFO] [MesoWatch recording] 06:05:25 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7189487ms] [INFO] [MesoWatch recording] 06:05:58 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7197487ms] [INFO] [MesoWatch recording] 06:06:06 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7200485ms] [INFO] [MesoWatch recording] 06:06:09 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7205278ms] [INFO] [MesoWatch recording] 06:06:13 tip_hint_shown e=2 r=0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7209030ms] [INFO] [MesoWatch recording] 06:06:17 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7216986ms] [INFO] [MesoWatch recording] 06:06:25 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7224265ms] [INFO] [MesoWatch recording] 06:06:32 tip_seen s=o @ https://meso.watch/js/upload.js?v=market701:250
+[ 7232462ms] [INFO] [MesoWatch recording] 06:06:41 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7237169ms] [INFO] [MesoWatch recording] 06:06:45 own_rows_sent 3 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7240506ms] [INFO] [MesoWatch recording] 06:06:49 tip_seen s=o @ https://meso.watch/js/upload.js?v=market701:250
+[ 7253430ms] [INFO] [MesoWatch recording] 06:07:02 tip_seen s=o @ https://meso.watch/js/upload.js?v=market701:250
+[ 7263209ms] [INFO] [MesoWatch recording] 06:07:11 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7268627ms] [INFO] [MesoWatch recording] 06:07:17 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 7269643ms] [INFO] [MesoWatch recording] 06:07:18 session_reader {"rs":0,"tabs":0,"hid":0,"fps":7.3,"fr":880,"sh":12,"rd":6,"mt":6,"un":0,"ow":6,"od":0,"ab":{"mesos matched too weak":15,"quantity not read":6,"digit layout doe @ https://meso.watch/js/upload.js?v=market701:250
+[ 7271645ms] [INFO] [MesoWatch recording] 06:07:20 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 7275210ms] [INFO] [MesoWatch recording] 06:07:23 live_myshop_card 4 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7326778ms] [INFO] [MesoWatch recording] 06:08:15 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 7749486ms] [INFO] [MesoWatch recording] 06:15:18 own_tip_sum h=0 tb=0 d=0 dn=0 nr=0 e=2 w=10min @ https://meso.watch/js/upload.js?v=market701:250
+[ 7844128ms] [INFO] [MesoWatch recording] 06:16:52 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 7846234ms] [INFO] [MesoWatch recording] 06:16:54 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 7862593ms] [INFO] [MesoWatch recording] 06:17:11 own_rows_sent 4 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7911995ms] [INFO] [MesoWatch recording] 06:18:00 own_rows_sent 5 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7916505ms] [INFO] [MesoWatch recording] 06:18:05 own_rows_sent 6 @ https://meso.watch/js/upload.js?v=market701:250
+[ 7921601ms] [INFO] [MesoWatch recording] 06:18:10 own_rows_sent 7 @ https://meso.watch/js/upload.js?v=market701:250
+[ 8075796ms] [INFO] [MesoWatch recording] 06:20:44 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 8128924ms] [INFO] [MesoWatch recording] 06:21:37 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 8150328ms] [INFO] [MesoWatch recording] 06:21:58 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 8154343ms] [INFO] [MesoWatch recording] 06:22:03 tip_seen @ https://meso.watch/js/upload.js?v=market701:250
+[ 8169011ms] [INFO] [MesoWatch recording] 06:22:17 own_rows_sent 1 @ https://meso.watch/js/upload.js?v=market701:250
+[ 8180090ms] [INFO] [MesoWatch recording] 06:22:28 own_rows_sent 2 @ https://meso.watch/js/upload.js?v=market701:250
+[ 8257270ms] [INFO] [MesoWatch recording] 06:23:45 tip_seen s=b @ https://meso.watch/js/upload.js?v=market701:250
+[ 8261669ms] [INFO] [MesoWatch recording] 06:23:50 tip_seen s=b @ https://meso.watch/js/upload.js?v=market701:250
+[ 8276755ms] [INFO] [MesoWatch recording] 06:24:05 tip_seen s=b @ https://meso.watch/js/upload.js?v=market701:250
+[ 8301562ms] [INFO] [MesoWatch recording] 06:24:30 tip_seen s=b @ https://meso.watch/js/upload.js?v=market701:250
+[ 8336771ms] [INFO] [MesoWatch recording] 06:25:05 own_tip_sum h=0 tb=0 d=0 dn=0 nr=0 e=7 w=stop @ https://meso.watch/js/upload.js?v=market701:250
+[ 8336774ms] [INFO] [MesoWatch recording] 06:25:05 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 8336774ms] [INFO] [MesoWatch recording] 06:25:05 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 8336774ms] [INFO] [MesoWatch recording] 06:25:05 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 8336774ms] [INFO] [MesoWatch recording] 06:25:05 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 8336774ms] [INFO] [MesoWatch recording] 06:25:05 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market701:250
+[ 8336777ms] [INFO] [MesoWatch recording] 06:25:05 live_stop 14 shops @ https://meso.watch/js/upload.js?v=market701:250
+[ 8336875ms] [INFO] [MesoWatch recording] 06:25:05 live_share_open @ https://meso.watch/js/upload.js?v=market701:250

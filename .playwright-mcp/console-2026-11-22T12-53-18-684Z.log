@@ -1,0 +1,64 @@
+[    1958ms] [INFO] [MesoWatch recording] 12:53:20 chip_seen @ https://meso.watch/js/upload.js?v=market706:251
+[    5652ms] [INFO] [MesoWatch recording] 12:53:24 record_start_click overallManualGrade @ https://meso.watch/js/upload.js?v=market706:251
+[    8407ms] [INFO] [MesoWatch recording] 12:53:27 live_start @ https://meso.watch/js/upload.js?v=market706:251
+[    8407ms] [INFO] [MesoWatch recording] 12:53:27 session_setup {"hdr":0,"vhdr":0,"dpr":2,"in":[1490,817],"ext":0,"trk":[2732,1592,"window",15,"none"],"cores":10,"mem":16,"lang":"en-US","br":"Chrome 157","os":"macOS"} @ https://meso.watch/js/upload.js?v=market706:251
+[    8558ms] [INFO] [MesoWatch recording] 12:53:27 setup_howto channel @ https://meso.watch/js/upload.js?v=market706:251
+[    9995ms] [INFO] [MesoWatch recording] 12:53:28 own_window_seen @ https://meso.watch/js/upload.js?v=market706:251
+[   10794ms] [INFO] [MesoWatch recording] 12:53:29 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   10911ms] [INFO] [MesoWatch recording] 12:53:29 setup_howto map @ https://meso.watch/js/upload.js?v=market706:251
+[   15486ms] [INFO] [MesoWatch recording] 12:53:34 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   17983ms] [INFO] [MesoWatch recording] 12:53:36 own_rows_sent 5 @ https://meso.watch/js/upload.js?v=market706:251
+[   22544ms] [INFO] [MesoWatch recording] 12:53:41 live_myshop_open @ https://meso.watch/js/upload.js?v=market706:251
+[   23285ms] [INFO] [MesoWatch recording] 12:53:41 own_rows_sent 6 @ https://meso.watch/js/upload.js?v=market706:251
+[   28193ms] [INFO] [MesoWatch recording] 12:53:46 own_rows_sent 8 @ https://meso.watch/js/upload.js?v=market706:251
+[   31455ms] [INFO] [MesoWatch recording] 12:53:50 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   34224ms] [INFO] [MesoWatch recording] 12:53:52 own_rows_sent 9 @ https://meso.watch/js/upload.js?v=market706:251
+[   34924ms] [INFO] [MesoWatch recording] 12:53:53 live_myshop_open @ https://meso.watch/js/upload.js?v=market706:251
+[   40505ms] [INFO] [MesoWatch recording] 12:53:59 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   46799ms] [INFO] [MesoWatch recording] 12:54:05 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   51858ms] [INFO] [MesoWatch recording] 12:54:10 live_myshop_open @ https://meso.watch/js/upload.js?v=market706:251
+[   52093ms] [INFO] [MesoWatch recording] 12:54:10 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   53752ms] [INFO] [MesoWatch recording] 12:54:12 own_sticky no @ https://meso.watch/js/upload.js?v=market706:251
+[   54126ms] [INFO] [MesoWatch recording] 12:54:12 own_rows_sent 9 @ https://meso.watch/js/upload.js?v=market706:251
+[   59432ms] [INFO] [MesoWatch recording] 12:54:18 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   62826ms] [INFO] [MesoWatch recording] 12:54:21 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   67797ms] [INFO] [MesoWatch recording] 12:54:26 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   73022ms] [INFO] [MesoWatch recording] 12:54:31 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[   75451ms] [INFO] [MesoWatch recording] 12:54:34 live_myshop_open @ https://meso.watch/js/upload.js?v=market706:251
+[   79448ms] [INFO] [MesoWatch recording] 12:54:38 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[  128756ms] [INFO] [MesoWatch recording] 12:55:27 session_reader {"rs":0,"tabs":0,"hid":0,"fps":6.7,"fr":810,"sh":1,"rd":9,"mt":9,"un":0,"ab":{"quantity not read":1},"mw":["read"],"ch":1,"cl":1,"cf":1,"ui":1} @ https://meso.watch/js/upload.js?v=market706:251
+[  282905ms] [INFO] [MesoWatch recording] 12:58:01 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[  369652ms] [INFO] [MesoWatch recording] 12:59:28 tip_seen @ https://meso.watch/js/upload.js?v=market706:251
+[  608493ms] [INFO] [MesoWatch recording] 13:03:27 own_tip_sum h=0 tb=0 d=0 dn=0 nr=0 e=3 w=10min @ https://meso.watch/js/upload.js?v=market706:251
+[  655157ms] [INFO] [MesoWatch recording] 13:04:13 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[ 1265714ms] [INFO] [MesoWatch recording] 13:14:24 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[ 1269437ms] [INFO] [MesoWatch recording] 13:14:28 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[ 1278975ms] [INFO] [MesoWatch recording] 13:14:37 own_seller_wait wait 0 @ https://meso.watch/js/upload.js?v=market706:251
+[ 1281065ms] [INFO] [MesoWatch recording] 13:14:39 tip_seen s=o @ https://meso.watch/js/upload.js?v=market706:251
+[ 2094891ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://meso.watch/api/shop?seller=markybby&market=Classic%20World:1
+[ 2269115ms] [INFO] [MesoWatch recording] 13:31:07 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2275790ms] [INFO] [MesoWatch recording] 13:31:14 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2321069ms] [INFO] [MesoWatch recording] 13:31:59 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2341719ms] [INFO] [MesoWatch recording] 13:32:20 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2349914ms] [INFO] [MesoWatch recording] 13:32:28 tip_seen @ https://meso.watch/js/upload.js?v=market706:251
+[ 2394911ms] [INFO] [MesoWatch recording] 13:33:13 tip_seen @ https://meso.watch/js/upload.js?v=market706:251
+[ 2426006ms] [INFO] [MesoWatch recording] 13:33:44 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2430309ms] [INFO] [MesoWatch recording] 13:33:48 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2485357ms] [INFO] [MesoWatch recording] 13:34:44 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2500157ms] [INFO] [MesoWatch recording] 13:34:58 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2503469ms] [INFO] [MesoWatch recording] 13:35:02 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2528667ms] [INFO] [MesoWatch recording] 13:35:27 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2545075ms] [INFO] [MesoWatch recording] 13:35:43 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2551018ms] [INFO] [MesoWatch recording] 13:35:49 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 2556419ms] [INFO] [MesoWatch recording] 13:35:55 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 3471880ms] [INFO] [MesoWatch recording] 13:51:10 tip_seen s=b @ https://meso.watch/js/upload.js?v=market706:251
+[ 3601792ms] [INFO] [MesoWatch recording] 13:53:20 stale own=market706 live=market707 @ https://meso.watch/js/upload.js?v=market706:251
+[ 3946252ms] [INFO] [MesoWatch recording] 13:59:04 own_seller_wait dropped 0 @ https://meso.watch/js/upload.js?v=market706:251
+[ 3946255ms] [INFO] [MesoWatch recording] 13:59:04 live_stop 16 shops @ https://meso.watch/js/upload.js?v=market706:251
+[ 3946399ms] [INFO] [MesoWatch recording] 13:59:05 live_share_open @ https://meso.watch/js/upload.js?v=market706:251
+[ 4160891ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://meso.watch/api/shop?seller=Raixiar&market=Classic%20World:1
+[ 4597279ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://meso.watch/api/shop?seller=Tayar&market=Classic%20World:1
+[ 8177033ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://meso.watch/data/seller/Classic%20World/_/croutons.png?v=dc2041b2f8f422be:1
+[ 8657866ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://meso.watch/data/seller/Classic%20World/_/ewaja.png?v=991fc5f2a44eaa85:1
+[ 9259151ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://meso.watch/data/seller/Classic%20World/_/coeli.png?v=99cbfe7f4f87607c:1
+[ 9499594ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://meso.watch/data/seller/Classic%20World/_/skyline.png?v=42283f79b959463c:1

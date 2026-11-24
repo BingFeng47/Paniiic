@@ -1,0 +1,808 @@
+{
+  "pbtResults": {
+    "1.4 Write game-core extension tests in `tests/game/step.lane.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795267350374
+    },
+    "2.8 Write hammer tests in `tests/game/hammer.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795268591707
+    },
+    "2.7 Write mob tests in `tests/game/mobs.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795268664969
+    },
+    "2.10 Write lane run properties in `tests/game/laneProperties.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795268745209
+    },
+    "6.2 Write layout tests in `tests/render/laneLayout.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795269729227
+    },
+    "5.2 Write frame tests in `tests/render/sprites/frames.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795269785225
+    },
+    "5.4 Write manifest tests in `tests/render/sprites/manifest.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795270411027
+    },
+    "6.8 Write HUD and copy tests in `tests/ui/laneHud.test.ts` and `tests/copy.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795270423092
+    },
+    "6.6 Write sound tests in `tests/render/laneSounds.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795270437813
+    },
+    "5.6 Write placeholder tests in `tests/render/sprites/placeholder.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795270796207
+    },
+    "6.4 Write draw-list and effects tests in `tests/render/laneDrawList.test.ts` and `tests/render/laneEffects.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795272200623
+    }
+  },
+  "executionHistory": {
+    "1.1 Create `src/game/balance/lane.ts` and `src/game/laneTypes.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266364892
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266408526
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266978996
+      }
+    ],
+    "1.3 Extend `src/game/types.ts`, `src/game/context.ts` and `src/game/step.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266364927
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267013641
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267213275
+      }
+    ],
+    "2.1 Create `src/game/laneState.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266364959
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267241212
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267375274
+      }
+    ],
+    "2.2 Create `src/game/mobs.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365008
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267401532
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267643658
+      }
+    ],
+    "2.3 Create `src/game/hammer.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365047
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267663654
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267812563
+      }
+    ],
+    "2.4 Create `src/game/spawner.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365075
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267664044
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267812953
+      }
+    ],
+    "2.5 Create `src/game/lane.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365105
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267838870
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268016773
+      }
+    ],
+    "3. Checkpoint: simulation complete": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365138
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268948140
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269179456
+      }
+    ],
+    "4.1 Add `toScreenPoint` to `SessionContext`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365179
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269217660
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269531497
+      }
+    ],
+    "5.1 Create `src/render/sprites/entities.ts` and `src/render/sprites/frames.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365213
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269218654
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269530528
+      }
+    ],
+    "5.3 Create `src/render/sprites/manifest.ts` and `src/render/sprites/spriteModules.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365244
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269607717
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270153070
+      }
+    ],
+    "5.5 Create `src/render/sprites/placeholder.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365272
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269608548
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270154166
+      }
+    ],
+    "5.7 Create `src/render/sprites/atlas.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365301
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270231252
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270502417
+      }
+    ],
+    "6.1 Create `src/render/laneLayout.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365327
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269220130
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269532478
+      }
+    ],
+    "6.3 Create `src/render/laneEffects.ts` and `src/render/laneDrawList.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365360
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270231640
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270501481
+      }
+    ],
+    "6.5 Create `src/render/laneSounds.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365387
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269220654
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269529454
+      }
+    ],
+    "6.7 Create `src/ui/laneCopy.ts` and `src/ui/laneHud.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365418
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269221557
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269533220
+      }
+    ],
+    "6.9 Create `src/render/laneView.ts` and `src/styles/lane.css`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365444
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270576687
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272239452
+      }
+    ],
+    "7.1 Register the lane in `src/dialup/sessionRegistry.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365470
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272314294
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272634862
+      }
+    ],
+    "8. Checkpoint: lane playable in the shell": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365502
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272687230
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272816883
+      }
+    ],
+    "9.1 Write the `add-mob` skill in `.kiro/skills/add-mob/SKILL.md`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365532
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272856288
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795273137882
+      }
+    ],
+    "9.3 Add a note to `docs/kiro-log.md`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365569
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272856687
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795273138333
+      }
+    ],
+    "10. Playtester smoke run": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365623
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795273361940
+      },
+      {
+        "executionId": "2303e17e-9c36-403f-9d5e-b4deda67ed80",
+        "chatSessionId": "sess_8f1090f4-2008-4c29-958e-a7239d259785",
+        "timestamp": 1795274375033
+      },
+      {
+        "executionId": "2303e17e-9c36-403f-9d5e-b4deda67ed80",
+        "chatSessionId": "sess_8f1090f4-2008-4c29-958e-a7239d259785",
+        "timestamp": 1795274386246
+      }
+    ],
+    "11. Final checkpoint": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266365650
+      }
+    ],
+    "1.2 Write balance tests in `tests/game/balance/lane.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266379335
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267013723
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267213753
+      }
+    ],
+    "1.4 Write game-core extension tests in `tests/game/step.lane.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266380069
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267241318
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267375768
+      }
+    ],
+    "2.6 Create lane test helpers in `tests/helpers/lane.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266381050
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268038546
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268374690
+      }
+    ],
+    "2.7 Write mob tests in `tests/game/mobs.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266382118
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268375672
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268944047
+      }
+    ],
+    "2.8 Write hammer tests in `tests/game/hammer.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266383101
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268376637
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268945038
+      }
+    ],
+    "2.9 Write spawner and wiring tests in `tests/game/spawner.test.ts` and `tests/game/lane.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266384117
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268377741
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268946560
+      }
+    ],
+    "2.10 Write lane run properties in `tests/game/laneProperties.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266385103
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268378310
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268947719
+      }
+    ],
+    "4.2 Extend `tests/scenes/desktop/desktopScene.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266386103
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269609148
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270155149
+      }
+    ],
+    "5.2 Write frame tests in `tests/render/sprites/frames.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266387103
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269610547
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270156155
+      }
+    ],
+    "5.4 Write manifest tests in `tests/render/sprites/manifest.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266388117
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270234410
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270499383
+      }
+    ],
+    "5.6 Write placeholder tests in `tests/render/sprites/placeholder.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266389102
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270577237
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272240394
+      }
+    ],
+    "5.8 Write atlas tests in `tests/render/sprites/atlas.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266390118
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270578683
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272241170
+      }
+    ],
+    "6.2 Write layout tests in `tests/render/laneLayout.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266391103
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269611011
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270156731
+      }
+    ],
+    "6.4 Write draw-list and effects tests in `tests/render/laneDrawList.test.ts` and `tests/render/laneEffects.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266392113
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270579200
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272238394
+      }
+    ],
+    "6.6 Write sound tests in `tests/render/laneSounds.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266393097
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270233150
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270501902
+      }
+    ],
+    "6.8 Write HUD and copy tests in `tests/ui/laneHud.test.ts` and `tests/copy.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266394617
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270233649
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270499840
+      }
+    ],
+    "6.10 Write Lane_View tests in `tests/render/laneView.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266395112
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272315071
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272634163
+      }
+    ],
+    "9.2 Write `tests/skills.test.ts`": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795266395618
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795273199614
+      },
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795273324003
+      }
+    ],
+    "1. Lane balance, lane types and game-core extensions": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795267213320
+      }
+    ],
+    "2. Pure lane simulation": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795268016844
+      }
+    ],
+    "4. Shell hook for screen coordinates": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795269531595
+      }
+    ],
+    "5. Sprite pipeline": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795270502498
+      }
+    ],
+    "6. Lane rendering, HUD and sounds": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272239555
+      }
+    ],
+    "7. Wire the lane into every Session": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795272634955
+      }
+    ],
+    "9. Kiro artifacts": [
+      {
+        "executionId": "a13569f1-7a1b-472c-a3e7-6dbbe28b2735",
+        "chatSessionId": "sess_bb691333-a6d3-4b29-8d87-d308f5370c3c",
+        "timestamp": 1795273138394
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "balance-check",
+      "description": "After a file in src/game/balance/ is saved: validate the balance tables and play 20 competent-bot seeds, printing win rate and PASS/WARN per balance target.",
+      "trigger": "PostFileSave",
+      "matcher": "src/game/balance/",
+      "action": { "type": "command", "command": "npm run sim:check" }
+    }
+  ]
+}
