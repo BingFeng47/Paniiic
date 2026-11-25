@@ -28,6 +28,12 @@ describe('DESKTOP_COPY', () => {
         '  - Click zombies on the phone line to smash them.\n' +
         '  - Close pop-ups to keep the page clear.\n' +
         '  - Click the small grey link to start the download.\n' +
+        '  - Press 1, 2, 3 to switch hammer, saw and flamer. Shift+1-3 buys upgrades.\n' +
+        '\n' +
+        'Weapons:\n' +
+        '  HAMMER  hits hardest, one click at a time.\n' +
+        '  E-SAW   hold it on a zombie. Steady, never misses.\n' +
+        '  FLAMER  hold and sweep. Roasts crowds. Bosses barely notice.\n' +
         '\n' +
         'To get on the Internet:\n' +
         '  1. Double-click "Connect to MidnightNet".\n' +

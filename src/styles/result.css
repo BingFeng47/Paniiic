@@ -17,6 +17,20 @@
  *           h2.result-headline                                           (won only)
  *           div.result-file > span.icon + span.result-file-name + span.result-file-note
  *           dl.result-stats > (dt + dd) × 3
+ *           div.result-receipt                                           (leaderboard Req 4)
+ *             p.result-receipt-from + p.result-receipt-title
+ *             div.result-receipt-lines > div.result-receipt-line[data-line] × non-zero parts
+ *               each: span.result-receipt-label + span.result-receipt-points
+ *             div.result-receipt-total > span.result-receipt-label + span.result-receipt-points
+ *             p.result-receipt-footer
+ *           div.result-guestbook > div.guestbook[data-state]             (leaderboard Req 5)
+ *             h3.guestbook-heading
+ *             form.guestbook-form > label.guestbook-label + input.field-input.guestbook-name
+ *                                   + button.btn.guestbook-sign
+ *             p.guestbook-hint + p.guestbook-status[role=status]
+ *             div.guestbook-board > p.guestbook-thanks + p.guestbook-rank
+ *                                   + table.guestbook-table (tr.is-you) + p.guestbook-list-busy
+ *             (no configuration: h3 + p.guestbook-status.is-closed only)
  *           div.result-buttons > button.btn.btn-default.result-retry + button.btn.result-main-menu
  *
  *   div.result-bar > div.result-bar-fill (inline width) + span.result-bar-text
@@ -169,6 +183,197 @@
 
 .result-stats dd {
   margin: 0;
+  font-weight: bold;
+}
+
+/* ---- Receipt (leaderboard Req 4) --------------------------------------------------------------- */
+
+/* A strip of till paper: monospace, dashed rules, a torn zig-zag bottom edge. */
+.result-receipt {
+  position: relative;
+  margin: 4px 16px 10px;
+  padding: 8px 12px 10px;
+  background: var(--c-field);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--c-text);
+  box-shadow: 1px 1px 0 var(--c-text-disabled);
+}
+
+.result-receipt::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 6px;
+  background:
+    linear-gradient(-45deg, var(--c-transparent) 4px, var(--c-field) 0) 0 0 / 8px 6px repeat-x,
+    linear-gradient(45deg, var(--c-transparent) 4px, var(--c-field) 0) 0 0 / 8px 6px repeat-x;
+}
+
+.result-receipt p {
+  margin: 0;
+  text-align: center;
+}
+
+.result-receipt-from {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.result-receipt-title {
+  padding-bottom: 4px;
+  border-bottom: 1px dashed var(--c-text-disabled);
+}
+
+.result-receipt-lines {
+  padding: 4px 0;
+}
+
+.result-receipt-line,
+.result-receipt-total {
+  display: flex;
+  gap: 6px;
+}
+
+/* Dot leaders between the label and the points. */
+.result-receipt-label {
+  flex: 1 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.result-receipt-label::after {
+  content: ' ........................................';
+  color: var(--c-text-disabled);
+}
+
+.result-receipt-points {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.result-receipt-total {
+  padding: 4px 0;
+  border-top: 1px dashed var(--c-text-disabled);
+  border-bottom: 1px dashed var(--c-text-disabled);
+  font-weight: bold;
+}
+
+.result-receipt-footer {
+  padding-top: 4px;
+  font-size: 11px;
+  color: var(--c-text-disabled);
+}
+
+/* ---- Guestbook_Form (leaderboard Req 5) ------------------------------------------------------- */
+
+/* The receipt and the top 10 can outgrow the Screen; the body scrolls instead of spilling. */
+.result-window .window-body {
+  max-height: calc(var(--screen-h) - 64px);
+  overflow-y: auto;
+}
+
+.result-guestbook:empty {
+  display: none;
+}
+
+.guestbook {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 16px;
+  padding: 6px 8px 8px;
+  border: 1px solid var(--c-guestbook-rule);
+  background: var(--c-guestbook-page);
+  color: var(--c-guestbook-text);
+}
+
+.guestbook p {
+  margin: 0;
+}
+
+.guestbook-heading {
+  margin: 0;
+  font-family: var(--font-wordmark);
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--c-guestbook-heading);
+}
+
+.guestbook-form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.guestbook-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-mono);
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.guestbook-hint,
+.guestbook-thanks,
+.guestbook-list-busy {
+  font-size: 11px;
+  color: var(--c-guestbook-note);
+}
+
+.guestbook-status[hidden],
+.guestbook-board[hidden] {
+  display: none;
+}
+
+.guestbook-status,
+.guestbook-rank {
+  font-weight: bold;
+  color: var(--c-guestbook-heading);
+}
+
+.guestbook-status.is-closed {
+  text-align: center;
+  color: var(--c-guestbook-note);
+}
+
+.guestbook-board {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.guestbook-table {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.guestbook-table caption {
+  padding: 2px 0;
+  font-weight: bold;
+  color: var(--c-guestbook-heading);
+}
+
+.guestbook-table th,
+.guestbook-table td {
+  padding: 1px 4px;
+  border-bottom: 1px solid var(--c-guestbook-rule);
+  text-align: left;
+}
+
+.guestbook-table .guestbook-pos,
+.guestbook-table .guestbook-score {
+  text-align: right;
+}
+
+/* The player's new row: a steady highlight, nothing blinks. */
+.guestbook-table tr.is-you {
+  background: var(--c-highlight);
+  color: var(--c-highlight-text);
   font-weight: bold;
 }
 

@@ -8,6 +8,8 @@
  * → shutdown flow. It never binds the settings to the audio: `main.ts` does that (design D9).
  */
 import type { AudioEngine } from '../core/audio';
+import { createLeaderboardClient, type LeaderboardClient } from '../core/leaderboard';
+import { readLeaderboardConfig } from '../core/leaderboardConfig';
 import type { Monitor } from '../core/monitor';
 import type { Mountable, Scene, SceneFactories, SignalFn } from '../core/scene';
 import { createSettingsStore, type SettingsStore } from '../core/settings';
@@ -25,12 +27,18 @@ export interface ShellDeps {
   readonly audio: AudioEngine;
   /** Defaults to `startFixedLoop` in each scene. Tests pass a manual loop. */
   readonly startLoop?: LoopStarter;
-  /** Seed for each Session's Run. Defaults to `crypto.getRandomValues`. */
+  /** Seed for each Session's Run. Defaults to the daily seed of the current UTC Day. */
   readonly seedSource?: () => number;
   /** Defaults to `SESSION_REGISTRY`. */
   readonly registry?: SessionRegistry;
   /** Defaults to a memory-only store (storage getter returns null). main.ts passes the real one. */
   readonly settings?: SettingsStore;
+  /**
+   * The one Leaderboard_Client shared by the Title_Scene's Hall_of_Fame and the Result_Screen's
+   * Guestbook_Form. Defaults to `createLeaderboardClient(readLeaderboardConfig())`; with no
+   * configuration every call answers `offline`. The client only sends requests when called.
+   */
+  readonly leaderboard?: LeaderboardClient;
 }
 
 /** A store that never touches storage and stays quiet about it (no console warning). */
@@ -42,6 +50,7 @@ function memorySettingsStore(): SettingsStore {
 export function buildSceneFactories(deps: ShellDeps): SceneFactories {
   const { monitor, audio, seedSource, registry } = deps;
   const settings = deps.settings ?? memorySettingsStore();
+  const leaderboard = deps.leaderboard ?? createLeaderboardClient(readLeaderboardConfig());
   const baseLoop = deps.startLoop ?? startFixedLoop;
   // While the Power_Confirm dialog is open every scene loop gets no ticks, so the boot, the
   // dial-up and the Run all hold still until the player answers.
@@ -91,7 +100,7 @@ export function buildSceneFactories(deps: ShellDeps): SceneFactories {
   };
   return {
     powerOff: (signal) => createPowerOffScene({ monitor, audio, signal }),
-    title: (signal) => createTitleScene({ audio, settings, signal, startLoop }),
+    title: (signal) => createTitleScene({ audio, settings, signal, startLoop, leaderboard }),
     boot: withPowerMenu((signal) => createBootScene({ monitor, audio, signal, startLoop })),
     desktop: withPowerMenu((signal) =>
       createDesktopScene({
@@ -101,6 +110,7 @@ export function buildSceneFactories(deps: ShellDeps): SceneFactories {
         startLoop,
         seedSource,
         registry,
+        leaderboard, // the same client as the Hall_of_Fame (leaderboard Req 5)
         viewPrefs: () => {
           const s = settings.get();
           return { screenShake: s.screenShake, hintsEnabled: s.hintsEnabled }; // Req 7.1, player-guide 4.6

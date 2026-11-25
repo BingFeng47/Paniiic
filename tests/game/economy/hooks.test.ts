@@ -50,8 +50,9 @@ describe('createLaneSystems({ weapons })', () => {
     const systems = createLaneSystems({ weapons });
     expect(systems).toHaveLength(createLaneSystems().length + 1);
     step(start, [{ type: 'hammer', x, y }], systems);
-    // The hammer already hit (hp 1) and the mob has not moved yet (x 400).
-    expect(order).toEqual(['weapons:1:400']);
+    // The hammer already hit and the mob has not moved yet (x 400).
+    const hp = DEFAULT_LANE_BALANCE.enemies.default.hp - DEFAULT_LANE_BALANCE.hammer.damage;
+    expect(order).toEqual([`weapons:${hp}:400`]);
   });
 });
 
@@ -121,19 +122,20 @@ describe('hammer economy hooks', () => {
     expect(final.lane!.enemies[0].hp).toBe(DEFAULT_LANE_BALANCE.enemies.boss.hp);
   });
 
-  it('deals 1 damage with the plain hammer', () => {
+  it('deals 2 damage with the plain hammer', () => {
     const { final } = run(withEconomy([target], {}), 1, click);
-    expect(final.lane!.enemies[0].hp).toBe(DEFAULT_LANE_BALANCE.enemies.boss.hp - 1);
+    expect(final.lane!.enemies[0].hp).toBe(DEFAULT_LANE_BALANCE.enemies.boss.hp - 2);
   });
 
-  it('deals 2 damage with the heavy head at the same 0.3 s cooldown', () => {
-    expect(COOLDOWN_TICKS).toBe(18);
+  it('deals 3 damage with the heavy head at the same 0.38 s cooldown', () => {
+    expect(COOLDOWN_TICKS).toBe(23);
     const start = withEconomy([target], { owned: ['heavyHead'] });
     // Clicks every tick: hits land on tick 1 and tick 1 + cooldown only.
     const { final, events } = run(start, COOLDOWN_TICKS, click);
     expect(ofType(events, 'hammerSwing')).toHaveLength(1);
-    expect(final.lane!.enemies[0].hp).toBe(DEFAULT_LANE_BALANCE.enemies.boss.hp - 2);
+    expect(final.lane!.enemies[0].hp).toBe(DEFAULT_LANE_BALANCE.enemies.boss.hp - 3);
     const next = run(final, 1, click);
-    expect(next.final.lane!.enemies[0].hp).toBe(DEFAULT_LANE_BALANCE.enemies.boss.hp - 4);
+    expect(next.final.lane!.enemies[0].hp).toBe(DEFAULT_LANE_BALANCE.enemies.boss.hp - 6);
   });
+
 });

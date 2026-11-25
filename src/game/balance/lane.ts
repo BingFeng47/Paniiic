@@ -94,10 +94,10 @@ export const DEFAULT_LANE_BALANCE: LaneBalance = deepFreeze({
   laneLength: 800,
   hitPadding: 6,
   enemies: {
-    default: { hp: 2, speed: 40, damage: 4, dropKb: 3, width: 44, height: 72 }, // 20 s
-    fast: { hp: 1, speed: 110, damage: 3, dropKb: 4, width: 34, height: 48 }, // 7.3 s
-    tank: { hp: 4, speed: 24, damage: 10, dropKb: 12, width: 72, height: 96 }, // 33 s
-    ranged: { hp: 3, speed: 40, damage: 0, dropKb: 8, width: 48, height: 76 }, // stops at 400
+    default: { hp: 5, speed: 40, damage: 4, dropKb: 3, width: 44, height: 72 }, // 20 s
+    fast: { hp: 3, speed: 110, damage: 3, dropKb: 4, width: 34, height: 48 }, // 7.3 s
+    tank: { hp: 6, speed: 24, damage: 10, dropKb: 12, width: 72, height: 96 }, // 33 s
+    ranged: { hp: 4, speed: 40, damage: 0, dropKb: 8, width: 48, height: 76 }, // stops at 400
     // Boss HP and speed: docs/balance/2026-11-24-boss-threat.md; drop: 2026-11-24-late-income.md.
     boss: { hp: 150, speed: 38, damage: 20, dropKb: 30, width: 112, height: 150 }, // 21 s
     glob: { hp: 1, speed: 150, damage: 5, dropKb: 0, width: 22, height: 22 }, // 2.7 s from 400
@@ -109,7 +109,7 @@ export const DEFAULT_LANE_BALANCE: LaneBalance = deepFreeze({
     tank: { hitEverySeconds: 2 },
     boss: { hitEverySeconds: 2 },
   },
-  hammer: { damage: 1, cooldownSeconds: 0.3 },
+  hammer: { damage: 2, cooldownSeconds: 0.38 }, // docs/balance/2026-11-25-weapon-roles.md
   ranged: { stopX: 400, firstSpitSeconds: 1, spitEverySeconds: 3 },
   boss: { thresholds: [0.75, 0.5, 0.25], summonCount: 2, summonSpacing: 36 },
   popupBurstCount: 3,

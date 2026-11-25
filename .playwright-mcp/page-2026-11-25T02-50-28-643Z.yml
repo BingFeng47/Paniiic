@@ -1,0 +1,11 @@
+- generic [ref=f3e3]:
+  - generic [ref=f3e7]:
+    - heading "DEAD LINE 56K DEAD LINE 56K" [level=1] [ref=f3e8]
+    - paragraph [ref=f3e9]: a Phantom 98 nightmare
+    - generic [ref=f3e10]:
+      - button "Play game" [active] [ref=f3e11]
+      - button "Hall of Fame" [ref=f3e12]
+      - button "Options" [ref=f3e13]
+    - paragraph [ref=f3e14]: Best viewed at 1024x768 with the lights off.
+    - paragraph [ref=f3e15]: (C) 1998 Graveyard Shift Software. All souls reserved.
+  - button "Power" [ref=f3e18] [cursor=pointer]

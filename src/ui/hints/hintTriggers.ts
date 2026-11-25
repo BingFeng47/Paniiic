@@ -38,6 +38,10 @@ function match(row: HintRow, prev: GameState | null, state: GameState, events: r
     }
     case 'canAfford':
       return canAffordAny(state) ? { kind: 'shop' } : null;
+    case 'weaponBought':
+      return events.some((e) => e.type === 'itemBought' && (e.item === 'saw' || e.item === 'flamethrower'))
+        ? { kind: 'shop' }
+        : null;
   }
 }
 

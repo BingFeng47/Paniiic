@@ -38,22 +38,23 @@ Short hint balloons guide a first-time player through each new thing once per ru
 
 ## 3. Chapters (timeline from the moment dialing starts)
 
-The run starts quiet and gets faster: spawn gaps shrink from about 10 s in the hook to about 2 s
-in plot turn 2.
+The run starts quiet and gets faster: the gap between default zombies shrinks from 10 s in the
+hook to 2.5 s in plot turn 2.
 
 | # | Chapter | Time | Browser front | Connection lane |
 |---|---|---|---|---|
 | 1 | Hook | 0:00–0:20 | Dial-up dialog: dialing, handshake screech, "Verifying user name and password..." No download yet. | CCTV feed flickers on. Manhole rattles. First **default** zombie crawls out about 0:08, the next about 0:18. Player learns the hammer. |
 | 2 | Plot turn 1 | 0:20–0:55 | Connected. Download page with a small grey real link. First clutter ad bounces in (plain ✕, safe to close). Player clicks the real link and the bar starts. An open clutter ad visibly slows the bar. | Sparse default zombies, one about every 9 s. First KB drops. |
 | 3 | Pinch 1 | 0:55–1:30 | First fake "DOWNLOAD NOW!!" button. First interrupter pauses the download. Ads start using tricky close patterns. First clutter ad lands **over the lane**. | **Fast** zombies join. A clutter ad left open for 10 s lets a zombie out of the manhole. |
-| 4 | Midpoint | 1:30–1:55 | Bar crosses 50% (about 1:40). 2 seconds of calm (natural shop moment), then the biggest ad cluster so far. | **Tank** joins (4 HP). The saw becomes clearly worth buying. A tank at the modem hits for 10 every 2 s, and its first hit fires a pop-up burst. Ads now let out fast zombies. |
+| 4 | Midpoint | 1:30–1:55 | Bar crosses 50% (about 1:30). 2 seconds of calm (natural shop moment), then the biggest ad cluster so far. | **Tank** joins (4 HP). The saw becomes clearly worth buying. A tank at the modem hits for 10 every 2 s, and its first hit fires a pop-up burst. Ads now let out fast zombies. |
 | 5 | Pinch 2 | 1:55–2:25 | Interrupters and fake buttons together. More clutter covers the lane. The ✕ on an interrupter runs away from the cursor. | **Ranged** zombie joins. All types active. Flamethrower earns its keep. Corruption overlay creeps in. |
-| 6 | Plot turn 2 | 2:25–2:50 | Ad storm. One last interrupter at 90%. | **Boss** rises from the manhole when the download reaches 65% (about 2:25) and reaches the modem before the end. Zombie flood. Integrity critical. Screen shake and crack overlay at maximum. |
+| 6 | Plot turn 2 | 2:25–2:50 | Ad storm. One last interrupter at 90%. | **Boss** rises from the manhole when the download reaches 75% (about 2:12, late in pinch 2) and reaches the modem in plot turn 2, before the end. Zombie flood: a default zombie every 2.5 s. Fast, tank and ranged zombies come less often than in pinch 2 (every 8, 16 and 20 s). Integrity critical. Screen shake and crack overlay at maximum. |
 | 7 | Resolution | about 3:00 | **Win:** bar hits 100%, handshake chime, "Welcome to the Internet!", file revealed as `funny_cats_1998.avi`. | **Lose:** integrity 0, modem screech, static, "Connection terminated" dialog, frozen file `SKELETON_DATING_SIM.EXE`. |
 
 The download needs **135 seconds** of un-paused progress at full speed (0.74% per second). Full
 speed needs a healthy modem and no open clutter ads (section 7). Interrupters, slowdowns and
-fake-button penalties push a winning run to about 3:00. Chapters start on the clock; the
+fake-button penalties push a winning run to about 3:00 (the sim's competent bot wins at a median
+of 3:16). Chapters start on the clock; the
 midpoint beats, the boss and the last interrupter start on download progress.
 
 ## 4. Modem integrity
@@ -72,11 +73,11 @@ again and again until it is killed**. It lands its first hit on arrival, then on
 
 | Mob | Role | HP | Speed | Hit damage | Hit every | Drop | Behaviour |
 |---|---|---|---|---|---|---|---|
-| default | Teaches the basics | 2 | slow | 4 | 1.5 s | 3 KB | Shambling crawler. |
-| fast | Tests tracking | 1 | fast | 3 | 1 s | 4 KB | Small and quick. Joins in pinch 1. |
-| tank | Needs the saw | 4 | very slow | 10 | 2 s | 12 KB | Its first modem hit also fires a pop-up burst. Joins at the midpoint. |
-| ranged | Punishes ignoring the lane | 3 | slow, then stops | 5 per glob | 3 s (spit) | 8 KB | Stops at mid-lane and spits a glob along the line every 3 s. Never walks to the modem. A glob dies to one hammer hit and drops nothing. Joins in pinch 2. |
-| boss | Final threat | 30 | very slow | 20 | 2 s | 60 KB | At 75%, 50% and 25% HP it summons 2 default zombies and fires a pop-up burst. Its first modem hit also fires a pop-up burst. Rises when the download reaches 65%. |
+| default | Teaches the basics | 5 (3 hammer hits) | slow | 4 | 1.5 s | 3 KB | Shambling crawler. |
+| fast | Tests tracking | 3 (2 hammer hits) | fast | 3 | 1 s | 4 KB | Small and quick. Joins in pinch 1. |
+| tank | Needs the saw | 6 | very slow | 10 | 2 s | 12 KB | Its first modem hit also fires a pop-up burst. Joins at the midpoint. |
+| ranged | Punishes ignoring the lane | 4 | slow, then stops | 5 per glob | 3 s (spit) | 8 KB | Stops at mid-lane and spits a glob along the line every 3 s. Never walks to the modem. A glob dies to one hammer hit and drops nothing. Joins in pinch 2. |
+| boss | Final threat | 150 | slow (a little slower than default) | 20 | 2 s | 30 KB | At 75%, 50% and 25% HP it summons 2 default zombies and fires a pop-up burst. Its first modem hit also fires a pop-up burst. Rises when the download reaches 75%, or at 3:20 at the latest. |
 
 Drops and speeds are starting values; `src/game/balance/` holds the tuned numbers.
 
@@ -87,24 +88,32 @@ Drops and speeds are starting values; `src/game/balance/` holds the tuned number
 - Closing an ad correctly gives **+3 KB**.
 - **Combo:** killing zombies less than 2 s apart builds a chain. From the third kill on, each
   kill in the chain shows "COMBO xN" on the CCTV display and gives +1 KB. Globs don't count.
-- **Shop tray** in the lane HUD. Buy by clicking or with hotkeys 1–5. Buying does **not** pause the
-  game. Owned weapons are switched with Q/E or the mouse wheel.
+- **Shop tray** in the lane HUD. Each slot shows its key as a boxed key cap, apart from the
+  price. Buying does **not** pause the game.
+- **Switching weapons:** press **1 / 2 / 3** (or click the weapon's slot) to take the hammer, saw
+  or flamethrower in hand, back and forth at any time. Q/E and the mouse wheel still cycle.
+- **Weapon roles:** the hammer hits hardest per click, the saw is steady damage while held, the
+  flamethrower burns crowds but the boss takes only a quarter of its fire damage.
 - Each upgrade has a single level, so the shop stays readable at a glance.
 
 | Item | Cost | How it works | Upgrade |
 |---|---|---|---|
-| Hammer | free (default) | Click a mob: 1 damage, 0.3 s cooldown. | Heavy head, 30 KB: 2 damage. |
-| Electric saw | 75 KB | Hold on a mob: 5 damage per second. Best against tanks. | High RPM, 50 KB: +50% damage. |
-| Flamethrower | 150 KB | Hold and drag: cone deals 4 damage per second, and burning mobs take 1 more per second for 2 s. 6 s of fuel; refills while not firing. | Big tank, 60 KB: +50% fuel. |
-| Pop-up blocker | 40 KB, one use | Auto-closes clutter ads for 6 seconds. The only item that helps the browser front. | – |
-| Surge protector | 50 KB, hold max 1 | Switches on at the next modem hit and blocks all modem damage for 5 seconds, that hit included. | – |
+| Hammer | free (default) | Click a mob: 2 damage, 0.38 s cooldown. Hardest hit; best on the boss once upgraded. | Heavy head, 30 KB: 3 damage. |
+| Electric saw | 75 KB | Hold on a mob: 7 damage per second. Steady, no clicking; best against tanks. | High RPM, 50 KB: +50% damage. |
+| Flamethrower | 150 KB | Hold and drag: cone deals 3 damage per second to every mob in it, and burning mobs take 1 more per second for 2 s. The boss takes 25% of that. 6 s of fuel; refills while not firing. | Big tank, 60 KB: +50% fuel. |
+| Pop-up blocker | 40 KB, one use, 20 s cooldown | Auto-closes clutter ads for 6 seconds. The only item that helps the browser front. Can't be bought again for 20 s after a purchase (the tray shows "WAIT 12s"). | – |
+| Surge protector | 50 KB, hold max 1, 20 s cooldown | Switches on at the next modem hit and blocks all modem damage for 5 seconds, that hit included. Can't be bought again for 20 s after a purchase. | – |
 
-Hotkeys: 1 hammer upgrade, 2 saw (then its upgrade), 3 flamethrower (then its upgrade),
-4 pop-up blocker, 5 surge protector.
+Hotkeys: **1 / 2 / 3** take the hammer, saw or flamethrower in hand, or buy the weapon if it is
+not owned yet. **Shift + 1 / 2 / 3** buy that weapon's upgrade (also the "UPG" button under the
+weapon in the tray, lit yellow when affordable). **4** pop-up blocker, **5** surge protector.
 
 Rough economy target: a player who kills most mobs and closes most ads can buy the saw around
-1:20–1:35 (just before tanks) and the flamethrower around 2:00–2:20. A typical run earns less
-than the whole shop costs, so the player chooses what to buy.
+1:20–1:35 (just before tanks) and the flamethrower around 2:00–2:20. The aim was that a typical
+run earns less than the whole shop costs, so the player chooses what to buy. At these prices it
+does not hold for a skilled player: the sim's competent bot earns about 610 KB by a win against
+a 365 KB shop (`docs/balance/2026-11-24-late-income.md`). Most of that arrives after the
+flamethrower, so the choice still matters before 2:20. We kept the prices on purpose.
 
 ## 7. Ads (browser front)
 
@@ -166,10 +175,15 @@ control, and a player who has seen it once can close it in about 2 seconds.
 | Ad limit counts clutter only | With one shared limit, a pile of unclosed clutter blocked interrupters and fake buttons, so ignoring ads protected the download. |
 | Lane-cover ads from pinch 1 | The lane is where ads hurt most, and pinch 2 was too late for players to feel it. |
 | About 3:00 per run, slow start | Playtest, 23 Nov: the run felt short and easy. Every bot won every run and the modem never went critical. A quiet start teaches; the ramp makes the end tense. Replaced "about 2:30". The demo video cuts the dial-up to stay under 3 minutes. |
-| Boss rises on download progress | At a fixed 1:58 it reached the modem after a typical run had already been won. Tying it to 65% makes it arrive with time left for every player. |
+| Boss rises on download progress | At a fixed 1:58 it reached the modem after a typical run had already been won. Tying it to 75% makes it arrive with time left for every player. At 65% it rose about 30 s before plot turn 2, and a boss strong enough to threaten the modem then either wrecked it early or stalled the download (`docs/balance/2026-11-24-boss-threat.md`). |
+| Boss has 150 HP | A 30 HP boss died to the saw in about 4 s and never reached the modem in a win, so the modem never went critical. At 150 HP it reaches the modem in every win and 70% of competent runs go critical in plot turn 2 (`docs/balance/2026-11-24-boss-threat.md`). |
+| Fewer rich zombies in plot turn 2 | Fast, tank and ranged zombies there added KB but no lane pressure. Halving them, and halving the boss drop to 30 KB, cut late income without making the run easier (`docs/balance/2026-11-24-late-income.md`). |
 | Line quality | A damaged modem slows the download, so lane mistakes also cost time on the browser front. It is mild (68% at critical) so a hurt run can still be won. |
 | Lower drops, higher prices | The sim showed every player could afford the saw at 0:52 and everything by 1:30. Weapons should feel earned and the shop should involve a choice. |
 | +3 KB per closed ad | Makes the trip up to the browser pay, which adds to the mouse-travel tension. |
+| Direct weapon keys | Feedback, 25 Nov: players want to switch back and forth between weapons. Before, 1–3 bought upgrades and only Q/E or the wheel switched. 1–3 now pick the weapon; Shift buys upgrades so a switch never spends KB. |
+| Weapon roles | Feedback, 25 Nov: the flamethrower should be a crowd weapon rather than a boss killer, and the hammer should hit harder. Each weapon now has a job: hammer for big hits and the boss, saw for steady single targets, flamer for crowds. Mob HP rose with the hammer so the early lane stays as hard (`docs/balance/2026-11-25-weapon-roles.md`). |
+| 20 s cooldown on the blocker and surge protector | Feedback, 25 Nov: neither item should be buyable back to back. The cooldown starts at purchase, so each one is a timed choice. |
 | Combo +1 KB | Rewards clean lane play and the flamethrower without inflating the economy. |
 | Daily seed | Everyone plays the same run on a given day, so the Hall of Fame compares like with like. |
 | Client-side score, insert-only table | No accounts or server code within the deadline. Anyone with devtools could fake a score; database checks keep values in range, and that is acceptable for a jam. |
@@ -194,7 +208,8 @@ control, and a player who has seen it once can close it in about 2 seconds.
   - first ad: close pop-ups, open ones slow the download and let zombies out
   - first interrupter: this pop-up paused your download
   - first data packet: move over it to grab the KB
-  - first time the player can afford an item: press 1–5 to buy
+  - first time the player can afford an item: press 1–5 or click to buy
+  - first saw or flamethrower bought: 1–3 switch weapons, what each is good at, Shift+1–3 for upgrades
   - integrity critical: the modem is dying, defend it
 - A "Show hints" checkbox in Options turns the balloons off. The sticky note always shows.
 
@@ -211,16 +226,17 @@ draws on the same day. Retry replays today's run.
 | Kills | 10 per zombie killed (globs don't count), +200 for the boss |
 | Ads | 20 per ad closed with its correct control |
 | Best combo | 25 × the longest chain, if it reached 3 |
-| Win bonus | 1,000 + 10 per integrity point left + 5 per second under 4:00 from dialing |
+| Win bonus | 1,000 + 10 per integrity point left (rounded up) + 5 per whole second under 4:00 from dialing |
 
 The result screen prints the parts as a receipt from "NetSurfer Billing Dept."
 
 **Guestbook.** Below the receipt: "Sign our Guestbook!" with a name field (3–12 letters, digits,
 spaces, `_` or `-`; the last name used is remembered) and a **Sign** button. After signing, the
-page shows the player's rank today and the top 10. A failed request shows "Server busy. Try
-again later." and never blocks Retry or Main menu.
+page shows the player's rank today and the top 10. A failed request, or one slower than 5 s,
+shows "Server busy. Try again later." and allows one more try. With no server configured the
+form shows "Guestbook closed for maintenance." instead. Neither ever blocks Retry or Main menu.
 
-**Hall of Fame** on the title screen opens a late-90s guestbook page with a visitor counter and
+**Hall of Fame** on the title screen opens a late-90s guestbook page with a guest counter (how many scores have been signed) and
 two lists: today's top 10 and the all-time top 10.
 
 Scores live in a Supabase table that the game reaches with the publishable key only. Row-level

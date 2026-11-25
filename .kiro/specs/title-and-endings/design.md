@@ -5,7 +5,7 @@
 title-and-endings adds a front door and an exit to the game:
 
 - a **Title_Scene** between the Power_Off_Scene and the Boot_Scene with the wordmark
-  "DEAD LINE 56K", the subtitle "a Phantom 98 nightmare", a "Play game" button, an "Options"
+  "PANIIIC", the subtitle "a Phantom 98 nightmare", a "Play game" button, an "Options"
   button and an original looping **Theme_Song** synthesized from a data table of notes;
 - an **Options_Dialog** on the title screen for master volume, music, sound effects and screen
   shake, backed by a **Settings_Store** that persists to `localStorage` under
@@ -470,7 +470,7 @@ gain. No noise, no files (Req 3.8). The pass is about 200 nodes, scheduled once 
 
 ```ts
 export const TITLE_COPY = {
-  wordmark: 'DEAD LINE 56K',
+  wordmark: 'PANIIIC',
   subtitle: 'a Phantom 98 nightmare',
   play: 'Play game',
   options: 'Options',
@@ -552,7 +552,7 @@ DOM (contract for `title.css`):
 div.scene.scene-title.crt-on
   div.title-night  aria-hidden="true"      moon, two telephone poles and a sagging wire (CSS only)
   div.title-card
-    h1.title-wordmark  data-text="DEAD LINE 56K"  "DEAD LINE 56K"
+    h1.title-wordmark  data-text="PANIIIC"  "PANIIIC"
     p.title-subtitle   "a Phantom 98 nightmare"
     div.title-menu
       button.btn.title-button.title-play     type=button  "Play game"

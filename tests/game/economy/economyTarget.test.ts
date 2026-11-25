@@ -2,6 +2,7 @@
 // has earned 60 KB (wallet + spent) by 70 s, so the saw is affordable before the tanks.
 import { describe, expect, it } from 'vitest';
 import { createAdSystems } from '../../../src/game/ads/adSystems';
+import { DEFAULT_LANE_BALANCE, secondsToTicks } from '../../../src/game/balance/lane';
 import type { System } from '../../../src/game/context';
 import { createDirector } from '../../../src/game/director';
 import { createEconomySystems } from '../../../src/game/economy';
@@ -12,7 +13,10 @@ import { killerBot, recordBot } from '../../helpers/bots';
 
 const TARGET_KB = 60;
 const TARGET_SECONDS = 70;
-const KILL_WITHIN_TICKS = Math.round(0.5 * TICK_RATE);
+// As fast as the hammer allows: the hits a default zombie needs, one cooldown apart, plus a
+// 0.25 s reaction. 0.5 s flat stopped being possible when default HP rose to 5 (25 Nov).
+const HITS = Math.ceil(DEFAULT_LANE_BALANCE.enemies.default.hp / DEFAULT_LANE_BALANCE.hammer.damage);
+const KILL_WITHIN_TICKS = (HITS - 1) * secondsToTicks(DEFAULT_LANE_BALANCE.hammer.cooldownSeconds) + Math.round(0.25 * TICK_RATE);
 
 /** The shipped wiring (src/dialup/sessionRegistry.ts), built fresh for each run. */
 function shippedSystems(): readonly System[] {

@@ -250,14 +250,16 @@ describe('createSession', () => {
     const ads = createAdSystems({ scheduler: director.adScheduler });
     expect(lane).toHaveLength(5);
     expect(ads).toHaveLength(4);
-    // ad-pressure task 2.3: bandwidthSystem runs last, after the wallet.
-    expect(SESSION_REGISTRY.systems).toHaveLength(11);
+    // ad-pressure task 2.3: bandwidthSystem runs after the wallet; leaderboard task 2.1:
+    // statsSystem runs last.
+    expect(SESSION_REGISTRY.systems).toHaveLength(12);
     for (const system of SESSION_REGISTRY.systems) expect(typeof system).toBe('function');
     expect(SESSION_REGISTRY.systems.slice(0, 5).map((s) => s.name)).toEqual(lane.map((s) => s.name));
     expect(SESSION_REGISTRY.systems[2]?.name).toBe('weapons');
     expect(SESSION_REGISTRY.systems.slice(5, 9).map((s) => s.name)).toEqual(ads.map((s) => s.name));
     expect(SESSION_REGISTRY.systems[9]?.name).toBe('wallet');
     expect(SESSION_REGISTRY.systems[10]?.name).toBe('bandwidthSystem');
+    expect(SESSION_REGISTRY.systems[11]?.name).toBe('statsSystem');
   });
 });
 

@@ -1,17 +1,19 @@
 /**
- * Title_Scene (title-and-endings Req 2, 3): the CRT power-on, the "DEAD LINE 56K" wordmark, the
- * Play_Button and the Options_Button over a night scene, with the Theme_Song on the
+ * Title_Scene (title-and-endings Req 2, 3): the CRT power-on, the "PANIIIC" wordmark, the
+ * Play_Button, the Hall of Fame button and the Options_Button over a night scene, with the Theme_Song on the
  * Music_Channel.
  *
  * Every Play, Options and tick goes through the pure `titleStep` model, and this module only
  * applies the effects it returns (design D2):
  * - `openOptions`: mount the Options_Dialog and make `.title-menu` inert (Req 2.5, 4.1);
  * - `closeOptions`: unmount the dialog, drop `inert`, focus Options (Req 4.6);
+ * - `openHallOfFame` / `closeHallOfFame`: the same for the Hall_of_Fame window, focusing the
+ *   Hall of Fame button on close (leaderboard Req 7.2);
  * - `startFade`: fade the theme over 600 ms and hand its Voice to the engine (Req 3.5, 3.6);
  * - `finish`: stop the loop and signal `play`, the only way out of this scene (Req 1.6).
  *
  * Theme passes are measured in fixed-loop ticks: one Voice per Theme_Pass, started at each pass
- * boundary while the menu or the Options_Dialog is showing (Req 3.2, 4.7). The power button
+ * boundary while the menu, the Options_Dialog or the Hall_of_Fame is showing (Req 3.2, 4.7). The power button
  * stays inert because this scene never sets a power handler (Req 2.6). With audio unavailable
  * every `play` returns the no-op Voice and the scene works the same (Req 3.9).
  *
@@ -21,9 +23,11 @@
 import type { AudioEngine, Voice } from '../../core/audio';
 import { startFixedLoop } from '../../core/fixedLoop';
 import { h } from '../../core/h';
+import { createLeaderboardClient, type LeaderboardClient } from '../../core/leaderboard';
 import type { Mountable, Scene } from '../../core/scene';
 import type { SettingsStore } from '../../core/settings';
 import type { LoopStarter } from '../../dialup/session';
+import { createHallOfFame } from './hallOfFame';
 import { createOptionsDialog } from './optionsDialog';
 import { THEME_SCORE, passTicks, passesBetween } from './themeScore';
 import { THEME_PASS_SEC, themeSong } from './themeSong';
@@ -53,6 +57,13 @@ export interface TitleDeps {
   readonly signal: TitleSignalFn;
   /** Defaults to `startFixedLoop`. Tests pass a manual loop. */
   readonly startLoop?: LoopStarter;
+  /**
+   * Data for the Hall_of_Fame (leaderboard Req 7.2). The shell passes its shared client; the
+   * default is the unconfigured client, which answers every call with `offline`.
+   */
+  readonly leaderboard?: Pick<LeaderboardClient, 'topToday' | 'topAllTime' | 'guestCount'>;
+  /** The Day for today's list. Defaults to `utcDay(new Date())` inside the Hall_of_Fame. */
+  readonly today?: () => string;
 }
 
 /** One Theme_Pass in ticks (1,440 = 24 s). */
@@ -66,10 +77,13 @@ export function createTitleScene({
   settings,
   signal,
   startLoop = startFixedLoop,
+  leaderboard = createLeaderboardClient(null),
+  today,
 }: TitleDeps): Scene {
   let el: HTMLElement | null = null;
   let menuEl: HTMLElement | null = null;
   let optionsButton: HTMLButtonElement | null = null;
+  let hallButton: HTMLButtonElement | null = null;
   let dialog: Mountable | null = null;
   let stopLoop: (() => void) | null = null;
 
@@ -115,6 +129,26 @@ export function createTitleScene({
     optionsButton?.focus(); // Req 4.6
   }
 
+  function openHallOfFame(): void {
+    if (!el || !menuEl || dialog) return;
+    menuEl.setAttribute('inert', ''); // leaderboard Req 7.2, on top of the model rule (Req 7.5)
+    const next = createHallOfFame({
+      leaderboard,
+      today,
+      onClose: () => dispatch({ type: 'closeHallOfFame' }),
+    });
+    dialog = next;
+    next.mount(el); // focuses its Close button
+  }
+
+  function closeHallOfFame(): void {
+    const open = dialog;
+    dialog = null;
+    open?.unmount();
+    menuEl?.removeAttribute('inert');
+    hallButton?.focus();
+  }
+
   function startFade(): void {
     // The engine ramps each Voice to silence and stops it by timer (Req 3.5, 3.6); from here on
     // the Voices belong to the engine, so unmount leaves them alone (Req 12.2).
@@ -136,6 +170,12 @@ export function createTitleScene({
         break;
       case 'closeOptions':
         closeOptions();
+        break;
+      case 'openHallOfFame':
+        openHallOfFame();
+        break;
+      case 'closeHallOfFame':
+        closeHallOfFame();
         break;
       case 'startFade':
         startFade();
@@ -162,19 +202,23 @@ export function createTitleScene({
     const prev = ticks;
     ticks += n;
     // New passes only while the theme is still wanted (Req 3.2, 4.7); none once Play is pressed.
-    if (model.mode === 'menu' || model.mode === 'options') {
+    if (themeWanted()) {
       const newPasses = passesBetween(prev, ticks, PASS_TICKS).length;
       for (let i = 0; i < newPasses; i += 1) startPass();
     }
     dispatch({ type: 'ticks', n });
   }
 
+  /** Modes in which the Theme_Song keeps playing pass after pass (Req 3.2, 4.7). */
+  const themeWanted = (): boolean =>
+    model.mode === 'menu' || model.mode === 'options' || model.mode === 'hallOfFame';
+
   /** First gesture while audio is locked: unlock it inside the handler and start the theme over. */
   const onGesture = (): void => {
     removeGesture();
     if (!el || finished || !audio.unlock || audio.isUnlocked?.()) return;
     if (!audio.unlock()) return;
-    if (model.mode !== 'menu' && model.mode !== 'options') return;
+    if (!themeWanted()) return;
     stopTheme();
     ticks = 0; // pass boundaries count from this new pass 0
     startPass();
@@ -211,7 +255,17 @@ export function createTitleScene({
         },
         TITLE_COPY.options,
       );
-      menuEl = h('div', { className: 'title-menu' }, playButton, optionsButton);
+      hallButton = h(
+        'button',
+        {
+          className: 'btn title-button title-hof',
+          attrs: { type: 'button' },
+          on: { click: () => dispatch({ type: 'openHallOfFame' }) },
+        },
+        TITLE_COPY.hallOfFame,
+      );
+      // Play game, Hall of Fame, Options (leaderboard Req 7.1).
+      menuEl = h('div', { className: 'title-menu' }, playButton, hallButton, optionsButton);
 
       el = h(
         'div',
@@ -252,7 +306,7 @@ export function createTitleScene({
       open?.unmount();
       stopTheme(); // empty when the Voices were handed off to a fade (Req 3.7)
       el.remove();
-      el = menuEl = optionsButton = null;
+      el = menuEl = optionsButton = hallButton = null;
     },
   };
 }

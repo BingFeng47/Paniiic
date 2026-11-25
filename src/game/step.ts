@@ -95,6 +95,7 @@ export function step(
       case 'lanePointer':
       case 'buy':
       case 'switchWeapon':
+      case 'equipWeapon':
         // Economy input: weaponSystem and walletSystem read it through ctx.inputs.
         break;
       default: {

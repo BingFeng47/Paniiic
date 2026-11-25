@@ -46,7 +46,8 @@ Replace them with the real names. Each step names the file and the symbol to cha
    becomes `active` on purchase and emits `weaponSwitched`; add it to that branch and reset
    its state there.
 3. `WEAPON_ORDER`: add the weapon so `ownedWeapons` and `switchWeapon` (Q/E, mouse wheel)
-   cycle through it.
+   cycle through it, and add it to `SLOT_WEAPON` in `src/ui/weaponControls.ts` so its key
+   equips it (`equipWeapon`) and Shift + key buys its upgrade.
 4. `createEconomyState`: initial values for any new state fields.
 5. `ShopSlot` in `economyTypes.ts` and `slotForKey` in `src/render/laneView.ts` only cover
    1–5. A sixth slot is a design change.

@@ -1,0 +1,377 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `src/game/dailySeed.ts` and `src/core/clock.ts`; make the daily seed the": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535235824
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535244900
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535521115
+      }
+    ],
+    "1.2 Tests: Property 1 and the Desktop_Scene default seed": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535235873
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535587559
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535888567
+      }
+    ],
+    "2.1 Create `src/game/stats.ts`, add `GameState.stats?`, append `statsSystem` in": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535235946
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535245771
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535522131
+      }
+    ],
+    "2.2 Create `src/game/balance/score.ts` and `src/game/score.ts`": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535235991
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535588344
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535889676
+      }
+    ],
+    "2.3 Tests: Properties 2–3 in `tests/game/stats.test.ts` and `tests/game/score.test.ts`": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236051
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535955351
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536338417
+      }
+    ],
+    "3.1 Create `src/core/leaderboardConfig.ts` and `src/core/leaderboard.ts`": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236091
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535246334
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535522700
+      }
+    ],
+    "3.2 Tests: Property 5 and the request shapes in `tests/core/leaderboard.test.ts`": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236130
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535589032
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535890230
+      }
+    ],
+    "4. Checkpoint": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236166
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536383563
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536463958
+      }
+    ],
+    "5.1 Create `src/ui/guestbook/guestbookName.ts` with Property 4 tests": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236203
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536509128
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536841665
+      }
+    ],
+    "5.2 Receipt in the Result_Screen; copy in `src/ui/resultCopy.ts`": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236232
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536510127
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536842031
+      }
+    ],
+    "5.3 Create `src/ui/guestbook/guestbookForm.ts` and mount it in the Result_Screen; pass the": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236274
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536888399
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537295847
+      }
+    ],
+    "5.4 Result_Screen tests for 5.2–5.3": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236312
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537353490
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537678639
+      }
+    ],
+    "6.1 Title model actions, the Hall of Fame button and window, styles": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236348
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536510424
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536841573
+      }
+    ],
+    "6.2 Title tests: button order, open/close, Play ignored while open, failure text": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236386
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536888586
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537296800
+      }
+    ],
+    "7.1 Check `docs/leaderboard.sql` against the design; confirm `.env.example` and": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236429
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537354919
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537678839
+      }
+    ],
+    "7.2 Create `tests/docs/secrets.test.ts`": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236474
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537355436
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537678967
+      }
+    ],
+    "7.3 Check `docs/game-design.md` section 12; dated note in `docs/kiro-log.md`": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236529
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537356452
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537679961
+      }
+    ],
+    "8.1 Ask the user to confirm the table exists (a `GET /rest/v1/scores?limit=1` with the": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236564
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795538066213
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795540885784
+      }
+    ],
+    "9. Final checkpoint": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535236607
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795540943365
+      },
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795541040387
+      }
+    ],
+    "1. Daily seed": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535888613
+      }
+    ],
+    "3. Leaderboard client": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795535890276
+      }
+    ],
+    "2. Stats and score": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795536338467
+      }
+    ],
+    "6. Hall of Fame": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537296885
+      }
+    ],
+    "5. Result_Screen": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537678725
+      }
+    ],
+    "7. Database, secrets and docs": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795537680046
+      }
+    ],
+    "8. End-to-end": [
+      {
+        "executionId": "42c6cbf5-84e3-409f-92ee-ed65e3431c01",
+        "chatSessionId": "sess_e58b5568-af6e-4d01-b4d4-5a9c4a778d86",
+        "timestamp": 1795540885859
+      }
+    ]
+  }
+}

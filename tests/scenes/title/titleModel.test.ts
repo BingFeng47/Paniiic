@@ -13,6 +13,8 @@ import {
 const PLAY: TitleAction = { type: 'play' };
 const OPEN: TitleAction = { type: 'openOptions' };
 const CLOSE: TitleAction = { type: 'closeOptions' };
+const OPEN_HOF: TitleAction = { type: 'openHallOfFame' };
+const CLOSE_HOF: TitleAction = { type: 'closeHallOfFame' };
 const ticks = (n: number): TitleAction => ({ type: 'ticks', n });
 
 const model = (mode: TitleModel['mode'], fadeTicksLeft = 0): TitleModel =>
@@ -73,9 +75,37 @@ describe('titleModel examples (design mode/action table)', () => {
     expect(r.effects).toEqual(['finish']);
   });
 
+  it('menu + openHallOfFame → hallOfFame with openHallOfFame (leaderboard Req 7.2)', () => {
+    const r = titleStep(INITIAL_TITLE, OPEN_HOF);
+    expect(r.model).toEqual({ mode: 'hallOfFame', fadeTicksLeft: 0 });
+    expect(r.effects).toEqual(['openHallOfFame']);
+    expect(Object.isFrozen(r.model)).toBe(true);
+  });
+
+  it('hallOfFame + closeHallOfFame → menu with closeHallOfFame (leaderboard Req 7.2)', () => {
+    const r = titleStep(model('hallOfFame'), CLOSE_HOF);
+    expect(r.model).toEqual({ mode: 'menu', fadeTicksLeft: 0 });
+    expect(r.effects).toEqual(['closeHallOfFame']);
+    // Play works again after closing.
+    expect(titleStep(r.model, PLAY).effects).toEqual(['startFade']);
+  });
+
+  it('hallOfFame ignores play, Options actions, a second open and ticks (leaderboard Req 7.5)', () => {
+    const open = model('hallOfFame');
+    for (const action of [PLAY, OPEN, CLOSE, OPEN_HOF, ticks(1), ticks(36), ticks(1000)]) {
+      expectUnchanged(open, action);
+    }
+  });
+
+  it('options ignores the Hall of Fame actions, and closeHallOfFame does nothing in menu', () => {
+    expectUnchanged(model('options'), OPEN_HOF);
+    expectUnchanged(model('options'), CLOSE_HOF);
+    expectUnchanged(INITIAL_TITLE, CLOSE_HOF);
+  });
+
   it('fading and done ignore play, openOptions and closeOptions', () => {
     for (const start of [model('fading', 12), model('done')]) {
-      for (const action of [PLAY, OPEN, CLOSE]) expectUnchanged(start, action);
+      for (const action of [PLAY, OPEN, CLOSE, OPEN_HOF, CLOSE_HOF]) expectUnchanged(start, action);
     }
   });
 
@@ -100,6 +130,8 @@ const arbAction: fc.Arbitrary<TitleAction> = fc.oneof(
   fc.constant(PLAY),
   fc.constant(OPEN),
   fc.constant(CLOSE),
+  fc.constant(OPEN_HOF),
+  fc.constant(CLOSE_HOF),
   fc.integer({ min: 0, max: 20 }).map(ticks),
 );
 
@@ -125,6 +157,11 @@ describe('titleModel properties', () => {
 
           // A play received while Options is open changes nothing (Req 2.5).
           if (current.mode === 'options' && action.type === 'play') {
+            expect(nextModel).toBe(current);
+            expect(effects).toEqual([]);
+          }
+          // While the Hall_of_Fame is open only its close does anything (leaderboard Req 7.5).
+          if (current.mode === 'hallOfFame' && action.type !== 'closeHallOfFame') {
             expect(nextModel).toBe(current);
             expect(effects).toEqual([]);
           }

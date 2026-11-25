@@ -1,5 +1,6 @@
 /*
- * title.css: the Title_Scene and its Options_Dialog (title-and-endings Req 2, 4, 12.5).
+ * title.css: the Title_Scene, its Options_Dialog (title-and-endings Req 2, 4, 12.5) and the
+ * Hall_of_Fame (leaderboard Req 7).
  * Window chrome and .btn come from desktop.css; `crt-on` comes from monitor.css. Colours come
  * only from theme.css custom properties.
  *
@@ -10,12 +11,15 @@
  *     div.title-card
  *       h1.title-wordmark[data-text]      ::after repeats data-text as the red ghost copy
  *       p.title-subtitle
- *       div.title-menu                    `inert` while the Options_Dialog is open
+ *       div.title-menu                    `inert` while the Options_Dialog or Hall_of_Fame is open
  *         button.btn.title-button.title-play
+ *         button.btn.title-button.title-hof
  *         button.btn.title-button.title-options
  *       p.title-hint
  *       p.title-copyright
  *     div.options-backdrop                only while the Options_Dialog is open
+ *     div.hof-backdrop                    only while the Hall_of_Fame is open (DOM contract in
+ *                                         src/scenes/title/hallOfFame.ts)
  *
  * DOM contract, Options_Dialog (src/scenes/title/optionsDialog.ts):
  *
@@ -307,6 +311,186 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 4px;
+}
+
+/* ---- Hall_of_Fame (leaderboard Req 7.2–7.4). Nothing here animates. ---------------------------- */
+
+.hof-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-options-backdrop);
+}
+
+/* Two classes, so this wins over .window's absolute placement whatever the import order. */
+.window.hof-dialog {
+  position: relative;
+  width: 600px;
+  font-family: var(--font-ui);
+  font-size: var(--font-ui-size);
+}
+
+:where(.hof-dialog) :where(button) {
+  font: inherit;
+  color: inherit;
+}
+
+.hof-dialog .window-body {
+  gap: 8px;
+  padding: 6px 6px 8px;
+}
+
+/* The "web page" inside the browser window: a sunken view on a dark homepage. */
+.hof-page {
+  max-height: 560px;
+  overflow-y: auto;
+  padding: 0 14px 10px;
+  border: 2px inset var(--c-bevel-dark);
+  background: var(--c-guestbook-page);
+  color: var(--c-guestbook-text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Static hazard stripe with a label on a dark plate. */
+.hof-construction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  margin: 0 -14px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--c-construction-stripe-a) 0 12px,
+    var(--c-construction-stripe-b) 12px 24px
+  );
+}
+
+.hof-construction span {
+  padding: 1px 8px;
+  background: var(--c-construction-text);
+  color: var(--c-construction-label);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hof-heading {
+  margin: 12px 0 8px;
+  font-family: var(--font-wordmark);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--c-guestbook-heading);
+}
+
+/* A hit counter: one boxed red digit per cell, in the blocky segment font. */
+.hof-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.hof-counter-digits {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 2px ridge var(--c-counter-frame);
+  background: var(--c-counter-bg);
+}
+
+.hof-digit {
+  display: inline-block;
+  width: 16px;
+  background: var(--c-counter-cell);
+  color: var(--c-counter-digit);
+  font-family: var(--font-bios);
+  font-size: 24px;
+  line-height: 26px;
+  text-align: center;
+  text-shadow: 0 0 4px var(--c-counter-digit-glow);
+}
+
+.hof-status {
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+.hof-lists {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.hof-lists[hidden],
+.hof-status[hidden] {
+  display: none;
+}
+
+.hof-table {
+  flex: 1;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.hof-table caption {
+  padding: 4px 0;
+  color: var(--c-guestbook-heading);
+  font-weight: bold;
+}
+
+.hof-table th,
+.hof-table td {
+  padding: 2px 4px;
+  border-bottom: 1px solid var(--c-guestbook-rule);
+  text-align: left;
+}
+
+.hof-table th {
+  border-bottom-width: 2px;
+}
+
+.hof-table tbody tr:nth-child(even) {
+  background: var(--c-guestbook-row-alt);
+}
+
+.hof-table .hof-score,
+.hof-table .hof-rank {
+  text-align: right;
+}
+
+.hof-table .is-won .hof-outcome {
+  color: var(--c-guestbook-won);
+}
+
+.hof-table .is-lost .hof-outcome {
+  color: var(--c-guestbook-lost);
+}
+
+.hof-table .hof-empty {
+  text-align: center;
+  color: var(--c-guestbook-note);
+}
+
+.hof-note {
+  margin: 14px 0 4px;
+  color: var(--c-guestbook-heading);
+}
+
+.hof-footer {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--c-guestbook-note);
+}
+
+.hof-buttons {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* ---- Reduced motion: a steady wordmark and a still ghost (crt-on is handled in monitor.css) --- */

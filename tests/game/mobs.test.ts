@@ -82,7 +82,7 @@ describe('addMob', () => {
         id: 1,
         kind: 'tank',
         x: 800,
-        hp: 4,
+        hp: 6,
         spawnTick: 0,
         lastHitTick: null,
         nextHitTick: null,
@@ -92,7 +92,7 @@ describe('addMob', () => {
         id: 2,
         kind: 'ranged',
         x: 300,
-        hp: 3,
+        hp: 4,
         spawnTick: 0,
         lastHitTick: null,
         nextSpitTick: null,
@@ -131,7 +131,7 @@ describe('damageEnemy', () => {
   it('reports the HP actually removed and floors HP at 0', () => {
     const { draft, events } = hit(lane([{ kind: 'tank', x: 500 }]), 1, 9);
     expect(events).toEqual([
-      { tick: 0, type: 'mobHit', id: 1, kind: 'tank', damage: 4, hp: 0 },
+      { tick: 0, type: 'mobHit', id: 1, kind: 'tank', damage: 6, hp: 0 },
       { tick: 0, type: 'mobKilled', id: 1, kind: 'tank', x: 500, dropKb: 12 },
     ]);
     expect(draft.lane?.enemies).toEqual([]);
@@ -349,7 +349,7 @@ describe('boss summons', () => {
           id: 2 + k,
           kind: 'default',
           x: ex,
-          hp: 2,
+          hp: 5,
           spawnTick: 0,
           lastHitTick: null,
           nextHitTick: null,

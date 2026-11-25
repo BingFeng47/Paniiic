@@ -52,6 +52,10 @@ export interface EconomyState {
   readonly blockerUntilTick: number | null;
   readonly surgeHeld: boolean;
   readonly surgeUntilTick: number | null;
+  /** First Tick a pop-up blocker can be bought again (cooldown after a purchase). */
+  readonly blockerReadyTick: number;
+  /** First Tick a surge protector can be bought again (cooldown after a purchase). */
+  readonly surgeReadyTick: number;
   /** Current chain of non-glob kills (Req 5.4). 0 before the first kill. */
   readonly comboCount: number;
   /** Tick of the last non-glob kill, or null before the first one. */
@@ -68,10 +72,12 @@ export type LanePointerCommand = {
 };
 export type BuyCommand = { readonly type: 'buy'; readonly slot: ShopSlot };
 export type SwitchCommand = { readonly type: 'switchWeapon'; readonly direction: 'next' | 'previous' };
-export type EconomyCommand = LanePointerCommand | BuyCommand | SwitchCommand;
+/** Picks an owned weapon directly (keys 1–3, clicking a weapon slot). Unowned weapons are ignored. */
+export type EquipCommand = { readonly type: 'equipWeapon'; readonly weapon: WeaponId };
+export type EconomyCommand = LanePointerCommand | BuyCommand | SwitchCommand | EquipCommand;
 
 export type KbReason = 'packet' | 'adClosed' | 'fakeButton' | 'purchase' | 'combo';
-export type BuyRejectReason = 'tooExpensive' | 'owned' | 'held';
+export type BuyRejectReason = 'tooExpensive' | 'owned' | 'held' | 'cooldown';
 
 export type EconomyEventBody =
   | { readonly type: 'kbChanged'; readonly delta: number; readonly reason: KbReason; readonly wallet: number }

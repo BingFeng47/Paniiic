@@ -10,7 +10,7 @@ import type { Enemy } from '../laneTypes';
 import { damageEnemy, enemyStats } from '../mobs';
 import { TICK_RATE } from '../types';
 import type { Burn, EconomyState } from './economyTypes';
-import { buy, maxFuel, switchWeapon } from './shop';
+import { buy, equipWeapon, maxFuel, switchWeapon } from './shop';
 
 const EPSILON = 1e-9;
 
@@ -24,6 +24,10 @@ function applyInputs(e: EconomyState, ctx: TickContext): EconomyState {
       result.events.forEach(ctx.emit);
     } else if (command.type === 'switchWeapon') {
       const result = switchWeapon(next, command.direction);
+      next = result.economy;
+      result.events.forEach(ctx.emit);
+    } else if (command.type === 'equipWeapon') {
+      const result = equipWeapon(next, command.weapon);
       next = result.economy;
       result.events.forEach(ctx.emit);
     } else if (command.type === 'lanePointer') {
@@ -64,6 +68,10 @@ function applyCarry(lane: MutableLaneState, ctx: TickContext, id: number, carry:
 }
 
 const alive = (lane: MutableLaneState, id: number): boolean => lane.enemies.some((en) => en.id === id);
+/** Flame and burn damage per second on one Enemy: the boss shrugs most of it off. */
+function fireDps(lane: MutableLaneState, id: number, dps: number, bossFactor: number): number {
+  return lane.enemies.find((en) => en.id === id)?.kind === 'boss' ? dps * bossFactor : dps;
+}
 
 export const weaponSystem: System = (draft, ctx) => {
   if (draft.economy === undefined || draft.lane === undefined) return;
@@ -104,7 +112,7 @@ export const weaponSystem: System = (draft, ctx) => {
       .map((en) => en.id);
     for (const id of hits) {
       if (!alive(lane, id)) continue;
-      const rest = applyCarry(lane, ctx, id, e.flameCarry[String(id)] ?? 0, b.flameDps);
+      const rest = applyCarry(lane, ctx, id, e.flameCarry[String(id)] ?? 0, fireDps(lane, id, b.flameDps, b.bossFlameFactor));
       if (!alive(lane, id)) continue;
       flameCarry[String(id)] = rest;
       // Burn starts or restarts for burnSeconds (Req 8.2).
@@ -128,7 +136,7 @@ export const weaponSystem: System = (draft, ctx) => {
   const kept: Burn[] = [];
   for (const burn of burns) {
     if (ctx.tick >= burn.untilTick || !alive(lane, burn.enemyId)) continue;
-    const carry = applyCarry(lane, ctx, burn.enemyId, burn.carry, b.burnDps);
+    const carry = applyCarry(lane, ctx, burn.enemyId, burn.carry, fireDps(lane, burn.enemyId, b.burnDps, b.bossFlameFactor));
     if (alive(lane, burn.enemyId)) kept.push({ ...burn, carry });
   }
   burns = kept;

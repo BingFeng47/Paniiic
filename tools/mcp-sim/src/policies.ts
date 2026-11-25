@@ -129,7 +129,6 @@ export function moveCursor(from: CursorPoint, to: CursorPoint, maxStep: number):
 }
 
 const BUY_ORDER: readonly ShopSlot[] = [2, 3, 1, 5, 4];
-const WEAPON_CYCLE: readonly WeaponId[] = ['hammer', 'saw', 'flamethrower'];
 
 /** What the bot wants to do this Tick. */
 interface Intent {
@@ -297,7 +296,10 @@ function bestWeapon(state: GameState, target: Enemy): WeaponId {
   const owns = (w: WeaponId): boolean => w === 'hammer' || e.owned.includes(w);
   const enemies = state.lane?.enemies ?? [];
   const flameReady = owns('flamethrower') && !e.flameLatched && e.fuel > 0;
-  if ((target.kind === 'tank' || target.kind === 'boss') && owns('saw')) return 'saw';
+  // Roles (docs/game-design.md section 6): the flamer burns crowds but barely hurts the boss, the
+  // saw is steady single-target damage, the upgraded hammer hits hardest.
+  if (target.kind === 'boss') return e.owned.includes('heavyHead') || !owns('saw') ? 'hammer' : 'saw';
+  if (target.kind === 'tank' && owns('saw')) return 'saw';
   if (flameReady && enemies.length >= 3) return 'flamethrower';
   if (owns('saw')) return 'saw';
   return 'hammer';
@@ -325,12 +327,8 @@ function attack(ctx: Ctx): Intent | null {
   if (cover !== null) return seen(`ad:${cover.id}`) ? closeIntent(ctx, cover) : null;
 
   if (e && want !== e.active) {
-    const owned = WEAPON_CYCLE.filter((w) => w === 'hammer' || e.owned.includes(w));
-    const from = owned.indexOf(e.active);
-    const to = owned.indexOf(want);
-    const forward = (to - from + owned.length) % owned.length;
-    // Q / E: keyboard, so the switch doesn't wait for the cursor, which keeps heading for the Mob.
-    return { point: null, commands: [{ type: 'switchWeapon', direction: forward <= owned.length - forward ? 'next' : 'previous' }] };
+    // Keys 1–3: keyboard, so the switch doesn't wait for the cursor, which keeps heading for the Mob.
+    return { point: null, commands: [{ type: 'equipWeapon', weapon: want }] };
   }
   if (want === 'hammer') {
     // Wait over the Mob while the hammer cools down; the swing lands where the cursor is.
@@ -385,8 +383,8 @@ function shop({ state }: Ctx): Intent | null {
   const e = state.economy;
   if (!e) return null;
   for (const slot of BUY_ORDER) {
-    const status = slotStatus(slot, e);
-    if (status === 'owned' || status === 'held') continue;
+    const status = slotStatus(slot, e, state.tick);
+    if (status === 'owned' || status === 'held' || status === 'cooldown') continue;
     // The blocker only helps while clutter is open.
     if (slot === 4 && !(state.ads?.ads ?? []).some((a) => a.kind === 'clutter')) return null;
     return status === 'affordable' ? { point: null, commands: [{ type: 'buy', slot }] } : null;

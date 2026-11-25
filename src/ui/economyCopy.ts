@@ -21,13 +21,26 @@ export const ECONOMY_COPY = {
   } satisfies Record<ItemId, string>,
   /** Slot names once everything in them is owned. */
   ownedSlotNames: { 1: 'HAMMER+', 2: 'E-SAW+', 3: 'FLAMER+' } as const,
+  /** Weapon slot second line: the weapon in the hand, or an owned one a key press away. */
+  inHand: 'IN HAND',
+  stowed: 'READY',
+  /** Short upgrade names for the weapon slot's upgrade button, after "UPG " and before the price. */
+  upgrades: { heavyHead: 'HEAVY', highRpm: 'HI-RPM', bigTank: 'BIG TANK' } as const,
+  upgradeMark: 'UPG ',
+  /** Upgrade button tooltip: how to buy it from the keyboard. */
+  upgradeTitle: (key: number): string => `Shift+${key} buys the upgrade`,
+  /** Weapon button tooltip. */
+  weaponTitle: (key: number): string => `${key} switches to this weapon`,
   weapons: { hammer: 'HAMMER', saw: 'E-SAW', flamethrower: 'FLAMER' } satisfies Record<WeaponId, string>,
   status: {
     affordable: 'READY',
     tooExpensive: 'NO KB',
     owned: 'OWNED',
     held: 'HELD',
+    cooldown: 'WAIT',
   } satisfies Record<SlotStatus, string>,
+  /** One-use item cooling down: "WAIT 12s". */
+  cooldownText: (seconds: number): string => `WAIT ${seconds}s`,
 } as const;
 
 /** "KB 007": wallet zero-padded to 3 digits (Req 11.1). */

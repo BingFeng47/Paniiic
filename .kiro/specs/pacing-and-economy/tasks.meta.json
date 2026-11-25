@@ -247,6 +247,11 @@
         "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
         "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
         "timestamp": 1795533235841
+      },
+      {
+        "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
+        "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
+        "timestamp": 1795533756355
       }
     ],
     "6.1 Dated note in `docs/kiro-log.md`; demo-video note in `docs/submission-checklist.md`": [
@@ -264,6 +269,11 @@
         "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
         "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
         "timestamp": 1795533236606
+      },
+      {
+        "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
+        "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
+        "timestamp": 1795533756956
       }
     ],
     "6.2 Run the `playtester` agent for one full run: quiet first minute, ramp, saw around": [
@@ -276,6 +286,16 @@
         "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
         "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
         "timestamp": 1795529635279
+      },
+      {
+        "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
+        "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
+        "timestamp": 1795533801391
+      },
+      {
+        "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
+        "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
+        "timestamp": 1795534807811
       }
     ],
     "7. Final checkpoint": [
@@ -288,6 +308,16 @@
         "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
         "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
         "timestamp": 1795529635344
+      },
+      {
+        "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
+        "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
+        "timestamp": 1795534852113
+      },
+      {
+        "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
+        "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
+        "timestamp": 1795534936666
       }
     ],
     "1. Run length and timeline": [
@@ -309,6 +339,20 @@
         "executionId": "816d5f14-0835-4970-85e6-4592152b53a5",
         "chatSessionId": "sess_3c441411-fb8d-4ec6-a04f-b9f7987db391",
         "timestamp": 1795512789814
+      }
+    ],
+    "5. Tuning pass": [
+      {
+        "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
+        "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
+        "timestamp": 1795533756397
+      }
+    ],
+    "6. Docs and playtest": [
+      {
+        "executionId": "4ead0393-8b4c-4e39-9de3-7eaf953620f7",
+        "chatSessionId": "sess_c74eafa8-0fdf-455a-825f-c1fd922d90f5",
+        "timestamp": 1795534807906
       }
     ]
   }

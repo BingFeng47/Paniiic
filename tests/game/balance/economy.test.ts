@@ -11,7 +11,10 @@ describe('resolveEconomyBalance', () => {
     expect(b.prices).toEqual({
       heavyHead: 30, saw: 75, highRpm: 50, flamethrower: 150, bigTank: 60, blocker: 40, surge: 50,
     });
-    expect(b.heavyHeadDamage).toBe(2);
+    expect(b.heavyHeadDamage).toBe(3);
+    expect(b.sawDps).toBe(7);
+    expect(b.flameDps).toBe(3);
+    expect(b.bossFlameFactor).toBe(0.25);
     expect(b.blockerSeconds).toBe(6);
     expect(b.surgeSeconds).toBe(5);
     expect(b.fuelSeconds).toBe(6);
@@ -19,6 +22,12 @@ describe('resolveEconomyBalance', () => {
     expect(Object.isFrozen(b.prices)).toBe(true);
   });
 
+  it('requires bossFlameFactor in [0, 1]', () => {
+    expect(() => resolveEconomyBalance({ bossFlameFactor: -0.1 })).toThrow(EconomyBalanceError);
+    expect(() => resolveEconomyBalance({ bossFlameFactor: 1.5 })).toThrow(EconomyBalanceError);
+    expect(resolveEconomyBalance({ bossFlameFactor: 0 }).bossFlameFactor).toBe(0);
+    expect(resolveEconomyBalance({ bossFlameFactor: 1 }).bossFlameFactor).toBe(1);
+  });
   it('defines the combo keys (Req 5.1)', () => {
     const b = resolveEconomyBalance();
     expect(b.comboWindowSeconds).toBe(2);
@@ -39,10 +48,10 @@ describe('resolveEconomyBalance', () => {
   });
 
   it('merges overrides and drops unknown keys', () => {
-    const b = resolveEconomyBalance({ prices: { saw: 10 }, sawDps: 7, extra: 1 } as never);
+    const b = resolveEconomyBalance({ prices: { saw: 10 }, sawDps: 9, extra: 1 } as never);
     expect(b.prices.saw).toBe(10);
     expect(b.prices.surge).toBe(DEFAULT_ECONOMY_BALANCE.prices.surge);
-    expect(b.sawDps).toBe(7);
+    expect(b.sawDps).toBe(9);
     expect('extra' in b).toBe(false);
   });
 

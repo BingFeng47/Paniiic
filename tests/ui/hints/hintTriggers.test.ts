@@ -33,6 +33,15 @@ describe('dueHints', () => {
     ]);
   });
 
+  it('fires weapons when a saw or flamethrower is bought, not for upgrades or items', () => {
+    const s = base();
+    const bought = (item: string) => ev({ type: 'itemBought', item, price: 1 });
+    expect(dueHints(s, s, [bought('saw')])).toEqual([{ id: 'weapons', anchor: { kind: 'shop' } }]);
+    expect(ids(s, s, [bought('flamethrower')])).toEqual(['weapons']);
+    for (const item of ['heavyHead', 'highRpm', 'bigTank', 'blocker', 'surge']) {
+      expect(ids(s, s, [bought(item)])).toEqual([]);
+    }
+  });
   it('fires packet and critical on their events', () => {
     const s = base();
     expect(ids(s, s, [ev({ type: 'packetDropped', id: 1, x: 10, kb: 5 })])).toEqual(['packet']);

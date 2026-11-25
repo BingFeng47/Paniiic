@@ -4,9 +4,16 @@
 // sounds, focus and lifecycle on top of it.
 import fc from 'fast-check';
 import { afterEach, describe, expect, it } from 'vitest';
+import { createLeaderboardClient } from '../../src/core/leaderboard';
+import { scoreRun } from '../../src/game/score';
 import type { GameState } from '../../src/game/types';
 import { RESULT_COPY } from '../../src/ui/resultCopy';
-import { createResultScreen } from '../../src/ui/resultScreen';
+import { createResultScreen, type ResultScreenDeps } from '../../src/ui/resultScreen';
+import { SCORE_TABLE } from '../../src/game/balance/score';
+import { GUESTBOOK_STORAGE_KEY, type StorageSource } from '../../src/ui/guestbook/guestbookName';
+import { createFakeLeaderboard, flush } from '../helpers/leaderboard';
+import { finalState } from '../helpers/score';
+import { createFakeStorage } from '../helpers/storage';
 import { RESULT_SOUND_SEC } from '../../src/ui/resultSounds';
 import { createFakeAudioEngine } from '../helpers/audio';
 import { trackListeners, type ListenerTracker } from '../helpers/dom';
@@ -25,6 +32,11 @@ const WON: GameState = { ...BASE, phase: 'won', tick: 9060, integrity: 37.2, dow
 /** Lost at 1:30 (5,432 ticks) with the download frozen at 37.8 (shown as 37%). */
 const LOST: GameState = { ...BASE, phase: 'lost', tick: 5432, integrity: 0, download: 37.8 };
 
+interface GuestbookDeps {
+  readonly leaderboard?: ResultScreenDeps['leaderboard'];
+  readonly storage?: StorageSource;
+}
+
 let trackers: ListenerTracker[] = [];
 const hosts: HTMLElement[] = [];
 const cleanups: Array<() => void> = [];
@@ -37,7 +49,7 @@ afterEach(() => {
 });
 
 /** Mounts a Result_Screen for `final` into a root attached to `document.body` (focus needs it). */
-function setup(final: GameState) {
+function setup(final: GameState, guestbook: GuestbookDeps = {}) {
   const doc = trackListeners(document);
   const win = trackListeners(window);
   trackers.push(doc, win);
@@ -52,6 +64,9 @@ function setup(final: GameState) {
     final,
     audio,
     startLoop: loop.start,
+    leaderboard: guestbook.leaderboard ?? createLeaderboardClient(null), // offline by default
+    storage: guestbook.storage ?? (() => null),
+    today: () => '2026-11-25',
     onRetry: () => {
       calls.push('retry');
     },
@@ -342,5 +357,199 @@ describe('Result_Screen: unmount', () => {
     expect(h.root.querySelector('.result-screen')).toBeNull();
     expect(h.doc.count()).toBe(0);
     expect(h.win.count()).toBe(0);
+  });
+});
+
+// Smoke check for the Receipt (leaderboard Req 4.1, 4.2). Full receipt tests are task 5.4.
+describe('Result_Screen: receipt smoke', () => {
+  it.each([
+    ['won', WON, WIN_REVEAL_TICKS],
+    ['lost', LOST, LOSE_REVEAL_TICKS],
+  ] as const)('shows the bill below the stats and above the guestbook mount (%s)', (_name, final, ticks) => {
+    const h = setup(final);
+    expect(h.q('.result-receipt')).toBeNull();
+    h.loop.frame(ticks);
+    const receipt = h.must('.result-receipt');
+    expect(h.must('.result-receipt-from').textContent).toBe('NetSurfer Billing Dept.');
+    const score = scoreRun(final);
+    const shown = [...receipt.querySelectorAll<HTMLElement>('.result-receipt-line')].map((e) => e.dataset.line);
+    expect(shown).toEqual(score.lines.filter((l) => l.points !== 0).map((l) => l.id));
+    expect(h.must('.result-receipt-total .result-receipt-points').textContent).toContain(
+      String(score.total).replace(/\B(?=(\d{3})+(?!\d))/g, ','),
+    );
+    const order = [...h.must('.result-window .window-body').children].map((e) => e.className);
+    const at = (c: string) => order.findIndex((name) => name.split(' ').includes(c));
+    expect(at('result-stats')).toBeLessThan(at('result-receipt'));
+    expect(at('result-receipt')).toBeLessThan(at('result-guestbook'));
+    expect(at('result-guestbook')).toBeLessThan(at('result-buttons'));
+    expect(document.activeElement).toBe(h.must('.result-retry'));
+  });
+});
+
+// Receipt (leaderboard Req 4.1, 4.2): every line's points from SCORE_TABLE, worked out by hand.
+describe('Result_Screen: receipt', () => {
+  const T = SCORE_TABLE;
+  const RECEIPT_WON = finalState({
+    phase: 'won',
+    tick: 9060, // 151 s
+    download: 100,
+    integrity: 37.2, // counts as 38
+    stats: { kills: 7, bossKilled: true, adsClosed: 4 },
+    bestCombo: 5,
+  });
+  const RECEIPT_LOST = finalState({
+    phase: 'lost',
+    tick: 5432,
+    download: 37.8, // counts as 37
+    integrity: 0,
+    stats: { kills: 3, bossKilled: false, adsClosed: 0 },
+    bestCombo: 2, // below comboMin
+  });
+  const L = RESULT_COPY.receipt.lines;
+  const pts = (n: number): string => `${String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} pts`;
+
+  function lines(h: Harness): Array<[string, string, string]> {
+    return [...h.root.querySelectorAll<HTMLElement>('.result-receipt-line')].map((e) => [
+      e.dataset.line ?? '',
+      e.querySelector('.result-receipt-label')?.textContent ?? '',
+      e.querySelector('.result-receipt-points')?.textContent ?? '',
+    ]);
+  }
+
+  it('prints every part of a win with its points and the total', () => {
+    const h = setup(RECEIPT_WON);
+    h.loop.frame(WIN_REVEAL_TICKS);
+    const expected: Array<[string, number]> = [
+      ['download', 100 * T.perPercent],
+      ['kills', 7 * T.perKill],
+      ['boss', T.boss],
+      ['ads', 4 * T.perAd],
+      ['combo', 5 * T.perCombo],
+      ['win', T.winBase],
+      ['integrity', 38 * T.perIntegrity],
+      ['speed', (T.parSeconds - 151) * T.perSecondUnder],
+    ];
+    expect(lines(h)).toEqual(expected.map(([id, p]) => [id, L[id as keyof typeof L], pts(p)]));
+    const total = expected.reduce((s, [, p]) => s + p, 0);
+    expect(total).toBe(3300);
+    expect(h.must('.result-receipt-total .result-receipt-label').textContent).toBe(RESULT_COPY.receipt.total);
+    expect(h.must('.result-receipt-total .result-receipt-points').textContent).toBe('3,300 pts');
+  });
+
+  it('leaves out the zero parts of a loss', () => {
+    const h = setup(RECEIPT_LOST);
+    h.loop.frame(LOSE_REVEAL_TICKS);
+    expect(lines(h)).toEqual([
+      ['download', L.download, pts(37 * T.perPercent)],
+      ['kills', L.kills, pts(3 * T.perKill)],
+    ]);
+    expect(h.must('.result-receipt-total .result-receipt-points').textContent).toBe(pts(400));
+    expect(h.must('.result-receipt-from').textContent).toBe('NetSurfer Billing Dept.');
+  });
+
+  it.each([
+    ['won', RECEIPT_WON, WIN_REVEAL_TICKS],
+    ['lost', RECEIPT_LOST, LOSE_REVEAL_TICKS],
+  ] as const)('orders stats, receipt, guestbook, buttons (%s)', (_name, final, ticks) => {
+    const h = setup(final, { leaderboard: createFakeLeaderboard().client });
+    h.loop.frame(ticks);
+    const order = [...h.must('.result-window .window-body').children].map((e) => e.className);
+    const at = (c: string) => order.findIndex((name) => name.split(' ').includes(c));
+    expect(at('result-stats')).toBeGreaterThanOrEqual(0);
+    expect(at('result-stats')).toBeLessThan(at('result-receipt'));
+    expect(at('result-receipt')).toBeLessThan(at('result-guestbook'));
+    expect(at('result-guestbook')).toBeLessThan(at('result-buttons'));
+    expect(h.must('.result-guestbook .guestbook-heading').textContent).toBe('Sign our Guestbook!');
+  });
+});
+
+// Guestbook_Form inside the Result_Screen (leaderboard Req 5.1, 5.3, 5.6, 5.7).
+describe('Result_Screen: guestbook', () => {
+  const FINAL = finalState({
+    phase: 'lost',
+    tick: 5432,
+    download: 37.8,
+    integrity: 0,
+    stats: { kills: 3, bossKilled: false, adsClosed: 1 },
+  });
+
+  function signed(storageName: string | null = 'Calvin') {
+    const fake = createFakeLeaderboard();
+    const store = createFakeStorage({
+      key: GUESTBOOK_STORAGE_KEY,
+      initial: storageName === null ? null : JSON.stringify({ v: 1, name: storageName }),
+    });
+    const h = setup(FINAL, { leaderboard: fake.client, storage: store.getter });
+    return { h, fake, store };
+  }
+
+  it('is absent before the reveal and shows a prefilled field after it, with Retry focused', () => {
+    const { h } = signed();
+    expect(h.q('.guestbook')).toBeNull();
+    h.loop.frame(LOSE_REVEAL_TICKS);
+    expect(h.must<HTMLInputElement>('.guestbook-name').value).toBe('Calvin');
+    expect(h.must<HTMLButtonElement>('.guestbook-sign').disabled).toBe(false);
+    expect(document.activeElement).toBe(h.must('.result-retry'));
+  });
+
+  it('submits the run entry once with the score from scoreRun', async () => {
+    const { h, fake } = signed();
+    h.loop.frame(LOSE_REVEAL_TICKS);
+    h.must<HTMLButtonElement>('.guestbook-sign').click();
+    h.must<HTMLButtonElement>('.guestbook-sign').click();
+    expect(fake.submits).toEqual([
+      { name: 'Calvin', score: scoreRun(FINAL).total, outcome: 'lost', seconds: 90, download: 37, kills: 3 },
+    ]);
+    fake.resolveSubmit({ ok: true, value: undefined });
+    await flush();
+    expect(fake.rankCalls).toEqual([{ day: '2026-11-25', score: scoreRun(FINAL).total }]);
+  });
+
+  it.each(['retry', 'mainMenu'] as const)('%s still works while signing', (which) => {
+    const { h, fake } = signed();
+    h.loop.frame(LOSE_REVEAL_TICKS);
+    h.must<HTMLButtonElement>('.guestbook-sign').click();
+    expect(h.must('.guestbook-status').textContent).toBe('Signing...');
+    h.must<HTMLButtonElement>(which === 'retry' ? '.result-retry' : '.result-main-menu').click();
+    expect(h.calls()).toEqual([which]);
+    expect(fake.submits).toHaveLength(1);
+  });
+
+  it('keys typed in the name field never reach document-level hotkey listeners', () => {
+    const { h } = signed(null);
+    h.loop.frame(LOSE_REVEAL_TICKS);
+    const seen: string[] = [];
+    const onKey = (e: KeyboardEvent): void => {
+      seen.push(e.key);
+    };
+    document.addEventListener('keydown', onKey);
+    cleanups.push(() => document.removeEventListener('keydown', onKey));
+    const input = h.must<HTMLInputElement>('.guestbook-name');
+    input.focus();
+    for (const key of ['1', '2', '3', '4', '5', 'q', 'e', 'Q', 'E', 'Escape']) {
+      input.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
+    }
+    expect(seen).toEqual([]);
+    expect(h.calls()).toEqual([]);
+  });
+
+  it('unmount mid-request ignores the late result', async () => {
+    const { h, fake, store } = signed();
+    h.loop.frame(LOSE_REVEAL_TICKS);
+    h.must<HTMLButtonElement>('.guestbook-sign').click();
+    h.screen.unmount();
+    fake.resolveSubmit({ ok: true, value: undefined });
+    await flush();
+    expect(fake.rankCalls).toHaveLength(0);
+    expect(store.writes).toHaveLength(0);
+    expect(h.root.childElementCount).toBe(0);
+  });
+
+  it('shows the maintenance text and no field without a configuration', () => {
+    const h = setup(FINAL);
+    h.loop.frame(LOSE_REVEAL_TICKS);
+    expect(h.must('.result-guestbook .guestbook-status').textContent).toBe('Guestbook closed for maintenance.');
+    expect(h.q('.result-guestbook input')).toBeNull();
+    expect(document.activeElement).toBe(h.must('.result-retry'));
   });
 });

@@ -148,11 +148,12 @@ describe('wallet', () => {
   });
 
   it('a kill drops a packet at the mob', () => {
-    const start = withEconomy([{ kind: 'default', x: 400 }], { owned: ['heavyHead'] });
+    // A fast mob: one heavy-head hit kills it.
+    const start = withEconomy([{ kind: 'fast', x: 400 }], { owned: ['heavyHead'] });
     const { x, y } = hitBoxCentre(start, start.lane!.enemies[0]);
     const { final, events } = run(start, 1, () => [{ type: 'hammer', x, y }]);
     const killed = ofType(events, 'mobKilled')[0];
-    expect(ofType(events, 'packetDropped')).toEqual([expect.objectContaining({ type: 'packetDropped', id: 1, x: killed.x, kb: DEFAULT_LANE_BALANCE.enemies.default.dropKb })]);
+    expect(ofType(events, 'packetDropped')).toEqual([expect.objectContaining({ type: 'packetDropped', id: 1, x: killed.x, kb: DEFAULT_LANE_BALANCE.enemies.fast.dropKb })]);
     expect(final.economy!.packets).toEqual([{ id: 1, x: killed.x, kb: killed.dropKb, dropTick: 1 }]);
   });
 
@@ -205,7 +206,8 @@ describe('flamethrower', () => {
   const flameOn = { owned: ['flamethrower'] as const, active: 'flamethrower' as const };
 
   it('firing refreshes the Burn, which keeps ticking after release and then ends', () => {
-    const start = withEconomy([{ kind: 'boss', x: 600 }], { ...flameOn, owned: ['flamethrower'] });
+    // A tank, not the boss: the boss takes only bossFlameFactor of flame and burn damage.
+    const start = withEconomy([{ kind: 'tank', x: 600 }], { ...flameOn, owned: ['flamethrower'] });
     const c = hitBoxCentre(start, start.lane!.enemies[0]);
     const burnTicks = secondsToTicks(B.burnSeconds);
     const firing = run(start, 30, () => [pointer(c.x - 50, c.y, true)]);
@@ -219,6 +221,21 @@ describe('flamethrower', () => {
     const burnDamage = hpAtRelease - after.final.lane!.enemies[0].hp;
     expect(burnDamage).toBeGreaterThanOrEqual(1);
     expect(burnDamage).toBeLessThanOrEqual(3);
+  });
+
+  it('the boss takes bossFlameFactor of flame and burn damage (weapon roles)', () => {
+    const damageOver = (kind: 'boss' | 'tank', ticks: number): number => {
+      const start = withEconomy([{ kind, x: 600 }], { ...flameOn, owned: ['flamethrower'] });
+      const c = hitBoxCentre(start, start.lane!.enemies[0]);
+      const fired = run(start, ticks, () => [pointer(c.x - 50, c.y, true)]);
+      return start.lane!.enemies[0].hp - (fired.final.lane!.enemies[0]?.hp ?? 0);
+    };
+    // 1 s of flame: 4 to a tank (plus burn), a quarter of that to the boss.
+    const tank = damageOver('tank', 60);
+    const boss = damageOver('boss', 60);
+    expect(tank).toBeGreaterThanOrEqual(B.flameDps);
+    expect(boss).toBeLessThanOrEqual(Math.ceil((B.flameDps + B.burnDps) * B.bossFlameFactor));
+    expect(boss).toBeLessThan(tank);
   });
 
   it('latches at empty fuel until a release, then fires again', () => {

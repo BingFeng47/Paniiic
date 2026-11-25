@@ -10,7 +10,7 @@ import type {
   WeaponId,
 } from './economyTypes';
 
-export type SlotStatus = 'affordable' | 'tooExpensive' | 'owned' | 'held';
+export type SlotStatus = 'affordable' | 'tooExpensive' | 'owned' | 'held' | 'cooldown';
 
 export interface ShopResult {
   readonly economy: EconomyState;
@@ -41,6 +41,8 @@ export function createEconomyState(balance: EconomyBalance = DEFAULT_ECONOMY_BAL
     blockerUntilTick: null,
     surgeHeld: false,
     surgeUntilTick: null,
+    blockerReadyTick: 0,
+    surgeReadyTick: 0,
     comboCount: 0,
     lastKillTick: null,
     bestCombo: 0,
@@ -69,16 +71,28 @@ export function nextItem(slot: ShopSlot, e: EconomyState): ItemId | null {
   }
 }
 
-export function slotStatus(slot: ShopSlot, e: EconomyState): SlotStatus {
+/** First Tick the slot's one-use item can be bought again; 0 for slots without a cooldown. */
+export function slotReadyTick(slot: ShopSlot, e: EconomyState): number {
+  if (slot === 4) return e.blockerReadyTick;
+  if (slot === 5) return e.surgeReadyTick;
+  return 0;
+}
+
+/**
+ * Status of a slot on `tick`. Without a tick (callers that only ask "can I afford it?") the
+ * cooldown is ignored; `buy` always passes its tick.
+ */
+export function slotStatus(slot: ShopSlot, e: EconomyState, tick?: number): SlotStatus {
   const item = nextItem(slot, e);
   if (item === null) return 'owned';
   if (item === 'surge' && e.surgeHeld) return 'held';
+  if (tick !== undefined && tick < slotReadyTick(slot, e)) return 'cooldown';
   return e.balance.prices[item] > e.wallet ? 'tooExpensive' : 'affordable';
 }
 
 /** Applies one Buy_Command at `tick`. */
 export function buy(e: EconomyState, slot: ShopSlot, tick: number): ShopResult {
-  const status = slotStatus(slot, e);
+  const status = slotStatus(slot, e, tick);
   const item = nextItem(slot, e);
   if (status !== 'affordable' || item === null) {
     return { economy: e, events: [{ type: 'buyRejected', slot, reason: status === 'affordable' ? 'owned' : status }] };
@@ -91,10 +105,14 @@ export function buy(e: EconomyState, slot: ShopSlot, tick: number): ShopResult {
     { type: 'itemBought', item, price },
   ];
   if (item === 'blocker') {
-    next = { ...next, blockerUntilTick: tick + secondsToTicks(e.balance.blockerSeconds) };
+    next = {
+      ...next,
+      blockerUntilTick: tick + secondsToTicks(e.balance.blockerSeconds),
+      blockerReadyTick: tick + secondsToTicks(e.balance.blockerCooldownSeconds),
+    };
     events.push({ type: 'blockerStarted' });
   } else if (item === 'surge') {
-    next = { ...next, surgeHeld: true };
+    next = { ...next, surgeHeld: true, surgeReadyTick: tick + secondsToTicks(e.balance.surgeCooldownSeconds) };
   } else {
     next = { ...next, owned: [...e.owned, item] };
     if (item === 'saw' || item === 'flamethrower') {
@@ -111,6 +129,14 @@ export function ownedWeapons(e: EconomyState): readonly WeaponId[] {
   return WEAPON_ORDER.filter((w) => w === 'hammer' || e.owned.includes(w));
 }
 
+/** Makes `weapon` the Active_Weapon if it is owned and not already active; else no change. */
+export function equipWeapon(e: EconomyState, weapon: WeaponId): ShopResult {
+  if (weapon === e.active || !ownedWeapons(e).includes(weapon)) return { economy: e, events: [] };
+  return {
+    economy: { ...e, active: weapon, sawTarget: null, sawCarry: 0 },
+    events: [{ type: 'weaponSwitched', weapon }],
+  };
+}
 /** Cycles the Active_Weapon over owned weapons, wrapping. Emits nothing with one weapon. */
 export function switchWeapon(e: EconomyState, direction: 'next' | 'previous'): ShopResult {
   const weapons = ownedWeapons(e);

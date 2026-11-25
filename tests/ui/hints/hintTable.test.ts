@@ -2,10 +2,11 @@ import { describe, expect, it } from 'vitest';
 import { HINT_IDS, HINT_TABLE } from '../../../src/ui/hints/hintTable';
 
 describe('HINT_TABLE', () => {
-  it('lists the eight hints in priority order with unique ids', () => {
+  it('lists the nine hints in priority order with unique ids', () => {
     // ad-pressure Req 8.2: `hatch` sits right after `clutter`.
-    expect(HINT_IDS).toEqual(['lane', 'realLink', 'clutter', 'hatch', 'interrupter', 'packet', 'shop', 'critical']);
-    expect(HINT_TABLE).toHaveLength(8);
+    expect(HINT_IDS).toEqual(['lane', 'realLink', 'clutter', 'hatch', 'interrupter', 'packet', 'shop', 'weapons', 'critical']);
+    // Weapon roles (25 Nov): `weapons` comes after `shop`.
+    expect(HINT_TABLE).toHaveLength(9);
     expect(new Set(HINT_IDS).size).toBe(HINT_TABLE.length);
   });
   it('maps each hint to its trigger', () => {
@@ -17,6 +18,7 @@ describe('HINT_TABLE', () => {
     expect(byId.interrupter).toEqual({ type: 'adOpened', kind: 'interrupter' });
     expect(byId.packet).toEqual({ type: 'event', event: 'packetDropped' });
     expect(byId.shop).toEqual({ type: 'canAfford' });
+    expect(byId.weapons).toEqual({ type: 'weaponBought' });
     expect(byId.critical).toEqual({ type: 'event', event: 'integrityCritical' });
   });
   it('anchors the hatch hint to the lane', () => {

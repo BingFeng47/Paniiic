@@ -23,6 +23,7 @@
  * startup chime (Req 14.2, title-and-endings Req 11.4).
  */
 import type { AudioEngine, Voice } from '../../core/audio';
+import { utcDay } from '../../core/clock';
 import { h } from '../../core/h';
 import type { Monitor } from '../../core/monitor';
 import type { Mountable, Scene, SignalFn } from '../../core/scene';
@@ -45,9 +46,12 @@ import {
 } from '../../dialup/session';
 import { SESSION_REGISTRY } from '../../dialup/sessionRegistry';
 import { trayModemView } from '../../dialup/trayModemView';
+import { dailySeed } from '../../game/dailySeed';
 import type { GameState } from '../../game/types';
 import { JUICE_TUNING } from '../../render/juice/juiceTuning';
 import { createResultScreen, type ResultScreenFactory } from '../../ui/resultScreen';
+import { browserStorage, type StorageSource } from '../../ui/guestbook/guestbookName';
+import { createLeaderboardClient, type LeaderboardClient } from '../../core/leaderboard';
 import { resultModel } from '../../ui/resultScript';
 import { BOOT_SOUND_SEC, startupChime } from '../boot/bootSounds';
 
@@ -59,7 +63,10 @@ export interface DesktopDeps {
   readonly signal: SignalFn;
   /** Defaults to `startFixedLoop` (through `createSession`). Tests pass a manual loop. */
   readonly startLoop?: LoopStarter;
-  /** Seed for each Session's Run. Defaults to `crypto.getRandomValues` (decision 9). */
+  /**
+   * Seed for each Session's Run. Defaults to the daily seed of the current UTC Day, so Retry on
+   * the same Day replays the same Run (leaderboard Req 1.3). Tests inject their own (Req 1.4).
+   */
   readonly seedSource?: () => number;
   /** Defaults to `SESSION_REGISTRY`. */
   readonly registry?: SessionRegistry;
@@ -69,8 +76,16 @@ export interface DesktopDeps {
    */
   readonly viewPrefs?: () => ViewPrefs;
   /**
+   * The shared Leaderboard_Client for the Result_Screen's Guestbook_Form (leaderboard Req 5).
+   * The shell passes the one it builds; defaults to an unconfigured client (every call `offline`).
+   */
+  readonly leaderboard?: LeaderboardClient;
+  /** Where the Guestbook_Form keeps the last Player_Name. Defaults to `browserStorage`. */
+  readonly guestbookStorage?: StorageSource;
+  /**
    * Test seam only (title-and-endings D12). Defaults to the real Result_Screen:
-   * (final, actions) => createResultScreen({ final, audio, startLoop: deps.startLoop, ...actions }).
+   * (final, actions) => createResultScreen({ final, audio, startLoop: deps.startLoop,
+   * leaderboard, storage, ...actions }).
    */
   readonly resultScreen?: ResultScreenFactory;
 }
@@ -79,7 +94,7 @@ export interface DesktopDeps {
 export const README_WINDOW_SIZE: Size = { w: 420, h: 300 };
 export const WASTEBASKET_WINDOW_SIZE: Size = { w: 340, h: 240 };
 
-/** A fresh 32-bit seed from the browser's crypto source. */
+/** A fresh 32-bit seed from the browser's crypto source. Kept for tests that want a random Run. */
 export function cryptoSeed(): number {
   return crypto.getRandomValues(new Uint32Array(1))[0];
 }
@@ -98,13 +113,15 @@ interface Mounted {
 export function createDesktopScene(deps: DesktopDeps): Scene {
   const { monitor, audio, signal } = deps;
   const registry = deps.registry ?? SESSION_REGISTRY;
-  const seedSource = deps.seedSource ?? cryptoSeed;
+  const seedSource = deps.seedSource ?? (() => dailySeed(utcDay(new Date())));
   const viewPrefs = deps.viewPrefs ?? (() => DEFAULT_VIEW_PREFS);
   // Resolved once, so every Run that ends shows a Result_Screen (D12).
+  const leaderboard = deps.leaderboard ?? createLeaderboardClient(null);
+  const storage = deps.guestbookStorage ?? browserStorage;
   const resultScreen: ResultScreenFactory =
     deps.resultScreen ??
     ((final, actions) =>
-      createResultScreen({ final, audio, startLoop: deps.startLoop, ...actions }));
+      createResultScreen({ final, audio, startLoop: deps.startLoop, leaderboard, storage, ...actions }));
 
   let m: Mounted | null = null;
   let session: Session | null = null;

@@ -63,7 +63,7 @@ describe('lane setup', () => {
     expect(eventsOf(events, 'hammerSwing')).toEqual([
       { type: 'hammerSwing', x: 400, y: 10, targetId: null, tick: 1 },
     ]);
-    expect(state.lane?.hammerReadyTick).toBe(1 + 18);
+    expect(state.lane?.hammerReadyTick).toBe(1 + 23);
   });
 
   it('a state built with balance A and continued with systems of balance B behaves per A', () => {
@@ -106,7 +106,7 @@ describe('lane setup', () => {
     expect(step(run, [], plain).state.lane?.balance).toEqual(DEFAULT_LANE_BALANCE);
     expect(step(run, [], custom).state.lane?.balance.laneLength).toBe(600);
     expect(DEFAULT_LANE_BALANCE.laneLength).toBe(800);
-    expect(DEFAULT_LANE_BALANCE.enemies.default.hp).toBe(2);
+    expect(DEFAULT_LANE_BALANCE.enemies.default.hp).toBe(5);
   });
 });
 
@@ -128,7 +128,7 @@ describe('replacement spawner', () => {
     expect(eventsOf(second.events, 'hammerSwing')).toEqual([
       { type: 'hammerSwing', x, y, targetId: 1, tick: 2 },
     ]);
-    expect(eventsOf(second.events, 'mobHit')).toMatchObject([{ id: 1, damage: 1, hp: 1 }]);
+    expect(eventsOf(second.events, 'mobHit')).toMatchObject([{ id: 1, damage: 2, hp: 3 }]);
 
     // The default schedule's first Mob (tick 480) never appears.
     const later = stepN(step, second.state, 480 - 2, { systems });
@@ -208,6 +208,6 @@ describe('headless lane runs', () => {
       { type: 'hammerSwing', x: 400, y: 10, targetId: null, tick: 10 },
       { type: 'hammerSwing', x, y, targetId: 1, tick: 500 },
     ]);
-    expect(eventsOf(result.events, 'mobHit')).toMatchObject([{ id: 1, damage: 1, hp: 1, tick: 500 }]);
+    expect(eventsOf(result.events, 'mobHit')).toMatchObject([{ id: 1, damage: 2, hp: 3, tick: 500 }]);
   });
 });

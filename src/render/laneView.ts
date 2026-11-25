@@ -11,8 +11,10 @@
  *   (Req 5.4). Leaving the canvas, for example onto a Lane_Cover Ad in the Ad_Layer (a sibling
  *   subtree stacked over the Lane_Dock, so its presses never reach the canvas), sends one
  *   `lanePointer` with `down: false` parked off the feed (ad-pressure Req 6.4).
- *   On `document`: keys 1–5 send `buy`, Q / wheel up `switchWeapon previous`, E / wheel down
- *   `next` (Req 4.5, 5.1, 5.2), ignored while focus is in a text field.
+ *   On `document`: keys 1–3 equip an owned weapon (else buy it), Shift + 1–3 buy the slot's
+ *   next item (the upgrade), 4–5 buy (`src/ui/weaponControls.ts`); Q / wheel up
+ *   `switchWeapon previous`, E / wheel down `next` (Req 5.1, 5.2). Ignored while focus is in a
+ *   text field.
  *   The view never writes to the state; `ctx.send` is its only way to change the Run (Req 11.4).
  * - Every frame (`update`, also on frames with zero ticks): fold the events into the render-only
  *   Lane_Effects, update the Lane_HUD, play each matching lane sound once, and, when the canvas
@@ -33,6 +35,7 @@ import { laneOf } from '../game/laneState';
 import { TICK_RATE, type GameEvent, type GameState } from '../game/types';
 import { createLaneHud, integrityView, type LaneHud } from '../ui/laneHud';
 import { createShopTray, type ShopTray } from '../ui/shopTray';
+import { commandForSlot, slotForCode } from '../ui/weaponControls';
 import { createCctvOsd, type CctvOsd } from './cctv/cctvOsd';
 import { cameraHum, cameraStatic, CCTV_SOUND_SEC } from './cctv/cctvSounds';
 import { createFlashBudget, type FlashBudget } from './flashBudget';
@@ -299,6 +302,8 @@ interface Mounted {
   readonly loops: EconomyLoops;
   /** Active weapon seen in the last update, so a press knows whether to swing the hammer. */
   active: WeaponId;
+  /** Economy seen in the last update, so keys 1–3 know whether to equip or buy. */
+  economy: EconomyState | undefined;
   layout: LaneLayout;
   laneLength: number;
   effects: LaneEffects;
@@ -604,9 +609,11 @@ export function createLaneView(deps: LaneViewDeps = {}): SessionView {
       };
       const onKeyDown = (e: KeyboardEvent): void => {
         if (m === null || e.ctrlKey || e.metaKey || e.altKey || inTextField(e.target)) return;
-        const slot = slotForKey(e.key);
+        // `code` so Shift + 1 still reads as slot 1 ("!" on most layouts).
+        const slot = slotForCode(e.code) ?? slotForKey(e.key);
         if (slot !== null) {
-          ctx.send({ type: 'buy', slot }); // Req 4.5
+          // 1–3 equip an owned weapon, else buy it; Shift buys the slot's upgrade; 4–5 buy.
+          ctx.send(commandForSlot(slot, m.economy, e.shiftKey));
           return;
         }
         const key = e.key.toLowerCase();
@@ -657,6 +664,7 @@ export function createLaneView(deps: LaneViewDeps = {}): SessionView {
         lastSent: null,
         loops: createEconomyLoops(ctx.audio),
         active: 'hammer',
+        economy: undefined,
         layout: layoutFor(laneLength),
         laneLength,
         effects: EMPTY_EFFECTS,
@@ -687,6 +695,7 @@ export function createLaneView(deps: LaneViewDeps = {}): SessionView {
         s.layout = layoutFor(laneLength);
       }
       s.active = state.economy?.active ?? 'hammer';
+      s.economy = state.economy;
       // At most one lanePointer per frame, only on change (Req 2.4). Without economy systems in
       // the Run nothing reads it, so nothing is sent.
       const lp = s.lanePointer;

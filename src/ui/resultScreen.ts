@@ -17,6 +17,10 @@
  * unmounts this component, which stops the loop and every Voice and removes the elements
  * (Req 11.2, 11.4, 12.2). It adds no `document` or `window` listeners.
  *
+ * Both outcomes also show the Receipt (`scoreRun(final)`) below the statistics, then the
+ * Guestbook_Form in `div.result-guestbook` (leaderboard Req 4, 5). The form never takes focus, so
+ * Retry keeps it, and it is unmounted with this component, so late network results are dropped.
+ *
  * DOM follows the contract in src/styles/result.css. Text goes in through text nodes only
  * (Req 12.3).
  */
@@ -26,7 +30,11 @@ import { h } from '../core/h';
 import type { Mountable } from '../core/scene';
 import { iconEl } from '../desktop/iconArt';
 import type { LoopStarter } from '../dialup/session';
+import { scoreRun, type ScoreBreakdown } from '../game/score';
 import type { GameState } from '../game/types';
+import type { LeaderboardClient } from '../core/leaderboard';
+import { createGuestbookForm, runEntry } from './guestbook/guestbookForm';
+import type { StorageSource } from './guestbook/guestbookName';
 import { RESULT_COPY } from './resultCopy';
 import {
   RESULT_SCRIPT,
@@ -52,6 +60,12 @@ export interface ResultScreenDeps extends ResultActions {
   readonly startLoop?: LoopStarter;
   /** Defaults to `RESULT_SCRIPT`. */
   readonly script?: ResultScript;
+  /** The shared Leaderboard_Client for the Guestbook_Form (leaderboard Req 5). */
+  readonly leaderboard: Pick<LeaderboardClient, 'configured' | 'submit' | 'topToday' | 'rankToday'>;
+  /** Where the Guestbook_Form keeps the last Player_Name (leaderboard Req 5.8). */
+  readonly storage: StorageSource;
+  /** The Day for the Guestbook_Form's rank and list. Defaults to the current UTC Day. */
+  readonly today?: () => string;
 }
 
 /** A download bar: `div.result-bar > div.result-bar-fill + span.result-bar-text`. */
@@ -74,10 +88,55 @@ function downloadBar(percent: number, text: string): HTMLDivElement {
   );
 }
 
-/** The parts both outcomes add at the reveal: file, statistics and the Result_Buttons. */
+/** `12345` → `"12,345"`, locale-independent so every player's receipt reads the same. */
+function groupDigits(n: number): string {
+  return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+/**
+ * The Receipt (leaderboard Req 4.1–4.3): a monospace bill with one line per non-zero part of
+ * the Score_Breakdown and the total. Text goes in through text nodes only.
+ */
+function receipt(score: ScoreBreakdown): HTMLElement {
+  const copy = RESULT_COPY.receipt;
+  const points = (n: number): string => `${groupDigits(n)}${copy.pointsSuffix}`;
+  const row = (className: string, label: string, value: string): HTMLElement =>
+    h(
+      'div',
+      { className },
+      h('span', { className: 'result-receipt-label' }, label),
+      h('span', { className: 'result-receipt-points' }, value),
+    );
+  return h(
+    'div',
+    { className: 'result-receipt', attrs: { role: 'group', 'aria-label': copy.from } },
+    h('p', { className: 'result-receipt-from' }, copy.from),
+    h('p', { className: 'result-receipt-title' }, copy.title),
+    h(
+      'div',
+      { className: 'result-receipt-lines' },
+      ...score.lines
+        .filter((line) => line.points !== 0)
+        .map((line) => {
+          const el = row('result-receipt-line', copy.lines[line.id], points(line.points));
+          el.dataset.line = line.id;
+          return el;
+        }),
+    ),
+    row('result-receipt-total', copy.total, points(score.total)),
+    h('p', { className: 'result-receipt-footer' }, copy.footer),
+  );
+}
+
+/**
+ * The parts both outcomes add at the reveal: file, statistics, the Receipt, the Guestbook_Form
+ * mount point and the Result_Buttons.
+ */
 function revealTail(
   model: ResultModel,
+  score: ScoreBreakdown,
   buttons: readonly HTMLButtonElement[],
+  guestbook: HTMLElement,
 ): readonly HTMLElement[] {
   const copy = model.outcome === 'won' ? RESULT_COPY.won : RESULT_COPY.lost;
   const stat = (label: string, value: string): readonly HTMLElement[] => [
@@ -99,6 +158,8 @@ function revealTail(
       ...stat(RESULT_COPY.stats.integrity, model.integrityText),
       ...stat(RESULT_COPY.stats.download, model.downloadText),
     ),
+    receipt(score), // Req 4.2: below the statistics, above the Guestbook_Form
+    guestbook, // div.result-guestbook, the Guestbook_Form mount point (leaderboard Req 5.1)
     h('div', { className: 'result-buttons' }, ...buttons),
   ];
 }
@@ -110,6 +171,9 @@ export function createResultScreen({
   onMainMenu,
   startLoop = startFixedLoop,
   script = RESULT_SCRIPT,
+  leaderboard,
+  storage,
+  today,
 }: ResultScreenDeps): Mountable {
   let el: HTMLElement | null = null;
   let staticEl: HTMLElement | null = null;
@@ -123,6 +187,7 @@ export function createResultScreen({
   let model: ResultModel | null = null;
   let ticks = 0;
   let revealed = false;
+  let guestbook: Mountable | null = null;
   const voices: Voice[] = [];
 
   const halt = (): void => {
@@ -136,17 +201,22 @@ export function createResultScreen({
     const buttons = [retryButton, mainMenuButton];
     revealed = true;
     halt();
+    // `model` exists only for a won or lost Final_State, so scoreRun never throws here.
+    const score = scoreRun(final);
+    const guestbookEl = h('div', { className: 'result-guestbook' });
+    guestbook = createGuestbookForm({ leaderboard, storage, today, run: runEntry(final, score.total) });
+    guestbook.mount(guestbookEl);
 
     if (model.outcome === 'won') {
       bodyEl.append(
         h('h2', { className: 'result-headline' }, RESULT_COPY.won.headline),
-        ...revealTail(model, buttons),
+        ...revealTail(model, score, buttons, guestbookEl),
       );
     } else {
       bodyEl.append(
         h('p', { className: 'result-message' }, RESULT_COPY.lost.message),
         downloadBar(model.downloadPercent, model.downloadText),
-        ...revealTail(model, buttons),
+        ...revealTail(model, score, buttons, guestbookEl),
       );
       staticEl?.setAttribute('hidden', ''); // Req 10.2: the static effect ends
       windowEl.removeAttribute('hidden');
@@ -253,6 +323,8 @@ export function createResultScreen({
     unmount() {
       if (!el) return;
       halt();
+      guestbook?.unmount(); // drops late Leaderboard_Client results
+      guestbook = null;
       for (const voice of voices) voice.stop(); // Req 11.2, 11.4
       voices.length = 0;
       el.remove();

@@ -316,8 +316,11 @@ describe('economy properties', () => {
           const base = laneWith([{ kind: 'tank', x }]);
           const owned: ItemId[] = highRpm ? ['saw', 'highRpm'] : ['saw'];
           let s: GameState = { ...base, tick: startTick, economy: { ...createEconomyState(), owned, active: 'saw' } };
-          const limit = (highRpm ? 32 : 48) + 1;
           const hp = s.lane!.enemies[0]!.hp;
+          const B = DEFAULT_ECONOMY_BALANCE;
+          const dps = highRpm ? B.sawDps * B.highRpmFactor : B.sawDps;
+          // On time: within ceil(HP / dps) seconds of holding, plus the first Tick.
+          const limit = Math.ceil((hp / dps) * 60) + 1;
           let removed = 0;
           let killedAt: number | null = null;
           for (let i = 1; i <= limit && killedAt === null; i++) {

@@ -2,14 +2,16 @@
 // priority order. Pure data; the text for each id lives in src/ui/guideCopy.ts.
 
 export type HintId =
-  | 'lane' | 'realLink' | 'clutter' | 'hatch' | 'interrupter' | 'packet' | 'shop' | 'critical';
+  | 'lane' | 'realLink' | 'clutter' | 'hatch' | 'interrupter' | 'packet' | 'shop' | 'weapons' | 'critical';
 
 /** What makes a Hint due. */
 export type HintTrigger =
   | { readonly type: 'sessionStart' }
   | { readonly type: 'event'; readonly event: 'connected' | 'adHatched' | 'packetDropped' | 'integrityCritical' }
   | { readonly type: 'adOpened'; readonly kind: 'clutter' | 'interrupter' }
-  | { readonly type: 'canAfford' };
+  | { readonly type: 'canAfford' }
+  /** The first saw or flamethrower bought: the player now has a weapon to switch to. */
+  | { readonly type: 'weaponBought' };
 
 /** The kind of thing a Hint_Balloon's tail points at. */
 export type AnchorKind = 'lane' | 'realLink' | 'ad' | 'packet' | 'shop' | 'integrity';
@@ -36,6 +38,7 @@ export const HINT_TABLE: readonly HintRow[] = Object.freeze([
   // The tail points at the dropped packet (its Lane_X comes from the packetDropped event).
   { id: 'packet', trigger: { type: 'event', event: 'packetDropped' }, anchor: 'packet' },
   { id: 'shop', trigger: { type: 'canAfford' }, anchor: 'shop' },
+  { id: 'weapons', trigger: { type: 'weaponBought' }, anchor: 'shop' },
   { id: 'critical', trigger: { type: 'event', event: 'integrityCritical' }, anchor: 'integrity' },
 ] as const satisfies readonly HintRow[]);
 

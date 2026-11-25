@@ -83,8 +83,41 @@ Appended automatically by the `task-done` hook. Add manual notes about notable K
   365 KB shop. Passing would need upgrade prices about 3× the design, so the team kept the
   design prices and accepted the miss. Reports: `docs/balance/2026-11-24-boss-threat.md` and
   `docs/balance/2026-11-24-late-income.md`.
+- 2026-11-24: Implemented `leaderboard`. Every run now uses a daily seed (FNV-1a of
+  `DEADLINE56K:` plus the UTC date), so Retry and every player on the same day get the same run.
+  A `statsSystem` at the end of `createGameSystems` counts kills, the boss kill and closed ads in
+  `GameState.stats`, and the pure `scoreRun` turns the final state into a score from the table in
+  `src/game/balance/score.ts`. The result screen prints the score as a "NetSurfer Billing Dept."
+  receipt and adds a "Sign our Guestbook!" form that remembers the last name, submits once and
+  shows today's rank and top 10. The title screen gained a Hall of Fame guestbook window with a
+  guest counter and today's and all-time top 10. `src/core/leaderboard.ts` talks to the Supabase
+  REST API with plain `fetch` and the publishable key only, refuses `sb_secret_` keys and never
+  throws. `docs/leaderboard.sql` creates the `scores` table with range checks and row-level
+  security that allows select and insert but no update or delete, and a secrets test fails if a
+  real secret key shows up in tracked files or `dist/`. Kiro ran the spec tasks through the
+  orchestrator, with spec-task-execution sub-agents working in parallel waves on tasks that
+  touch different files. Five fast-check properties cover the daily seed, stats against the
+  event log, score bounds, name normalization and a client that never throws.
 ## Task log
 
+- 2026-11-25: Weapon switching and roles, from playtest feedback. Keys 1–3 now take the hammer,
+  saw or flamethrower in hand (new `equipWeapon` command); Shift + 1–3 and a "+" button in the
+  tray buy upgrades. The flamer does 25% fire damage to the boss, the hammer hits for 2 (3 with
+  the heavy head), the saw does 5.25/s, and default, tank and ranged HP rose to 3, 6 and 4 so the
+  early lane stays as hard. Chosen with `balanceReport` over 50 seeds
+  (`docs/balance/2026-11-25-weapon-roles.md`). The shop tray now shows each key as a boxed key
+  cap apart from the price, so "1  30 KB" no longer reads as "130 KB". New `weapons` hint balloon
+  and README lines explain the roles.
+- 2026-11-25: Follow-up from playtest feedback. The upgrade is now a raised "UPG" button,
+  filled yellow when affordable, so players stop clicking the weapon box to upgrade. Default
+  zombies take 3 hammer hits (HP 5) and fast ones 2 (HP 3); flamer 3 damage/s. To keep the run
+  winnable (the HP rise alone dropped the competent bot to 13% wins), the hammer cooldown went to
+  0.38 s and the saw to 6.25/s (`docs/balance/2026-11-25-weapon-roles.md`).
+- 2026-11-25: Saw raised to 7 damage/s on request. The sim shows it makes the end easier
+  (critical in plot turn 2 drops from 60% to 10% of competent runs); recorded in the same file.
+- 2026-11-25: Pop-up blocker and surge protector get a 20 s cooldown from purchase
+  (`blockerCooldownSeconds`, `surgeCooldownSeconds`; buy rejected with reason `cooldown`; tray
+  shows "WAIT Ns"). Bots skip items on cooldown. Sim numbers unchanged.
 - 2026-11-21T09:10:23.950Z | main | /Users/bing/Documents/Kiroween/.kiro/specs/game-core/tasks.md / unknown task | checks passed
 - 2026-11-21T09:13:13.581Z | main | /Users/bing/Documents/Kiroween/.kiro/specs/game-core/tasks.md / unknown task | checks passed
 - 2026-11-21T09:15:03.989Z | main | /Users/bing/Documents/Kiroween/.kiro/specs/game-core/tasks.md / unknown task | checks passed
@@ -460,3 +493,24 @@ Appended automatically by the `task-done` hook. Add manual notes about notable K
 - 2026-11-23T16:54:27.217Z | main | pacing-and-economy 4.3 Tests: Property 4 and the report targets in tests/tools/ | checks passed
 - 2026-11-24T09:33:47.593Z | main | pacing-and-economy 4.4 Run npm run sim:check and a 50-seed balance_report; save it as the baseline | checks passed
 - 2026-11-24T15:10:29.449Z | main | pacing-and-economy 5.1 Run the balance-tuner agent against the Requirement 7 targets | checks passed
+- 2026-11-24T15:23:14.564Z | main | pacing-and-economy 5.2 Update docs/game-design.md to every tuned value that differs | checks passed
+- 2026-11-24T15:23:14.578Z | main | pacing-and-economy 6.1 Dated note in docs/kiro-log.md; demo-video note in docs/submission-checklist.md | checks passed
+- 2026-11-24T15:40:47.267Z | main | pacing-and-economy 6.2 Run the playtester agent for one full run: quiet first minute, ramp, saw around | checks passed
+- 2026-11-24T15:42:55.169Z | main | pacing-and-economy 7 Final checkpoint | checks passed
+- 2026-11-24T15:52:41.405Z | main | leaderboard 1.1 Create src/game/dailySeed.ts and src/core/clock.ts; make the daily seed the | checks passed
+- 2026-11-24T15:58:48.400Z | main | leaderboard 1.2 Tests: Property 1 and the Desktop_Scene default seed | checks passed
+- 2026-11-24T16:06:19.015Z | main | leaderboard 2.3 Tests: Properties 2–3 in tests/game/stats.test.ts and tests/game/score.test.ts | checks passed
+- 2026-11-24T16:08:23.791Z | main | leaderboard 4 Checkpoint | checks passed
+- 2026-11-24T16:14:41.616Z | main | leaderboard 5.1 Create src/ui/guestbook/guestbookName.ts with Property 4 tests | checks passed
+- 2026-11-24T16:14:41.616Z | main | leaderboard 6.1 Title model actions, the Hall of Fame button and window, styles | checks passed
+- 2026-11-24T16:14:41.648Z | main | leaderboard 5.1 Create `src/ui/guestbook/guestbookName.ts` with Property 4 tests | checks passed
+- 2026-11-24T16:14:41.648Z | main | leaderboard 5.2 Receipt in the Result_Screen; copy in src/ui/resultCopy.ts | checks passed
+- 2026-11-24T16:22:26.003Z | main | leaderboard 5.3 Create src/ui/guestbook/guestbookForm.ts and mount it in the Result_Screen; pass the | checks passed
+- 2026-11-24T16:22:26.023Z | main | leaderboard 6.2 Title tests: button order, open/close, Play ignored while open, failure text | checks passed
+- 2026-11-24T16:28:49.128Z | main | leaderboard 5.4 Result_Screen tests for 5.2–5.3 | checks passed
+- 2026-11-24T16:28:49.128Z | main | leaderboard 7.1 Check docs/leaderboard.sql against the design; confirm .env.example and | checks passed
+- 2026-11-24T16:28:49.143Z | main | leaderboard 7.1 Check `docs/leaderboard.sql` against the design; confirm `.env.example` and | checks passed
+- 2026-11-24T16:28:49.168Z | main | leaderboard 7.2 Create tests/docs/secrets.test.ts | checks passed
+- 2026-11-24T16:28:49.174Z | main | leaderboard 7.3 Check docs/game-design.md section 12; dated note in docs/kiro-log.md | checks passed
+- 2026-11-24T17:22:18.619Z | main | leaderboard 8.1 Ask the user to confirm the table exists (a GET /rest/v1/scores?limit=1 with the | checks passed
+- 2026-11-24T17:24:51.825Z | main | leaderboard 9 Final checkpoint | checks passed

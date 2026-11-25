@@ -14,10 +14,11 @@ const EXPECTED_DEFAULTS: LaneBalance = {
   laneLength: 800,
   hitPadding: 6,
   enemies: {
-    default: { hp: 2, speed: 40, damage: 4, dropKb: 3, width: 44, height: 72 },
-    fast: { hp: 1, speed: 110, damage: 3, dropKb: 4, width: 34, height: 48 },
-    tank: { hp: 4, speed: 24, damage: 10, dropKb: 12, width: 72, height: 96 },
-    ranged: { hp: 3, speed: 40, damage: 0, dropKb: 8, width: 48, height: 76 },
+    // Default, fast, tank and ranged HP and the hammer tuned in docs/balance/2026-11-25-weapon-roles.md.
+    default: { hp: 5, speed: 40, damage: 4, dropKb: 3, width: 44, height: 72 },
+    fast: { hp: 3, speed: 110, damage: 3, dropKb: 4, width: 34, height: 48 },
+    tank: { hp: 6, speed: 24, damage: 10, dropKb: 12, width: 72, height: 96 },
+    ranged: { hp: 4, speed: 40, damage: 0, dropKb: 8, width: 48, height: 76 },
     // Boss HP, speed and drop tuned in docs/balance/2026-11-24-boss-threat.md and
     // docs/balance/2026-11-24-late-income.md.
     boss: { hp: 150, speed: 38, damage: 20, dropKb: 30, width: 112, height: 150 },
@@ -29,7 +30,7 @@ const EXPECTED_DEFAULTS: LaneBalance = {
     tank: { hitEverySeconds: 2 },
     boss: { hitEverySeconds: 2 },
   },
-  hammer: { damage: 1, cooldownSeconds: 0.3 },
+  hammer: { damage: 2, cooldownSeconds: 0.38 },
   ranged: { stopX: 400, firstSpitSeconds: 1, spitEverySeconds: 3 },
   boss: { thresholds: [0.75, 0.5, 0.25], summonCount: 2, summonSpacing: 36 },
   popupBurstCount: 3,
@@ -75,7 +76,7 @@ describe('DEFAULT_LANE_BALANCE', () => {
 
   it('uses the section 5 mob table for HP, modem damage and KB drops', () => {
     const { default: base, fast, tank, ranged, boss, glob } = DEFAULT_LANE_BALANCE.enemies;
-    expect([base.hp, fast.hp, tank.hp, ranged.hp, boss.hp, glob.hp]).toEqual([2, 1, 4, 3, 150, 1]);
+    expect([base.hp, fast.hp, tank.hp, ranged.hp, boss.hp, glob.hp]).toEqual([5, 3, 6, 4, 150, 1]);
     expect([base.damage, fast.damage, tank.damage, boss.damage, ranged.damage, glob.damage]).toEqual(
       [4, 3, 10, 20, 0, 5],
     );
@@ -104,7 +105,7 @@ describe('DEFAULT_LANE_BALANCE', () => {
 
   it('sets the hammer, ranged, boss and burst defaults', () => {
     const b = DEFAULT_LANE_BALANCE;
-    expect(b.hammer).toEqual({ damage: 1, cooldownSeconds: 0.3 });
+    expect(b.hammer).toEqual({ damage: 2, cooldownSeconds: 0.38 });
     expect(b.ranged.stopX).toBe(b.laneLength / 2);
     expect(b.ranged.spitEverySeconds).toBe(3);
     expect(b.boss.thresholds).toEqual([0.75, 0.5, 0.25]);
@@ -138,20 +139,20 @@ describe('resolveLaneBalance', () => {
   });
 
   it('changes only the overridden value for a nested enemy override', () => {
-    const balance = resolveLaneBalance({ enemies: { tank: { hp: 6 } } });
+    const balance = resolveLaneBalance({ enemies: { tank: { hp: 9 } } });
     expect(balance).toEqual({
       ...EXPECTED_DEFAULTS,
-      enemies: { ...EXPECTED_DEFAULTS.enemies, tank: { ...EXPECTED_DEFAULTS.enemies.tank, hp: 6 } },
+      enemies: { ...EXPECTED_DEFAULTS.enemies, tank: { ...EXPECTED_DEFAULTS.enemies.tank, hp: 9 } },
     });
   });
 
   it('merges hammer, ranged and boss field by field', () => {
     const balance = resolveLaneBalance({
-      hammer: { damage: 2 },
+      hammer: { damage: 5 },
       ranged: { firstSpitSeconds: 0 },
       boss: { summonCount: 4 },
     });
-    expect(balance.hammer).toEqual({ damage: 2, cooldownSeconds: 0.3 });
+    expect(balance.hammer).toEqual({ damage: 5, cooldownSeconds: 0.38 });
     expect(balance.ranged).toEqual({ stopX: 400, firstSpitSeconds: 0, spitEverySeconds: 3 });
     expect(balance.boss).toEqual({ thresholds: [0.75, 0.5, 0.25], summonCount: 4, summonSpacing: 36 });
   });
@@ -177,7 +178,7 @@ describe('resolveLaneBalance', () => {
   it('does not change DEFAULT_LANE_BALANCE when resolving overrides', () => {
     resolveLaneBalance({
       laneLength: 1000,
-      enemies: { tank: { hp: 6 }, glob: { speed: 1 } },
+      enemies: { tank: { hp: 9 }, glob: { speed: 1 } },
       hammer: { cooldownSeconds: 1 },
       boss: { thresholds: [0.5] },
       spawns: [wave()],
@@ -229,7 +230,7 @@ describe('resolveLaneBalance', () => {
   });
 
   it('returns a deep-frozen result', () => {
-    expectDeepFrozen(resolveLaneBalance({ enemies: { tank: { hp: 6 } }, spawns: [wave()] }));
+    expectDeepFrozen(resolveLaneBalance({ enemies: { tank: { hp: 9 } }, spawns: [wave()] }));
   });
 
   it('survives a JSON round trip', () => {

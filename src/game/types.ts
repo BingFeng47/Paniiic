@@ -7,6 +7,7 @@ import type { HammerCommand, LaneEventBody, LaneState } from './laneTypes';
 import type { AdClickCommand, AdEventBody, AdHoverCommand, AdState } from './ads/adTypes';
 import type { DirectorEventBody, DirectorState } from './director/directorTypes';
 import type { EconomyCommand, EconomyEventBody, EconomyState } from './economy/economyTypes';
+import type { RunStats } from './stats';
 
 /** Simulation ticks per second. One tick is 1/60 s. */
 export const TICK_RATE = 60;
@@ -71,6 +72,8 @@ export interface GameState {
    * core-only runs keep their shape and survive a JSON round trip.
    */
   readonly bandwidth?: number;
+  /** Kills, boss kill and ads closed for the score. Absent until `statsSystem` first runs. */
+  readonly stats?: RunStats;
 }
 
 /**

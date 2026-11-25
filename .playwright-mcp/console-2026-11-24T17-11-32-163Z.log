@@ -1,0 +1,4 @@
+[   40756ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) @ http://localhost:3000/:1
+[  369104ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) @ http://localhost:3000/:1
+[  548264ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3000/@vite/client:1078
+[31607178ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) @ http://localhost:3000/:1

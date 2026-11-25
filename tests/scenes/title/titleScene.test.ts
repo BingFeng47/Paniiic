@@ -1,12 +1,13 @@
 // Title_Scene examples (title-and-endings design "Testing Strategy", Req 1.6, 2.1–2.5, 3.1, 3.2,
 // 3.5, 3.7, 3.9, 4.6, 4.7, 12.2).
 import { afterEach, describe, expect, it } from 'vitest';
+import type { LeaderboardClient } from '../../../src/core/leaderboard';
 import type { Scene } from '../../../src/core/scene';
 import { createSettingsStore } from '../../../src/core/settings';
 import { createTitleScene } from '../../../src/scenes/title/titleScene';
 import { THEME_SCORE, passTicks } from '../../../src/scenes/title/themeScore';
 import { themeSong } from '../../../src/scenes/title/themeSong';
-import { OPTIONS_COPY, TITLE_COPY } from '../../../src/scenes/title/titleCopy';
+import { HALL_OF_FAME_COPY, OPTIONS_COPY, TITLE_COPY } from '../../../src/scenes/title/titleCopy';
 import { THEME_FADE_TICKS } from '../../../src/scenes/title/titleModel';
 import { createFakeAudioEngine, type FakeAudioEngineOptions } from '../../helpers/audio';
 import { trackListeners, type ListenerTracker } from '../../helpers/dom';
@@ -27,7 +28,10 @@ afterEach(() => {
 });
 
 /** Mounts a Title_Scene into a root attached to `document.body` (focus needs it). */
-function setup(audioOptions: FakeAudioEngineOptions = {}) {
+function setup(
+  audioOptions: FakeAudioEngineOptions = {},
+  leaderboard?: Pick<LeaderboardClient, 'topToday' | 'topAllTime' | 'guestCount'>,
+) {
   const doc = trackListeners(document);
   const win = trackListeners(window);
   trackers.push(doc, win);
@@ -39,7 +43,14 @@ function setup(audioOptions: FakeAudioEngineOptions = {}) {
   const settings = createSettingsStore({ storage: createFakeStorage().getter, warn: noWarn });
   const loop = createManualLoop();
   const signals: string[] = [];
-  const scene = createTitleScene({ audio, settings, signal: (s) => signals.push(s), startLoop: loop.start });
+  const scene = createTitleScene({
+    audio,
+    settings,
+    signal: (s) => signals.push(s),
+    startLoop: loop.start,
+    leaderboard,
+    today: () => '2026-11-25',
+  });
   scene.mount(root);
   scenes.push(scene);
 
@@ -57,6 +68,7 @@ function setup(audioOptions: FakeAudioEngineOptions = {}) {
     scene,
     signals,
     play: q<HTMLButtonElement>('.title-play'),
+    hallOfFame: q<HTMLButtonElement>('.title-hof'),
     options: q<HTMLButtonElement>('.title-options'),
     menu: q<HTMLElement>('.title-menu'),
     q,
@@ -92,9 +104,11 @@ describe('Title_Scene', () => {
     expect(t.q('.title-hint').textContent).toBe(TITLE_COPY.hint);
     expect(t.q('.title-copyright').textContent).toBe(TITLE_COPY.copyright);
 
-    expect([...t.menu.children]).toEqual([t.play, t.options]);
+    // Play game, Hall of Fame, Options (leaderboard Req 7.1).
+    expect([...t.menu.children]).toEqual([t.play, t.hallOfFame, t.options]);
     for (const [button, text] of [
       [t.play, TITLE_COPY.play],
+      [t.hallOfFame, TITLE_COPY.hallOfFame],
       [t.options, TITLE_COPY.options],
     ] as const) {
       expect(button.tagName).toBe('BUTTON');
@@ -263,5 +277,96 @@ describe('Title_Scene', () => {
     t.loop.frame(2000);
     expect(t.signals).toEqual([]);
     expect(t.audio.voices).toHaveLength(1);
+  });
+});
+
+/** A fake Leaderboard_Client that answers every call with an empty list and a count of 3. */
+function createFakeLeaderboard() {
+  const calls: string[] = [];
+  const client: Pick<LeaderboardClient, 'topToday' | 'topAllTime' | 'guestCount'> = {
+    topToday: (day) => {
+      calls.push(`topToday ${day}`);
+      return Promise.resolve({ ok: true, value: [] });
+    },
+    topAllTime: () => {
+      calls.push('topAllTime');
+      return Promise.resolve({ ok: true, value: [] });
+    },
+    guestCount: () => {
+      calls.push('guestCount');
+      return Promise.resolve({ ok: true, value: 3 });
+    },
+  };
+  return { client, calls };
+}
+
+const flush = (): Promise<void> => new Promise((r) => setTimeout(r, 0));
+const escape = (): void => {
+  document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+};
+
+describe('Title_Scene Hall of Fame (leaderboard Req 7.1, 7.2, 7.5)', () => {
+  it('opens the guestbook, makes the menu inert and loads with the injected client and day', async () => {
+    const lb = createFakeLeaderboard();
+    const t = setup({}, lb.client);
+    t.hallOfFame.click();
+    expect(t.root.querySelector('.hof-backdrop')).not.toBeNull();
+    expect(t.q('#hof-title').textContent).toBe(HALL_OF_FAME_COPY.title);
+    expect(t.menu.hasAttribute('inert')).toBe(true);
+    expect(t.q('.hof-status').textContent).toBe(HALL_OF_FAME_COPY.loading);
+    expect(lb.calls.sort()).toEqual(['guestCount', 'topAllTime', 'topToday 2026-11-25']);
+    await flush();
+    expect(t.q('.hof-counter-digits').textContent).toBe('000003');
+  });
+
+  it('ignores Play and Options while the Hall of Fame is open, and keeps the theme looping', () => {
+    const t = setup({}, createFakeLeaderboard().client);
+    t.hallOfFame.click();
+    t.play.click();
+    t.options.click();
+    t.loop.frame(1440);
+    expect(t.signals).toEqual([]);
+    expect(fadeOuts(t.audio)).toEqual([]);
+    expect(t.root.querySelector('.options-backdrop')).toBeNull();
+    expect(t.root.querySelector('.hof-backdrop')).not.toBeNull();
+    expect(t.audio.voices).toHaveLength(2);
+  });
+
+  it('closes with ✕, Close or Escape, drops inert and focuses the Hall of Fame button', () => {
+    const t = setup({}, createFakeLeaderboard().client);
+    const closers: Array<() => void> = [
+      () => t.q<HTMLButtonElement>('.hof-dialog .title-bar-close').click(),
+      () => t.q<HTMLButtonElement>('.hof-buttons button').click(),
+      escape,
+    ];
+    for (const closeIt of closers) {
+      t.hallOfFame.click();
+      expect(t.root.querySelector('.hof-backdrop')).not.toBeNull();
+      closeIt();
+      expect(t.root.querySelector('.hof-backdrop')).toBeNull();
+      expect(t.menu.hasAttribute('inert')).toBe(false);
+      expect(document.activeElement).toBe(t.hallOfFame);
+      expect(t.doc.count('keydown')).toBe(0);
+    }
+    t.play.click();
+    t.loop.frame(36);
+    expect(t.signals).toEqual(['play']);
+  });
+
+  it('shows the maintenance text with no client configured (the default)', async () => {
+    const t = setup();
+    t.hallOfFame.click();
+    await flush();
+    expect(t.q('.hof-status').textContent).toBe(HALL_OF_FAME_COPY.offline);
+  });
+
+  it('leaves no listeners after unmount with the Hall of Fame open', () => {
+    const t = setup({}, createFakeLeaderboard().client);
+    t.hallOfFame.click();
+    expect(t.doc.count('keydown')).toBe(1);
+    t.scene.unmount();
+    expect(t.doc.count()).toBe(0);
+    expect(t.win.count()).toBe(0);
+    expect(t.root.children).toHaveLength(0);
   });
 });

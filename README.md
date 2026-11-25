@@ -30,6 +30,18 @@ The server is registered in `.kiro/settings/mcp.json`. To set it up elsewhere, c
 `zombie-sim` entry from [`docs/mcp.example.json`](docs/mcp.example.json), then reconnect the
 server in Kiro after building.
 
+### Hall of Fame (optional)
+
+Scores go to a Supabase table. Without it the game still runs, and the Result screen shows
+"Guestbook closed for maintenance."
+
+1. Paste [`docs/leaderboard.sql`](docs/leaderboard.sql) into the Supabase SQL editor and run it.
+2. Copy `.env.example` to `.env.local` and fill in the project URL and the **publishable** key
+   (`sb_publishable_...`). Restart `npm run dev` after editing it.
+
+Never use the secret key (`sb_secret_...`) in the game or in any env file. The game refuses it,
+and `.env*` files other than `.env.example` are gitignored.
+
 ## How it is built
 
 - Game design: [`docs/game-design.md`](docs/game-design.md)

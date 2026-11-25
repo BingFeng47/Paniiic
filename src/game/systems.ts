@@ -15,6 +15,7 @@ import type { System } from './context';
 import { createDirector } from './director';
 import { createEconomySystems } from './economy';
 import { createLaneSystems } from './lane';
+import { statsSystem } from './stats';
 
 /** Per-Run overrides for the balance tables the Game_Systems read. */
 export interface GameSystemOverrides {
@@ -28,7 +29,8 @@ export interface GameSystemOverrides {
  * Builds a fresh set of Game_Systems in Session_Registry order: lane systems (with the Director's
  * spawner and the Weapon_System), ad systems (with the Director's Ad_Scheduler), then the
  * Wallet_System, and last the bandwidth system, so it counts clutter after this Tick's closes,
- * openings and blocks (ad-pressure Req 2.2). Later specs append their systems at the end.
+ * openings and blocks (ad-pressure Req 2.2). Later specs append their systems at the end:
+ * `statsSystem` comes last so it sees every event of the Tick (leaderboard Req 2.1).
  */
 export function createGameSystems(o: GameSystemOverrides = {}): readonly System[] {
   const director = createDirector(o.chapters);
@@ -38,5 +40,6 @@ export function createGameSystems(o: GameSystemOverrides = {}): readonly System[
     ...createAdSystems({ balance: o.ads, scheduler: director.adScheduler }),
     economy.wallet,
     bandwidthSystem,
+    statsSystem,
   ];
 }

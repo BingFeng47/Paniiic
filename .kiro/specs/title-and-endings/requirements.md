@@ -356,8 +356,8 @@ options and endings, so that the source of truth matches the game.
 Assumptions made while writing these requirements. Each one is a constant, a copy string or a
 small rule, so it is cheap to change.
 
-1. **Game title:** the title wordmark reads "DEAD LINE 56K" (a dead phone line, and a deadline)
-   with the subtitle "a Phantom 98 nightmare". This is a placeholder until the team picks a name.
+1. **Game title:** the title wordmark reads "PANIIIC" (the game is called Paniiic)
+   with the subtitle "a Phantom 98 nightmare".
 2. **Result screen is an overlay, not a Scene.** It mounts inside the Desktop_Scene. This keeps
    "the desktop is entered only from the boot" and leaves the desktop's windows and icons as they
    were, so "back to the desktop" needs no reboot.

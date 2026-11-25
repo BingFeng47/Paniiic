@@ -2,7 +2,7 @@
 // loop with fake audio, seed 1 and the default balance (Req 5.1, 5.7, 5.8, 8.3, 8.5, 9.2, 10.6,
 // 10.7, 10.10, 10.11, 10.13, 11.1, 11.4, 14.2).
 import fc from 'fast-check';
-import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { AudioEngine } from '../../../src/core/audio';
 import type { SceneSignal, Scene } from '../../../src/core/scene';
 import { DESKTOP_COPY } from '../../../src/desktop/copy';
@@ -16,12 +16,18 @@ import {
 } from '../../../src/dialup/session';
 import type { System } from '../../../src/game/context';
 import type { GameEvent, GameState } from '../../../src/game/types';
+import { utcDay } from '../../../src/core/clock';
+import { dailySeed } from '../../../src/game/dailySeed';
 import { createDesktopScene } from '../../../src/scenes/desktop/desktopScene';
 import { createResultScreen, type ResultActions } from '../../../src/ui/resultScreen';
+import { createLeaderboardClient } from '../../../src/core/leaderboard';
 import { createFakeAudioEngine, type FakeAudioEngine } from '../../helpers/audio';
 import { fakeMonitor, trackListeners, type ListenerTracker } from '../../helpers/dom';
 import { scheduledDamage } from '../../helpers/game';
 import { createManualLoop, type ManualLoop } from '../../helpers/loop';
+
+/** Guestbook_Form deps for these tests: no configuration, no storage, so no network or storage. */
+const OFFLINE_GUESTBOOK = { leaderboard: createLeaderboardClient(null), storage: () => null };
 
 /** The real loop never hands over more than 15 ticks per frame; deliver ticks the same way. */
 const MAX_FRAME_TICKS = 15;
@@ -74,6 +80,8 @@ interface SetupOptions {
   readonly defaultResultScreen?: boolean;
   /** Seed source for each Session; defaults to `() => 1`. */
   readonly seedSource?: () => number;
+  /** Omit the `seedSource` dep, so the Desktop_Scene uses its daily seed (leaderboard Req 1.3). */
+  readonly defaultSeedSource?: boolean;
   /** Extra registry views, after the lane recorder. */
   readonly extraViews?: readonly (() => SessionView)[];
 }
@@ -101,13 +109,13 @@ function setup(systems: readonly System[] = [], monitorScale = 1, options: Setup
     audio: audio as unknown as AudioEngine,
     signal: (s) => signals.push(s),
     startLoop: loop.start,
-    seedSource: options.seedSource ?? (() => 1),
+    ...(options.defaultSeedSource ? {} : { seedSource: options.seedSource ?? (() => 1) }),
     registry: { views: [laneView, ...(options.extraViews ?? [])], systems },
     ...(options.defaultResultScreen
       ? {}
       : {
           resultScreen: (final: GameState, actions: ResultActions) =>
-            createResultScreen({ final, audio, startLoop: resultLoop.start, ...actions }),
+            createResultScreen({ final, audio, startLoop: resultLoop.start, ...OFFLINE_GUESTBOOK, ...actions }),
         }),
     ...(options.viewPrefs === undefined ? {} : { viewPrefs: options.viewPrefs }),
   });
@@ -724,7 +732,7 @@ describe('desktop scene: Retry and Main menu (replay-flow Req 2, 3, 4)', () => {
       registry: { views: [], systems: [scheduledDamage([{ tick: 5, amount: 100 }])] },
       resultScreen: (final, a) => {
         actions = a;
-        return createResultScreen({ final, audio, startLoop: resultLoop.start, ...a });
+        return createResultScreen({ final, audio, startLoop: resultLoop.start, ...OFFLINE_GUESTBOOK, ...a });
       },
     });
     scene.mount(document.body);
@@ -795,5 +803,63 @@ describe('desktop scene: Retry and Main menu (replay-flow Req 2, 3, 4)', () => {
       }),
       { numRuns: 25 },
     );
+  });
+});
+
+describe('desktop scene: daily seed (leaderboard Req 1.3, 1.4)', () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  /** Connect, deliver one tick and return the new Session's Run seed. */
+  function sessionSeed(h: Harness, start: () => void): number {
+    const from = h.lane.states.length;
+    start();
+    h.deliver(1);
+    return h.lane.states[from]!.seed;
+  }
+
+  /** End the Session (modem dies at tick 5) and wait out the End_Transition. */
+  function endRun(h: Harness): void {
+    h.deliver(MAX_FRAME_TICKS);
+    h.deliver(30); // juice-and-endings End_Transition
+    expect(h.root.querySelector('.result-screen')).not.toBeNull();
+  }
+
+  it('uses dailySeed(utcDay(now)) without an injected seedSource', () => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    // Late evening at UTC-5 is already the next UTC Day.
+    const now = new Date('2026-11-30T23:30:00-05:00');
+    vi.setSystemTime(now);
+    const h = setup([], 1, { defaultSeedSource: true });
+    const seed = sessionSeed(h, () => connectFromIcon(h.root));
+    expect(seed).toBe(dailySeed(utcDay(now)));
+    expect(seed).toBe(dailySeed('2026-12-01'));
+  });
+
+  it('gives two Sessions on the same Day the same seed, and a new Day a new seed', () => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date('2026-11-24T08:00:00Z'));
+    const h = setup([scheduledDamage([{ tick: 5, amount: 100 }])], 1, { defaultSeedSource: true });
+    const first = sessionSeed(h, () => connectFromIcon(h.root));
+    endRun(h);
+    vi.setSystemTime(new Date('2026-11-24T23:59:00Z')); // later, same UTC Day
+    const second = sessionSeed(h, () => retryResult(h.root, h.resultLoop));
+    expect(second).toBe(first);
+    expect(first).toBe(dailySeed('2026-11-24'));
+    endRun(h);
+    vi.setSystemTime(new Date('2026-11-25T00:01:00Z'));
+    const third = sessionSeed(h, () => retryResult(h.root, h.resultLoop));
+    expect(third).toBe(dailySeed('2026-11-25'));
+    expect(third).not.toBe(first);
+  });
+
+  it('still uses an injected seedSource over the daily seed (Req 1.4)', () => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date('2026-11-24T08:00:00Z'));
+    const h = setup([], 1, { seedSource: () => 4242 });
+    const seed = sessionSeed(h, () => connectFromIcon(h.root));
+    expect(seed).toBe(4242);
+    expect(seed).not.toBe(dailySeed('2026-11-24'));
   });
 });

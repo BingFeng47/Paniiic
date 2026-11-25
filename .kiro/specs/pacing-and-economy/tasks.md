@@ -44,19 +44,19 @@ report targets, then tune. Requires `ad-pressure` to be done (it adds `createGam
     - _Requirements: 6.3, 7.1, 7.2_
   - [x] 4.4 Run `npm run sim:check` and a 50-seed `balance_report`; save it as the baseline
     - _Requirements: 8.2_
-- [ ] 5. Tuning pass
+- [x] 5. Tuning pass
   - [x] 5.1 Run the `balance-tuner` agent against the Requirement 7 targets
     - One `docs/balance/` file per accepted change, with before-and-after tables
     - _Requirements: 8.1, 8.2_
-  - [-] 5.2 Update `docs/game-design.md` to every tuned value that differs
+  - [x] 5.2 Update `docs/game-design.md` to every tuned value that differs
     - _Requirements: 8.3_
-- [ ] 6. Docs and playtest
-  - [-] 6.1 Dated note in `docs/kiro-log.md`; demo-video note in `docs/submission-checklist.md`
+- [x] 6. Docs and playtest
+  - [x] 6.1 Dated note in `docs/kiro-log.md`; demo-video note in `docs/submission-checklist.md`
     - _Requirements: 9.3_
-  - [~] 6.2 Run the `playtester` agent for one full run: quiet first minute, ramp, saw around
+  - [x] 6.2 Run the `playtester` agent for one full run: quiet first minute, ramp, saw around
     1:20–1:35, boss reaching the modem before the end, combos showing
     - _Requirements: 9.4_
-- [~] 7. Final checkpoint
+- [x] 7. Final checkpoint
   - Run `npm run typecheck`, `npm test`, `npm run build` and `npm run sim:check`; ask the user if
     questions arise.
 

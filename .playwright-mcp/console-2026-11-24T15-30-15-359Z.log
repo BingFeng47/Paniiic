@@ -1,0 +1,4 @@
+[   31307ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) @ http://localhost:3000/:1
+[ 1127444ms] ReferenceError: statsSystem is not defined
+    at createGameSystems (http://localhost:3000/src/game/systems.ts?t=1795535342711:28:3)
+    at http://localhost:3000/src/dialup/sessionRegistry.ts?t=1795535342711:37:11

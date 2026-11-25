@@ -218,8 +218,8 @@
   gap: 10px;
   padding: 3px 8px;
   font-family: var(--font-bios);
-  font-size: 17px;
-  line-height: 17px;
+  font-size: 16px;
+  line-height: 15px;
   letter-spacing: 1px;
   color: var(--c-cctv-osd);
   text-shadow:
@@ -236,8 +236,8 @@
 }
 /* Compact single-row fallback (Req 11.5). Not needed at the fixed 260 px lane, where three rows
  * fit above the tallest Hit_Box; add .is-compact if the lane or the boss ever grows. */
-.shop-tray.is-compact .shop-slot-price,
-.shop-tray.is-compact .shop-slot-status {
+.shop-tray.is-compact .shop-slot-line,
+.shop-tray.is-compact .shop-slot-upgrade {
   display: none;
 }
 .shop-kb {
@@ -248,53 +248,133 @@
   display: flex;
   gap: 4px;
 }
+/* One slot: a column with the main button, then (weapons only) the upgrade button and the
+ * fuel strip. The key is a boxed, inverted key cap on the first line, the price sits alone on
+ * the second line, so "1" and "30 KB" never read as "130 KB" (playtest 25 Nov). */
 .shop-slot {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0 4px;
-  padding: 2px 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--c-cctv-osd);
+  outline: 1px solid var(--c-cctv-osd-outline);
+}
+.shop-slot-main,
+.shop-slot-upgrade {
+  display: flex;
   font: inherit;
   color: inherit;
   text-shadow: inherit;
   text-align: left;
   background: var(--c-transparent);
-  border: 1px solid var(--c-cctv-osd);
-  outline: 1px solid var(--c-cctv-osd-outline);
+  border: 0;
   cursor: pointer;
 }
-.shop-slot-key {
-  grid-row: span 3;
-  align-self: center;
+.shop-slot-main {
+  flex-direction: column;
+  padding: 1px 5px 0;
 }
-.shop-slot-status {
+.shop-slot-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.shop-key {
+  display: inline-block;
+  min-width: 13px;
+  padding: 0 2px;
+  font-size: 15px;
+  line-height: 15px;
+  text-align: center;
+  color: var(--c-cctv-osd-outline);
+  text-shadow: none;
+  background: var(--c-cctv-osd);
+  box-shadow: 1px 1px 0 var(--c-cctv-osd-outline);
+}
+.shop-slot-line {
+  /* Indented past the key cap, so the price lines up under the name, not under the key. */
+  padding-left: 21px;
+}
+/* The upgrade is its own raised button under the weapon, so it reads as clickable and not as
+ * part of the weapon box (playtest 25 Nov: players clicked the weapon box to upgrade). */
+.shop-slot-upgrade {
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  margin: 1px 3px 3px;
+  padding: 1px 4px;
   font-size: 13px;
+  line-height: 13px;
+  border: 1px solid var(--c-cctv-osd);
+  box-shadow: 1px 1px 0 var(--c-cctv-osd);
 }
-.shop-slot.is-tooExpensive,
-.shop-slot.is-owned,
-.shop-slot.is-held {
+.shop-slot-upgrade:hover,
+.shop-slot-upgrade:focus-visible {
+  outline: 1px solid var(--c-cctv-motion);
+}
+.shop-slot-upgrade:active {
+  box-shadow: none;
+  transform: translate(1px, 1px);
+}
+/* Affordable: filled, like a lit button. Steady, no blinking (flash budget). */
+.shop-slot-upgrade.is-affordable {
+  color: var(--c-cctv-osd-outline);
+  text-shadow: none;
+  background: var(--c-cctv-motion);
+  border-color: var(--c-cctv-motion);
+  box-shadow: 1px 1px 0 var(--c-cctv-osd-outline);
+}
+.shop-slot-upgrade.is-tooExpensive {
+  border-style: dashed;
+}
+.shop-slot-upgrade.is-owned {
+  box-shadow: none;
+  border-style: dotted;
+  cursor: default;
+}
+.shop-slot-upgrade[hidden] {
+  display: none;
+}
+.shop-slot.is-tooExpensive .shop-slot-main,
+.shop-slot.is-held .shop-slot-main,
+.shop-slot.is-cooldown .shop-slot-main,
+.shop-slot:not(.is-weapon).is-owned .shop-slot-main,
+.shop-slot-upgrade.is-tooExpensive,
+.shop-slot-upgrade.is-owned {
   opacity: 0.5;
 }
-.shop-slot.is-affordable {
+.shop-slot.is-affordable .shop-slot-main {
   /* Steady highlight, no blinking (camera effects stay under 3 flashes per second). */
-  border: 2px solid var(--c-cctv-motion);
   color: var(--c-cctv-motion);
 }
+.shop-slot.is-affordable {
+  border-color: var(--c-cctv-motion);
+}
 .shop-slot.is-active {
+  /* The weapon in the hand. */
   outline: 2px solid var(--c-cctv-motion);
   outline-offset: 1px;
 }
+.shop-slot.is-active .shop-key {
+  background: var(--c-cctv-motion);
+}
+/* The fuel strip sits on the flamethrower slot's top edge, so it adds no height and covers no text. */
 .shop-fuel {
+  position: absolute;
+  left: 26px;
+  right: 5px;
+  top: -2px;
   display: flex;
-  align-items: center;
-  gap: 4px;
+}
+.shop-fuel-label {
+  display: none;
 }
 .shop-fuel[hidden],
 .shop-timer[hidden] {
   display: none;
 }
 .shop-fuel-bar {
-  width: 60px;
-  height: 10px;
+  flex: 1;
+  height: 3px;
   border: 1px solid var(--c-cctv-osd);
   outline: 1px solid var(--c-cctv-osd-outline);
   overflow: hidden;

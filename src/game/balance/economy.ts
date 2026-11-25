@@ -49,6 +49,10 @@ export interface EconomyBalance {
   readonly blockerSeconds: number;
   /** Surge protector window, > 0. */
   readonly surgeSeconds: number;
+  /** Seconds after buying a pop-up blocker before another can be bought, >= 0. */
+  readonly blockerCooldownSeconds: number;
+  /** Seconds after buying a surge protector before another can be bought, >= 0. */
+  readonly surgeCooldownSeconds: number;
   /** KB lost on a fake-button click, whole number >= 0. */
   readonly fakeLossKb: number;
   /** Most seconds between two non-glob kills that keeps a combo chain going, >= 1 Tick (Req 5.1). */
@@ -57,6 +61,8 @@ export interface EconomyBalance {
   readonly comboStart: number;
   /** KB added for each kill in a chain at or past comboStart, whole number >= 0. */
   readonly comboBonusKb: number;
+  /** Share of flame and burn damage the boss takes, in [0, 1]. The flamer is a crowd weapon. */
+  readonly bossFlameFactor: number;
 }
 
 type ScalarKey = Exclude<keyof EconomyBalance, 'prices'>;
@@ -78,10 +84,10 @@ export const DEFAULT_ECONOMY_BALANCE: EconomyBalance = deepFreeze({
   },
   packetLifetimeSeconds: 3,
   pickupRadius: 28,
-  heavyHeadDamage: 2,
-  sawDps: 5,
+  heavyHeadDamage: 3,
+  sawDps: 7,
   highRpmFactor: 1.5,
-  flameDps: 4,
+  flameDps: 3,
   burnDps: 1,
   burnSeconds: 2,
   flameReach: 220,
@@ -91,10 +97,13 @@ export const DEFAULT_ECONOMY_BALANCE: EconomyBalance = deepFreeze({
   fuelRefillPerSecond: 1.5,
   blockerSeconds: 6,
   surgeSeconds: 5,
+  blockerCooldownSeconds: 20,
+  surgeCooldownSeconds: 20,
   fakeLossKb: 5,
   comboWindowSeconds: 2,
   comboStart: 3,
   comboBonusKb: 1,
+  bossFlameFactor: 0.25,
 } satisfies EconomyBalance);
 
 /** Thrown when an economy balance config is invalid. `problems` lists every problem found. */
@@ -126,6 +135,7 @@ const AT_LEAST_ONE_TICK: Rule = {
   test: (v) => secondsToTicks(v) >= 1,
   text: `at least 1 tick after Math.round(seconds × ${TICK_RATE})`,
 };
+const SHARE: Rule = { test: (v) => v >= 0 && v <= 1, text: 'in [0, 1]' };
 const HALF_ANGLE: Rule = { test: (v) => v > 0 && v < 90, text: 'in (0, 90)' };
 
 const SCALAR_RULES: Readonly<Record<ScalarKey, Rule>> = {
@@ -144,10 +154,13 @@ const SCALAR_RULES: Readonly<Record<ScalarKey, Rule>> = {
   fuelRefillPerSecond: NON_NEGATIVE,
   blockerSeconds: POSITIVE,
   surgeSeconds: POSITIVE,
+  blockerCooldownSeconds: NON_NEGATIVE,
+  surgeCooldownSeconds: NON_NEGATIVE,
   fakeLossKb: INT_NON_NEGATIVE,
   comboWindowSeconds: AT_LEAST_ONE_TICK,
   comboStart: INT_AT_LEAST_TWO,
   comboBonusKb: INT_NON_NEGATIVE,
+  bossFlameFactor: SHARE,
 };
 const SCALAR_KEYS = Object.keys(SCALAR_RULES) as ScalarKey[];
 

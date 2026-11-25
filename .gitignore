@@ -8,3 +8,5 @@ coverage
 !.env.example
 # Never ignore .kiro/ — judges verify Kiro usage from it (hackathon rule).
 tools/mcp-sim/dist/
+
+/docs/submission-draft.md

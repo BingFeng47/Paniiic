@@ -96,7 +96,7 @@ describe('laneWith', () => {
           id: 2,
           kind: 'ranged',
           x: 800,
-          hp: 3,
+          hp: 4,
           spawnTick: 0,
           lastHitTick: null,
           nextSpitTick: null,

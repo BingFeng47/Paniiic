@@ -1,12 +1,14 @@
--- Dead Line 56K Hall of Fame (leaderboard spec, Requirement 8.1).
--- Paste into the Supabase SQL editor once. Safe to re-run.
+-- Paniiic Hall of Fame (leaderboard spec, Requirement 8.1).
+-- Paste into the Supabase SQL editor once. Safe to re-run: grants and policies are reset, but
+-- `create table if not exists` leaves an existing table's columns as they are.
 -- The game uses the publishable key, which maps to the `anon` role. That role may read every row
 -- and insert only the seven client columns. Nobody can update or delete through the API.
 
 create table if not exists public.scores (
   id          bigint generated always as identity primary key,
   created_at  timestamptz not null default now(),
-  day         date        not null default ((now() at time zone 'utc')::date),
+  -- The UTC Day of created_at. Generated, so no writer can set it apart from created_at.
+  day         date        generated always as ((created_at at time zone 'utc')::date) stored,
   name        text        not null check (name ~ '^[A-Za-z0-9 _-]{3,12}$' and name = btrim(name)),
   score       integer     not null check (score between 0 and 20000),
   outcome     text        not null check (outcome in ('won', 'lost')),
@@ -21,7 +23,8 @@ create index if not exists scores_day_score_idx on public.scores (day, score des
 
 alter table public.scores enable row level security;
 
--- Start from nothing, then grant exactly what the game needs.
+-- Start from nothing, then grant exactly what the game needs. Insert is column-level, so a
+-- request that names id, created_at or day is refused; the database sets all three.
 revoke all on public.scores from anon, authenticated;
 grant select on public.scores to anon, authenticated;
 grant insert (name, score, outcome, seconds, download, kills, version) on public.scores to anon, authenticated;

@@ -44,7 +44,11 @@ export const GUIDE_COPY = {
     },
     shop: {
       title: 'Upgrade available',
-      body: 'You can afford an item. Press 1-5 to buy.',
+      body: 'You can afford an item. Press 1-5 or click it to buy.',
+    },
+    weapons: {
+      title: 'New weapon installed',
+      body: 'Press 1, 2 or 3 to switch. Hammer hits hardest, saw never stops, flamer roasts crowds but bosses shrug it off. Shift+1-3 buys upgrades.',
     },
     critical: {
       title: 'Modem integrity critical',
@@ -61,6 +65,12 @@ export const GUIDE_COPY = {
     '  - Click zombies on the phone line to smash them.',
     '  - Close pop-ups to keep the page clear.',
     '  - Click the small grey link to start the download.',
+    '  - Press 1, 2, 3 to switch hammer, saw and flamer. Shift+1-3 buys upgrades.',
+    '',
+    'Weapons:',
+    '  HAMMER  hits hardest, one click at a time.',
+    '  E-SAW   hold it on a zombie. Steady, never misses.',
+    '  FLAMER  hold and sweep. Roasts crowds. Bosses barely notice.',
   ],
 } as const;
 

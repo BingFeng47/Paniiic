@@ -1,7 +1,8 @@
 // ad-pressure Req 1.1, 1.3: the shared Game_Systems list. The order is pinned two ways: by the
 // slots and names of the returned systems, and by playing bot runs through `createGameSystems()`
 // and through the list the Session_Registry built inline before task 1.1, which must agree on
-// every state and event. Task 2.3 appended bandwidthSystem to both lists.
+// every state and event. Task 2.3 appended bandwidthSystem to both lists; leaderboard task 2.1
+// appended statsSystem after it.
 import fc from 'fast-check';
 import { describe, expect, it } from 'vitest';
 import { SESSION_REGISTRY } from '../../src/dialup/sessionRegistry';
@@ -18,6 +19,7 @@ import { hammerSystem } from '../../src/game/hammer';
 import { createLaneSystems } from '../../src/game/lane';
 import { mobSystem } from '../../src/game/mobs';
 import { createRun } from '../../src/game/state';
+import { statsSystem } from '../../src/game/stats';
 import { step } from '../../src/game/step';
 import { createGameSystems, type GameSystemOverrides } from '../../src/game/systems';
 import { TICK_RATE, type GameEvent, type GameState } from '../../src/game/types';
@@ -25,14 +27,14 @@ import { createBotMemory, createBotRng, getPolicy, type PolicyName } from '../..
 
 /**
  * The list `src/dialup/sessionRegistry.ts` built inline before it called `createGameSystems`,
- * plus bandwidthSystem last (ad-pressure Req 2.2).
+ * plus bandwidthSystem (ad-pressure Req 2.2) and statsSystem last (leaderboard Req 2.1).
  */
 function registryInlineSystems(o: GameSystemOverrides = {}): readonly System[] {
   const director = createDirector(o.chapters);
   const economy = createEconomySystems({ balance: o.economy });
   const lane = createLaneSystems({ balance: o.lane, spawner: director.laneSpawner, weapons: economy.weapons });
   const ads = createAdSystems({ balance: o.ads, scheduler: director.adScheduler });
-  return [...lane, ...ads, economy.wallet, bandwidthSystem];
+  return [...lane, ...ads, economy.wallet, bandwidthSystem, statsSystem];
 }
 
 interface Played {
@@ -75,10 +77,10 @@ function playBoth(
 }
 
 describe('createGameSystems order (Req 1.1)', () => {
-  it('returns lane systems, ad systems, the wallet, then bandwidth, 11 in all', () => {
+  it('returns lane systems, ad systems, the wallet, bandwidth, then stats, 12 in all', () => {
     const systems = createGameSystems();
     const reference = registryInlineSystems();
-    expect(systems).toHaveLength(11);
+    expect(systems).toHaveLength(12);
     expect(systems.map((s) => s.name)).toEqual(reference.map((s) => s.name));
     // Shared module-level systems sit in their Session_Registry slots.
     expect(systems[1]).toBe(hammerSystem);
@@ -87,8 +89,10 @@ describe('createGameSystems order (Req 1.1)', () => {
     expect(systems[6]).toBe(adInputSystem);
     expect(systems[8]).toBe(adExpirySystem);
     expect(systems[9]?.name).toBe('wallet');
-    // Last, after the wallet's blocks (ad-pressure Req 2.2).
+    // After the wallet's blocks (ad-pressure Req 2.2).
     expect(systems[10]).toBe(bandwidthSystem);
+    // Last, so it sees every event of the tick (leaderboard Req 2.1).
+    expect(systems[11]).toBe(statsSystem);
   });
 
   it('is the list the Session_Registry runs', () => {
@@ -99,6 +103,7 @@ describe('createGameSystems order (Req 1.1)', () => {
     expect(SESSION_REGISTRY.systems[6]).toBe(adInputSystem);
     expect(SESSION_REGISTRY.systems[8]).toBe(adExpirySystem);
     expect(SESSION_REGISTRY.systems[10]).toBe(bandwidthSystem);
+    expect(SESSION_REGISTRY.systems[11]).toBe(statsSystem);
   });
 
   it('builds fresh closures on every call', () => {
@@ -120,7 +125,7 @@ describe('createGameSystems order (Req 1.1)', () => {
   it('the lockstep check notices a reordered list', () => {
     const old = registryInlineSystems();
     // Wallet moved in front of the ad systems: it no longer sees this tick's adClosed events.
-    const reordered = [...old.slice(0, 5), old[9]!, ...old.slice(5, 9), old[10]!];
+    const reordered = [...old.slice(0, 5), old[9]!, ...old.slice(5, 9), ...old.slice(10)];
     const [, moved] = playBoth(1, 'competent', registryInlineSystems(), reordered, 240);
     const [ours] = playBoth(1, 'competent', createGameSystems(), registryInlineSystems(), 240);
     expect(moved.events).not.toStrictEqual(ours.events);

@@ -138,49 +138,49 @@ describe('hitTest', () => {
 });
 
 describe('hammerSystem', () => {
-  it('a click on a Mob deals 1 damage and emits hammerSwing with its id', () => {
+  it('a click on a Mob deals 2 damage and emits hammerSwing with its id', () => {
     const { final, events } = run(laneWith([{ kind: 'default', x: 400 }]), 1, {
       1: [hammer(400, 30)],
     });
     expect(events).toEqual([
       { type: 'hammerSwing', x: 400, y: 30, targetId: 1, tick: 1 },
-      { type: 'mobHit', id: 1, kind: 'default', damage: 1, hp: 1, tick: 1 },
+      { type: 'mobHit', id: 1, kind: 'default', damage: 2, hp: 3, tick: 1 },
     ]);
-    expect(lane(final).enemies[0].hp).toBe(1);
+    expect(lane(final).enemies[0].hp).toBe(3);
     expect(lane(final).hammerReadyTick).toBe(1 + COOLDOWN_TICKS);
   });
 
-  it('the cooldown is 18 ticks: a click 17 ticks after a swing is ignored, one 18 ticks after is accepted', () => {
-    expect(COOLDOWN_TICKS).toBe(18);
+  it('the cooldown is 23 ticks: a click 22 ticks after a swing is ignored, one 23 ticks after is accepted', () => {
+    expect(COOLDOWN_TICKS).toBe(23);
     const start = laneWith([{ kind: 'tank', x: 400 }]);
 
     // A second click on the same tick is ignored too (Req 7.3).
-    const early = run(start, 18, { 1: [hammer(400, 30), hammer(400, 30)], 18: [hammer(400, 30)] });
+    const early = run(start, 23, { 1: [hammer(400, 30), hammer(400, 30)], 23: [hammer(400, 30)] });
     expect(swings(early.events)).toEqual([
       { type: 'hammerSwing', x: 400, y: 30, targetId: 1, tick: 1 },
     ]);
-    expect(early.events.filter((e) => e.tick === 18)).toEqual([]);
-    expect(lane(early.final).enemies[0].hp).toBe(3);
-    expect(lane(early.final).hammerReadyTick).toBe(19);
+    expect(early.events.filter((e) => e.tick === 23)).toEqual([]);
+    expect(lane(early.final).enemies[0].hp).toBe(4);
+    expect(lane(early.final).hammerReadyTick).toBe(24);
 
-    const onTime = run(start, 19, { 1: [hammer(400, 30)], 19: [hammer(400, 30)] });
-    expect(swings(onTime.events).map((e) => e.tick)).toEqual([1, 19]);
+    const onTime = run(start, 24, { 1: [hammer(400, 30)], 24: [hammer(400, 30)] });
+    expect(swings(onTime.events).map((e) => e.tick)).toEqual([1, 24]);
     expect(lane(onTime.final).enemies[0].hp).toBe(2);
-    expect(lane(onTime.final).hammerReadyTick).toBe(37);
+    expect(lane(onTime.final).hammerReadyTick).toBe(47);
   });
 
   it('a miss emits hammerSwing with a null target and starts the cooldown', () => {
     const start = laneWith([{ kind: 'tank', x: 400 }]);
-    const { events, final } = run(start, 19, {
+    const { events, final } = run(start, 24, {
       1: [hammer(100, 10)],
-      18: [hammer(400, 30)],
-      19: [hammer(400, 30)],
+      23: [hammer(400, 30)],
+      24: [hammer(400, 30)],
     });
     expect(swings(events)).toEqual([
       { type: 'hammerSwing', x: 100, y: 10, targetId: null, tick: 1 },
-      { type: 'hammerSwing', x: 400, y: 30, targetId: 1, tick: 19 },
+      { type: 'hammerSwing', x: 400, y: 30, targetId: 1, tick: 24 },
     ]);
-    expect(lane(final).enemies[0].hp).toBe(3);
+    expect(lane(final).enemies[0].hp).toBe(4);
   });
 
   it('a non-finite point neither swings nor starts the cooldown', () => {
@@ -195,14 +195,14 @@ describe('hammerSystem', () => {
     });
     expect(nonFinite.events).toEqual([]);
     expect(lane(nonFinite.final).hammerReadyTick).toBe(0);
-    expect(lane(nonFinite.final).enemies[0].hp).toBe(4);
+    expect(lane(nonFinite.final).enemies[0].hp).toBe(6);
 
     // A finite click after a NaN on the same tick is still accepted.
     const after = run(start, 1, { 1: [hammer(Number.NaN, 30), hammer(400, 30)] });
     expect(swings(after.events)).toEqual([
       { type: 'hammerSwing', x: 400, y: 30, targetId: 1, tick: 1 },
     ]);
-    expect(lane(after.final).hammerReadyTick).toBe(19);
+    expect(lane(after.final).hammerReadyTick).toBe(24);
   });
 
   it('a click on a padded edge hits', () => {
@@ -225,9 +225,9 @@ describe('hammerSystem', () => {
       { type: 'hammerSwing', x: 400, y: 30, targetId: 2, tick: 1 },
     ]);
     expect(lane(final).enemies.map((e) => [e.id, e.hp])).toEqual([
-      [1, 2],
-      [2, 1],
-      [3, 2],
+      [1, 5],
+      [2, 3],
+      [3, 5],
     ]);
   });
 });
