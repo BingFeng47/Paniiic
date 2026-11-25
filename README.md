@@ -8,8 +8,8 @@ your modem while lying pop-up ads hijack your browser. One mouse, two fronts.
 A Halloween browser game built with [Kiro](https://kiro.dev) for **Kiroween 2026**
 (Costume Contest), by BingFeng47 and Calvin.
 
-<!-- TODO before submitting: add the live URL, the demo video and a screenshot or GIF. -->
-**Play it:** _coming soon_ · **Demo video:** _coming soon_
+<!-- TODO before submitting: add the demo video and a screenshot or GIF. -->
+**▶ Play it:** [kiroween-gules.vercel.app](https://kiroween-gules.vercel.app) 
 
 ---
 
