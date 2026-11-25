@@ -1,4 +1,4 @@
-# Dead Line 56K
+# Paniiic
 
 *a Phantom 98 nightmare*
 
